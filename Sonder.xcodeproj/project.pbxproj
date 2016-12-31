@@ -12,6 +12,8 @@
 		1B2227211E181A66001E4C72 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B22271F1E181A66001E4C72 /* LaunchScreen.storyboard */; };
 		1B2227291E181B6D001E4C72 /* Start.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B2227281E181B6D001E4C72 /* Start.storyboard */; };
 		1B22272B1E181CD6001E4C72 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B22272A1E181CD6001E4C72 /* SignInViewController.swift */; };
+		1B22272D1E1828F8001E4C72 /* blackbg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1B22272C1E1828F8001E4C72 /* blackbg.jpg */; };
+		1B22272F1E182B46001E4C72 /* cardiffbg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1B22272E1E182B46001E4C72 /* cardiffbg.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +24,8 @@
 		1B2227221E181A66001E4C72 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1B2227281E181B6D001E4C72 /* Start.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Start.storyboard; path = ../Start.storyboard; sourceTree = "<group>"; };
 		1B22272A1E181CD6001E4C72 /* SignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
+		1B22272C1E1828F8001E4C72 /* blackbg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = blackbg.jpg; sourceTree = "<group>"; };
+		1B22272E1E182B46001E4C72 /* cardiffbg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = cardiffbg.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +61,8 @@
 				1B2227161E181A66001E4C72 /* AppDelegate.swift */,
 				1B22272A1E181CD6001E4C72 /* SignInViewController.swift */,
 				1B22271D1E181A66001E4C72 /* Assets.xcassets */,
+				1B22272E1E182B46001E4C72 /* cardiffbg.jpg */,
+				1B22272C1E1828F8001E4C72 /* blackbg.jpg */,
 				1B2227281E181B6D001E4C72 /* Start.storyboard */,
 				1B22271F1E181A66001E4C72 /* LaunchScreen.storyboard */,
 				1B2227221E181A66001E4C72 /* Info.plist */,
@@ -124,8 +130,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1B22272F1E182B46001E4C72 /* cardiffbg.jpg in Resources */,
 				1B2227211E181A66001E4C72 /* LaunchScreen.storyboard in Resources */,
 				1B22271E1E181A66001E4C72 /* Assets.xcassets in Resources */,
+				1B22272D1E1828F8001E4C72 /* blackbg.jpg in Resources */,
 				1B2227291E181B6D001E4C72 /* Start.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
