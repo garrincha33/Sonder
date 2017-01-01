@@ -32,21 +32,21 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="v1R-V6-q3D">
-                                <rect key="frame" x="16" y="274" width="343" height="30"/>
+                                <rect key="frame" x="16" y="276" width="343" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ifs-4X-7iE">
-                                <rect key="frame" x="16" y="330" width="343" height="30"/>
+                                <rect key="frame" x="16" y="326" width="343" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SSe-se-dbv">
-                                <rect key="frame" x="16" y="391" width="343" height="44"/>
+                                <rect key="frame" x="16" y="376" width="343" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.017147435897435948" green="0.017147435897435948" blue="0.017147435897435948" alpha="0.31546336206896552" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Sign In">
@@ -60,6 +60,13 @@
                                     <color key="titleColor" red="1" green="0.93911005469999997" blue="0.22847042710000001" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yyQ-4G-1rA">
+                                <rect key="frame" x="126" y="440" width="123" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" title="Forgot password?"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -72,10 +79,80 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zjh-nR-aAW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1080.8" y="-21.139430284857571"/>
+            <point key="canvasLocation" x="225" y="-37"/>
+        </scene>
+        <!--Sign Up View Controller-->
+        <scene sceneID="8c2-XQ-KAG">
+            <objects>
+                <viewController id="rWE-oS-Htx" customClass="SignUpViewController" customModule="Sonder" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="tr0-TT-d52"/>
+                        <viewControllerLayoutGuide type="bottom" id="Lu2-gY-lBk"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="bhZ-XM-8ho">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cardiffbg.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="6CZ-Cc-clA">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mAw-e1-JW6">
+                                <rect key="frame" x="16" y="276" width="343" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5Xi-kX-Mzo">
+                                <rect key="frame" x="16" y="326" width="343" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k2h-ps-6Be">
+                                <rect key="frame" x="16" y="426" width="343" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.017147435900000001" green="0.017147435900000001" blue="0.017147435900000001" alpha="0.31546336209999998" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Sign Up">
+                                    <color key="titleColor" red="1" green="0.95846387799999999" blue="0.18015418220000001" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Passwword" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AUc-J2-fkm">
+                                <rect key="frame" x="16" y="376" width="343" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lx0-I3-1LZ">
+                                <rect key="frame" x="68" y="617" width="238" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Already have an account? Sign In">
+                                    <color key="titleColor" red="1" green="0.93911005469999997" blue="0.22847042710000001" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="profileImg.png" translatesAutoresizingMaskIntoConstraints="NO" id="KON-ez-KDD">
+                                <rect key="frame" x="142" y="129" width="90" height="90"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Lu2-gY-lBk" firstAttribute="top" secondItem="6CZ-Cc-clA" secondAttribute="bottom" id="LLh-ZG-DxU"/>
+                            <constraint firstAttribute="trailing" secondItem="6CZ-Cc-clA" secondAttribute="trailing" id="OIb-1k-6fa"/>
+                            <constraint firstItem="6CZ-Cc-clA" firstAttribute="top" secondItem="bhZ-XM-8ho" secondAttribute="top" id="PMJ-Of-KDm"/>
+                            <constraint firstItem="6CZ-Cc-clA" firstAttribute="leading" secondItem="bhZ-XM-8ho" secondAttribute="leading" id="q3o-Me-HOp"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PzE-5I-cZw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="896.79999999999995" y="-37.331334332833585"/>
         </scene>
     </scenes>
     <resources>
         <image name="cardiffbg.jpg" width="1200" height="778"/>
+        <image name="profileImg.png" width="700" height="700"/>
     </resources>
 </document>

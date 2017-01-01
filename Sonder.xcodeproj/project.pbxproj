@@ -14,6 +14,8 @@
 		1B22272B1E181CD6001E4C72 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B22272A1E181CD6001E4C72 /* SignInViewController.swift */; };
 		1B22272D1E1828F8001E4C72 /* blackbg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1B22272C1E1828F8001E4C72 /* blackbg.jpg */; };
 		1B22272F1E182B46001E4C72 /* cardiffbg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1B22272E1E182B46001E4C72 /* cardiffbg.jpg */; };
+		1B2227311E190F2B001E4C72 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B2227301E190F2B001E4C72 /* SignUpViewController.swift */; };
+		1B2227331E1910FE001E4C72 /* profileImg.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B2227321E1910FE001E4C72 /* profileImg.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,8 @@
 		1B22272A1E181CD6001E4C72 /* SignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		1B22272C1E1828F8001E4C72 /* blackbg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = blackbg.jpg; sourceTree = "<group>"; };
 		1B22272E1E182B46001E4C72 /* cardiffbg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = cardiffbg.jpg; sourceTree = "<group>"; };
+		1B2227301E190F2B001E4C72 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		1B2227321E1910FE001E4C72 /* profileImg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = profileImg.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,7 +64,9 @@
 			children = (
 				1B2227161E181A66001E4C72 /* AppDelegate.swift */,
 				1B22272A1E181CD6001E4C72 /* SignInViewController.swift */,
+				1B2227301E190F2B001E4C72 /* SignUpViewController.swift */,
 				1B22271D1E181A66001E4C72 /* Assets.xcassets */,
+				1B2227321E1910FE001E4C72 /* profileImg.png */,
 				1B22272E1E182B46001E4C72 /* cardiffbg.jpg */,
 				1B22272C1E1828F8001E4C72 /* blackbg.jpg */,
 				1B2227281E181B6D001E4C72 /* Start.storyboard */,
@@ -133,6 +139,7 @@
 				1B22272F1E182B46001E4C72 /* cardiffbg.jpg in Resources */,
 				1B2227211E181A66001E4C72 /* LaunchScreen.storyboard in Resources */,
 				1B22271E1E181A66001E4C72 /* Assets.xcassets in Resources */,
+				1B2227331E1910FE001E4C72 /* profileImg.png in Resources */,
 				1B22272D1E1828F8001E4C72 /* blackbg.jpg in Resources */,
 				1B2227291E181B6D001E4C72 /* Start.storyboard in Resources */,
 			);
@@ -145,6 +152,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1B2227311E190F2B001E4C72 /* SignUpViewController.swift in Sources */,
 				1B22272B1E181CD6001E4C72 /* SignInViewController.swift in Sources */,
 				1B2227171E181A66001E4C72 /* AppDelegate.swift in Sources */,
 			);
