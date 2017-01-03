@@ -16,13 +16,18 @@ class SignUpViewController: UIViewController {
       
         
         
-        
+
         
         
         
         
     }
 
+    @IBAction func backToSignInBtnPressed(_ sender: Any) {
+        
+        dismiss(animated: true, completion: nil)
+        
+    }
 
 
 }
