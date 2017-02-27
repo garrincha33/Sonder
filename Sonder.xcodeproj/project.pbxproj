@@ -13,6 +13,7 @@
 		1B14560F1E64A4A800146781 /* CameraVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B14560E1E64A4A800146781 /* CameraVC.swift */; };
 		1B1456111E64A4C300146781 /* ActivityVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B1456101E64A4C300146781 /* ActivityVC.swift */; };
 		1B1456131E64A4D200146781 /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B1456121E64A4D200146781 /* ProfileVC.swift */; };
+		1B1456151E64D19A00146781 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B1456141E64D19A00146781 /* Main.storyboard */; };
 		1B2227171E181A66001E4C72 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B2227161E181A66001E4C72 /* AppDelegate.swift */; };
 		1B22271E1E181A66001E4C72 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1B22271D1E181A66001E4C72 /* Assets.xcassets */; };
 		1B2227211E181A66001E4C72 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B22271F1E181A66001E4C72 /* LaunchScreen.storyboard */; };
@@ -33,6 +34,7 @@
 		1B14560E1E64A4A800146781 /* CameraVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraVC.swift; sourceTree = "<group>"; };
 		1B1456101E64A4C300146781 /* ActivityVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityVC.swift; sourceTree = "<group>"; };
 		1B1456121E64A4D200146781 /* ProfileVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
+		1B1456141E64D19A00146781 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = SOURCE_ROOT; };
 		1B2227131E181A66001E4C72 /* Sonder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sonder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1B2227161E181A66001E4C72 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1B22271D1E181A66001E4C72 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -89,6 +91,7 @@
 				1B22272E1E182B46001E4C72 /* cardiffbg.jpg */,
 				1B22272C1E1828F8001E4C72 /* blackbg.jpg */,
 				1B2227281E181B6D001E4C72 /* Start.storyboard */,
+				1B1456141E64D19A00146781 /* Main.storyboard */,
 				1B22271F1E181A66001E4C72 /* LaunchScreen.storyboard */,
 				1B2227221E181A66001E4C72 /* Info.plist */,
 				1B1456041E632D6A00146781 /* DataService.swift */,
@@ -158,6 +161,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1B1456151E64D19A00146781 /* Main.storyboard in Resources */,
 				1B22272F1E182B46001E4C72 /* cardiffbg.jpg in Resources */,
 				1B2227211E181A66001E4C72 /* LaunchScreen.storyboard in Resources */,
 				1B22271E1E181A66001E4C72 /* Assets.xcassets in Resources */,
