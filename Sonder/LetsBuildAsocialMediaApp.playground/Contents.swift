@@ -29,4 +29,6 @@ step1 = "not much to start off with other than get your gitHub in order and add 
 
 step2 = "create SignInVC and SignUPVC swift file to control your views in code"
 
-step3 = "add a tab bar controller, this will give you 2 VCs. add a further 3 VCs and drag from tab bar controller to your view on choose ViewControllers. Update the default tab bar pictures with imported pictures and selected state."
+step3 = "add a tab bar controller, this will give you 2 VCs. add a further 3 VCs and drag from tab bar controller to your view on choose ViewControllers. Update the default tab bar pictures with imported pictures and selected state. Add Cocoa touch classes for all your VCs and add view.backgroundColor = color to make sure VCs are connected properly"
+
+step4 = "change tint color of tab bar items in app delegate UITabBar.appearance().tintColor = UIColor.darkGray and add a navigation controller to all views with Embed in, update title. Nav controllers are great because you can manage a stack of many UIViewControllers. Delete titles as icons are informative enough. Once you do this you will need to adjust the image bar inset to 5 for the top -5 for the bottom. This compensates for the hidden space "
