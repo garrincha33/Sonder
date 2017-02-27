@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1B1456051E632D6A00146781 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B1456041E632D6A00146781 /* DataService.swift */; };
+		1B14560B1E64A44500146781 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B14560A1E64A44500146781 /* HomeVC.swift */; };
+		1B14560D1E64A48000146781 /* DiscoverVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B14560C1E64A48000146781 /* DiscoverVC.swift */; };
+		1B14560F1E64A4A800146781 /* CameraVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B14560E1E64A4A800146781 /* CameraVC.swift */; };
+		1B1456111E64A4C300146781 /* ActivityVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B1456101E64A4C300146781 /* ActivityVC.swift */; };
+		1B1456131E64A4D200146781 /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B1456121E64A4D200146781 /* ProfileVC.swift */; };
 		1B2227171E181A66001E4C72 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B2227161E181A66001E4C72 /* AppDelegate.swift */; };
 		1B22271E1E181A66001E4C72 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1B22271D1E181A66001E4C72 /* Assets.xcassets */; };
 		1B2227211E181A66001E4C72 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B22271F1E181A66001E4C72 /* LaunchScreen.storyboard */; };
@@ -19,6 +25,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1B1456041E632D6A00146781 /* DataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
+		1B1456061E635A5600146781 /* Algorithms.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Algorithms.playground; sourceTree = "<group>"; };
+		1B1456091E649FA600146781 /* LetsBuildAsocialMediaApp.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = LetsBuildAsocialMediaApp.playground; sourceTree = "<group>"; };
+		1B14560A1E64A44500146781 /* HomeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
+		1B14560C1E64A48000146781 /* DiscoverVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscoverVC.swift; sourceTree = "<group>"; };
+		1B14560E1E64A4A800146781 /* CameraVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraVC.swift; sourceTree = "<group>"; };
+		1B1456101E64A4C300146781 /* ActivityVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityVC.swift; sourceTree = "<group>"; };
+		1B1456121E64A4D200146781 /* ProfileVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
 		1B2227131E181A66001E4C72 /* Sonder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sonder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1B2227161E181A66001E4C72 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1B22271D1E181A66001E4C72 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -65,6 +79,11 @@
 				1B2227161E181A66001E4C72 /* AppDelegate.swift */,
 				1B22272A1E181CD6001E4C72 /* SignInViewController.swift */,
 				1B2227301E190F2B001E4C72 /* SignUpViewController.swift */,
+				1B14560A1E64A44500146781 /* HomeVC.swift */,
+				1B14560C1E64A48000146781 /* DiscoverVC.swift */,
+				1B14560E1E64A4A800146781 /* CameraVC.swift */,
+				1B1456101E64A4C300146781 /* ActivityVC.swift */,
+				1B1456121E64A4D200146781 /* ProfileVC.swift */,
 				1B22271D1E181A66001E4C72 /* Assets.xcassets */,
 				1B2227321E1910FE001E4C72 /* profileImg.png */,
 				1B22272E1E182B46001E4C72 /* cardiffbg.jpg */,
@@ -72,6 +91,9 @@
 				1B2227281E181B6D001E4C72 /* Start.storyboard */,
 				1B22271F1E181A66001E4C72 /* LaunchScreen.storyboard */,
 				1B2227221E181A66001E4C72 /* Info.plist */,
+				1B1456041E632D6A00146781 /* DataService.swift */,
+				1B1456061E635A5600146781 /* Algorithms.playground */,
+				1B1456091E649FA600146781 /* LetsBuildAsocialMediaApp.playground */,
 			);
 			path = Sonder;
 			sourceTree = "<group>";
@@ -153,8 +175,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				1B2227311E190F2B001E4C72 /* SignUpViewController.swift in Sources */,
+				1B1456111E64A4C300146781 /* ActivityVC.swift in Sources */,
+				1B14560B1E64A44500146781 /* HomeVC.swift in Sources */,
+				1B1456131E64A4D200146781 /* ProfileVC.swift in Sources */,
+				1B14560F1E64A4A800146781 /* CameraVC.swift in Sources */,
 				1B22272B1E181CD6001E4C72 /* SignInViewController.swift in Sources */,
 				1B2227171E181A66001E4C72 /* AppDelegate.swift in Sources */,
+				1B1456051E632D6A00146781 /* DataService.swift in Sources */,
+				1B14560D1E64A48000146781 /* DiscoverVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -310,6 +338,7 @@
 				1B2227271E181A66001E4C72 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
