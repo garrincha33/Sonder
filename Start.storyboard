@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1217" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Cfp-KN-sOO">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1217" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="C2S-VN-djs">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -60,6 +60,9 @@
                                         <state key="normal" title="Sign In">
                                             <color key="titleColor" red="1" green="0.95846387799999999" blue="0.18015418220000001" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
+                                        <connections>
+                                            <segue destination="Cfp-KN-sOO" kind="presentation" id="KPn-RH-YmF"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -94,7 +97,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zjh-nR-aAW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="48.799999999999997" y="-37.331334332833585"/>
+            <point key="canvasLocation" x="654" y="-62"/>
         </scene>
         <!--Sign Up View Controller-->
         <scene sceneID="8c2-XQ-KAG">
@@ -150,6 +153,9 @@
                                         <state key="normal" title="Sign Up">
                                             <color key="titleColor" red="1" green="0.95846387799999999" blue="0.18015418220000001" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
+                                        <connections>
+                                            <segue destination="Cfp-KN-sOO" kind="presentation" id="afG-tR-Jl6"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -200,7 +206,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PzE-5I-cZw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="896.79999999999995" y="-37.331334332833585"/>
+            <point key="canvasLocation" x="654" y="637"/>
         </scene>
         <!--Discover-->
         <scene sceneID="x6T-Gh-VbB">
@@ -332,4 +338,7 @@
         <image name="cardiffbg.jpg" width="1200" height="778"/>
         <image name="profileImg.png" width="700" height="700"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="KPn-RH-YmF"/>
+    </inferredMetricsTieBreakers>
 </document>
