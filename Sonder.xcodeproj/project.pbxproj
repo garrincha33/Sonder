@@ -14,6 +14,11 @@
 		1B1456111E64A4C300146781 /* ActivityVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B1456101E64A4C300146781 /* ActivityVC.swift */; };
 		1B1456131E64A4D200146781 /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B1456121E64A4D200146781 /* ProfileVC.swift */; };
 		1B1456151E64D19A00146781 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B1456141E64D19A00146781 /* Main.storyboard */; };
+		1B14561B1E65F21F00146781 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B14561A1E65F21F00146781 /* Home.storyboard */; };
+		1B14561D1E65F2B100146781 /* Discover.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B14561C1E65F2B100146781 /* Discover.storyboard */; };
+		1B14561F1E65F32600146781 /* Camera.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B14561E1E65F32600146781 /* Camera.storyboard */; };
+		1B1456211E65F3C600146781 /* Activity.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B1456201E65F3C600146781 /* Activity.storyboard */; };
+		1B1456231E65F57700146781 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B1456221E65F57700146781 /* Profile.storyboard */; };
 		1B2227171E181A66001E4C72 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B2227161E181A66001E4C72 /* AppDelegate.swift */; };
 		1B22271E1E181A66001E4C72 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1B22271D1E181A66001E4C72 /* Assets.xcassets */; };
 		1B2227211E181A66001E4C72 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B22271F1E181A66001E4C72 /* LaunchScreen.storyboard */; };
@@ -35,6 +40,11 @@
 		1B1456101E64A4C300146781 /* ActivityVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityVC.swift; sourceTree = "<group>"; };
 		1B1456121E64A4D200146781 /* ProfileVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
 		1B1456141E64D19A00146781 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = SOURCE_ROOT; };
+		1B14561A1E65F21F00146781 /* Home.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
+		1B14561C1E65F2B100146781 /* Discover.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Discover.storyboard; sourceTree = SOURCE_ROOT; };
+		1B14561E1E65F32600146781 /* Camera.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Camera.storyboard; sourceTree = "<group>"; };
+		1B1456201E65F3C600146781 /* Activity.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Activity.storyboard; sourceTree = SOURCE_ROOT; };
+		1B1456221E65F57700146781 /* Profile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
 		1B2227131E181A66001E4C72 /* Sonder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sonder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1B2227161E181A66001E4C72 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1B22271D1E181A66001E4C72 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -92,6 +102,11 @@
 				1B22272C1E1828F8001E4C72 /* blackbg.jpg */,
 				1B2227281E181B6D001E4C72 /* Start.storyboard */,
 				1B1456141E64D19A00146781 /* Main.storyboard */,
+				1B1456221E65F57700146781 /* Profile.storyboard */,
+				1B1456201E65F3C600146781 /* Activity.storyboard */,
+				1B14561E1E65F32600146781 /* Camera.storyboard */,
+				1B14561C1E65F2B100146781 /* Discover.storyboard */,
+				1B14561A1E65F21F00146781 /* Home.storyboard */,
 				1B22271F1E181A66001E4C72 /* LaunchScreen.storyboard */,
 				1B2227221E181A66001E4C72 /* Info.plist */,
 				1B1456041E632D6A00146781 /* DataService.swift */,
@@ -164,10 +179,15 @@
 				1B1456151E64D19A00146781 /* Main.storyboard in Resources */,
 				1B22272F1E182B46001E4C72 /* cardiffbg.jpg in Resources */,
 				1B2227211E181A66001E4C72 /* LaunchScreen.storyboard in Resources */,
+				1B1456211E65F3C600146781 /* Activity.storyboard in Resources */,
 				1B22271E1E181A66001E4C72 /* Assets.xcassets in Resources */,
 				1B2227331E1910FE001E4C72 /* profileImg.png in Resources */,
+				1B1456231E65F57700146781 /* Profile.storyboard in Resources */,
 				1B22272D1E1828F8001E4C72 /* blackbg.jpg in Resources */,
 				1B2227291E181B6D001E4C72 /* Start.storyboard in Resources */,
+				1B14561B1E65F21F00146781 /* Home.storyboard in Resources */,
+				1B14561D1E65F2B100146781 /* Discover.storyboard in Resources */,
+				1B14561F1E65F32600146781 /* Camera.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
