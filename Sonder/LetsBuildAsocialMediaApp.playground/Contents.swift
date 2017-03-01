@@ -33,4 +33,6 @@ step3 = "add a tab bar controller, this will give you 2 VCs. add a further 3 VCs
 
 step4 = "change tint color of tab bar items in app delegate UITabBar.appearance().tintColor = UIColor.darkGray and add a navigation controller to all views with Embed in, update title. Nav controllers are great because you can manage a stack of many UIViewControllers. Delete titles as icons are informative enough. Once you do this you will need to adjust the image bar inset to 5 for the top -5 for the bottom. This compensates for the hidden space "
 
-step5 = "storyBoard references, split up your storyboards into smaller groups and link them with references"
+step5 = "storyBoard references, split up your storyboards into smaller groups and link them with references. Choose navigation controller and choose refactor to storyboard. You can also split this up further and choose each tab bar item into its own storyboard. refactor to storyboard, remove inital view arrow, set storyboard id and go back to main and reference that as initial vieww in reerence ID"
+
+step6 = "customise signin/up - "

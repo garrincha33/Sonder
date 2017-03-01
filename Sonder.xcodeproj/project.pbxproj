@@ -88,25 +88,13 @@
 		1B2227151E181A66001E4C72 /* Sonder */ = {
 			isa = PBXGroup;
 			children = (
+				1B3AD8C11E66A40E00533666 /* ViewControllers */,
 				1B2227161E181A66001E4C72 /* AppDelegate.swift */,
-				1B22272A1E181CD6001E4C72 /* SignInViewController.swift */,
-				1B2227301E190F2B001E4C72 /* SignUpViewController.swift */,
-				1B14560A1E64A44500146781 /* HomeVC.swift */,
-				1B14560C1E64A48000146781 /* DiscoverVC.swift */,
-				1B14560E1E64A4A800146781 /* CameraVC.swift */,
-				1B1456101E64A4C300146781 /* ActivityVC.swift */,
-				1B1456121E64A4D200146781 /* ProfileVC.swift */,
 				1B22271D1E181A66001E4C72 /* Assets.xcassets */,
 				1B2227321E1910FE001E4C72 /* profileImg.png */,
 				1B22272E1E182B46001E4C72 /* cardiffbg.jpg */,
 				1B22272C1E1828F8001E4C72 /* blackbg.jpg */,
-				1B2227281E181B6D001E4C72 /* Start.storyboard */,
-				1B1456141E64D19A00146781 /* Main.storyboard */,
-				1B1456221E65F57700146781 /* Profile.storyboard */,
-				1B1456201E65F3C600146781 /* Activity.storyboard */,
-				1B14561E1E65F32600146781 /* Camera.storyboard */,
-				1B14561C1E65F2B100146781 /* Discover.storyboard */,
-				1B14561A1E65F21F00146781 /* Home.storyboard */,
+				1B3AD8C01E66A3F800533666 /* Storyboards */,
 				1B22271F1E181A66001E4C72 /* LaunchScreen.storyboard */,
 				1B2227221E181A66001E4C72 /* Info.plist */,
 				1B1456041E632D6A00146781 /* DataService.swift */,
@@ -114,6 +102,34 @@
 				1B1456091E649FA600146781 /* LetsBuildAsocialMediaApp.playground */,
 			);
 			path = Sonder;
+			sourceTree = "<group>";
+		};
+		1B3AD8C01E66A3F800533666 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				1B1456141E64D19A00146781 /* Main.storyboard */,
+				1B2227281E181B6D001E4C72 /* Start.storyboard */,
+				1B14561A1E65F21F00146781 /* Home.storyboard */,
+				1B1456221E65F57700146781 /* Profile.storyboard */,
+				1B1456201E65F3C600146781 /* Activity.storyboard */,
+				1B14561C1E65F2B100146781 /* Discover.storyboard */,
+				1B14561E1E65F32600146781 /* Camera.storyboard */,
+			);
+			name = Storyboards;
+			sourceTree = "<group>";
+		};
+		1B3AD8C11E66A40E00533666 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				1B22272A1E181CD6001E4C72 /* SignInViewController.swift */,
+				1B2227301E190F2B001E4C72 /* SignUpViewController.swift */,
+				1B14560A1E64A44500146781 /* HomeVC.swift */,
+				1B14560C1E64A48000146781 /* DiscoverVC.swift */,
+				1B14560E1E64A4A800146781 /* CameraVC.swift */,
+				1B1456101E64A4C300146781 /* ActivityVC.swift */,
+				1B1456121E64A4D200146781 /* ProfileVC.swift */,
+			);
+			name = ViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
