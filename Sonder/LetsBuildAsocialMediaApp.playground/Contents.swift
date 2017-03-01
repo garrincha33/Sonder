@@ -35,4 +35,8 @@ step4 = "change tint color of tab bar items in app delegate UITabBar.appearance(
 
 step5 = "storyBoard references, split up your storyboards into smaller groups and link them with references. Choose navigation controller and choose refactor to storyboard. You can also split this up further and choose each tab bar item into its own storyboard. refactor to storyboard, remove inital view arrow, set storyboard id and go back to main and reference that as initial vieww in reerence ID"
 
-step6 = "customise signin/up - "
+step6 = "customise signin/up - customise in viewDidLoad, IBOutlet to your text fields, use backgroundcolor, tinitColor, textColor and also textField.placeholder!, attributes: [NSForgRoundColorAttributeName: UIColor(white:1.0, alpha:0.6)])) create a let bottomLayerEmail = CALayer() to add a thin line design ontop of your textfield then .layer.addSubLayer(thelayerYouCreate)  "
+
+step7 = "install Firebase, use vim dont forget to write save with :x!"
+
+step7 = ""
