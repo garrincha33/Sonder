@@ -40,3 +40,5 @@ step6 = "customise signin/up - customise in viewDidLoad, IBOutlet to your text f
 step7 = "install Firebase, use vim dont forget to write save with :x!"
 
 step7 = "firebase auth: install firebase auth in your pod, create a ibaction from your signup btn and use FIRAuth.createUser, remember to enable email auth within firebase"
+
+step8 = "create an acutal user with emailtext field and password textField, install Firebase Database Pod, create a reference to the database and a reference to child(users) also let uid = user?uid you will need this to reference a unioque user , create this newwUserReference.setValue, store in dictionary format [username: self.usernametextfield.text! and email:self.emailtextfield.text!]"
