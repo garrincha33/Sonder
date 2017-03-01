@@ -39,4 +39,4 @@ step6 = "customise signin/up - customise in viewDidLoad, IBOutlet to your text f
 
 step7 = "install Firebase, use vim dont forget to write save with :x!"
 
-step7 = ""
+step7 = "firebase auth: install firebase auth in your pod, create a ibaction from your signup btn and use FIRAuth.createUser, remember to enable email auth within firebase"

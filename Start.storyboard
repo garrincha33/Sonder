@@ -158,6 +158,7 @@
                                             <color key="titleColor" red="1" green="0.95846387799999999" blue="0.18015418220000001" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
+                                            <action selector="singUpBtnPressed:" destination="rWE-oS-Htx" eventType="touchUpInside" id="1U8-sT-q8U"/>
                                             <segue destination="M0d-zB-ySX" kind="presentation" id="afG-tR-Jl6"/>
                                         </connections>
                                     </button>
