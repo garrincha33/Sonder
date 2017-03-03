@@ -9,14 +9,16 @@
 import UIKit
 import FirebaseAuth
 import FirebaseDatabase
+import FirebaseStorage
 
 class SignUpViewController: UIViewController {
-    
     
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var profileImage: UIImageView!
+    
+    var selectedImage: UIImage?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,6 +58,17 @@ class SignUpViewController: UIViewController {
         profileImage.clipsToBounds = true
         
         
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(SignUpViewController.handleSelectProfileImageView))
+        profileImage.addGestureRecognizer(tapGesture)
+        profileImage.isUserInteractionEnabled = true
+
+    }
+    
+    func handleSelectProfileImageView() {
+        
+        let pickerController = UIImagePickerController()
+        pickerController.delegate = self
+        present(pickerController, animated: true, completion: nil)
         
     }
 
@@ -75,16 +88,50 @@ class SignUpViewController: UIViewController {
                 return
             }
             
-            let ref = FIRDatabase.database().reference()
-            let usersReference = ref.child("users")
-            print(usersReference.description())
             let uid = user?.uid
-            let newUserReference = usersReference.child(uid!)
-            newUserReference.setValue(["username": self.usernameTextField.text!, "email": self.emailTextField.text!])
-            
-            print("DESCRIPTION: \(newUserReference.description())")
+            let url = "gs://sonder-37c77.appspot.com"
+            let profilePath = "profile_image"
+            let storageRef = FIRStorage.storage().reference(forURL: url).child(profilePath).child(uid!)
+            if let profileImg = self.selectedImage, let imageData =  UIImageJPEGRepresentation(profileImg, 0.1) {
+                storageRef.put(imageData, metadata: nil, completion: { (metadata, error) in
+                    
+                    if error != nil {
+                        
+                        return
+                        
+                    }
+
+                    let profileImageUrl = metadata?.downloadURL()?.absoluteString
+                    let ref = FIRDatabase.database().reference()
+                    let usersReference = ref.child("users")
+                    print(usersReference.description())
+                    let newUserReference = usersReference.child(uid!)
+                    newUserReference.setValue(["username": self.usernameTextField.text!, "email": self.emailTextField.text!, "profileImageUrl": profileImageUrl])
+                })
+                
+            }
+
         })
 
     }
 
+}
+
+extension SignUpViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        
+        print("did finish picking Media")
+        
+        if let image = info["UIImagePickerControllerOriginalImage"] as? UIImage {
+            
+            selectedImage = image
+            profileImage.image = image
+            
+        }
+       
+        dismiss(animated: true, completion: nil)
+        
+    }
+    
 }
