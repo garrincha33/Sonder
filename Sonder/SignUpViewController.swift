@@ -50,12 +50,23 @@ class SignUpViewController: UIViewController {
         bottomLayerPassword.frame = CGRect(x: 0, y: 29, width: 1000, height: 0.6)
         bottomLayerPassword.backgroundColor = UIColor(red: 220/255, green: 220/255, blue: 175/255, alpha: 1).cgColor
         passwordTextField.layer.addSublayer(bottomLayerPassword)
-        
 
         profileImage.layer.cornerRadius = 53
         profileImage.clipsToBounds = true
         
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(SignUpViewController.handleSelectProfileImageView))
+        profileImage.addGestureRecognizer(tapGesture)
+        profileImage.isUserInteractionEnabled = true
         
+        
+    }
+    
+    func handleSelectProfileImageView() {
+        
+        
+        let pickerController = UIImagePickerController()
+        pickerController.delegate = self
+        present(pickerController, animated: true, completion: nil)
         
     }
 
@@ -87,4 +98,15 @@ class SignUpViewController: UIViewController {
 
     }
 
+}
+
+extension SignUpViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        
+        print("DID FINISHING PICKING MEDIA")
+        dismiss(animated: true, completion: nil)
+
+    }
+    
 }
