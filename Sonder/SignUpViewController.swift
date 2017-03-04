@@ -19,6 +19,8 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var profileImage: UIImageView!
     
+    @IBOutlet weak var signUpButton: UIButton!
+    
     var selectedImage: UIImage?
     
     override func viewDidLoad() {
@@ -61,7 +63,29 @@ class SignUpViewController: UIViewController {
         profileImage.addGestureRecognizer(tapGesture)
         profileImage.isUserInteractionEnabled = true
         
+        handleTextField()
+    }
+    
+    func handleTextField() {
         
+        usernameTextField.addTarget(self, action: #selector(SignUpViewController.textFieldDidChange), for: UIControlEvents.editingChanged)
+        emailTextField.addTarget(self, action: #selector(SignUpViewController.textFieldDidChange), for: UIControlEvents.editingChanged)
+        passwordTextField.addTarget(self, action: #selector(SignUpViewController.textFieldDidChange), for: UIControlEvents.editingChanged)
+        
+    }
+    
+    func textFieldDidChange() {
+        
+        guard let username = usernameTextField.text, !username.isEmpty, let email = emailTextField.text, !email.isEmpty, let password = passwordTextField.text, !password.isEmpty else {
+            signUpButton.setTitleColor(UIColor.lightText, for: UIControlState.normal)
+            signUpButton.isEnabled = false
+            return
+            
+        }
+        
+        signUpButton.setTitleColor(UIColor.yellow, for: UIControlState.normal)
+        signUpButton.isEnabled = true
+
     }
     
     func handleSelectProfileImageView() {

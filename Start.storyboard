@@ -159,7 +159,6 @@
                                         </state>
                                         <connections>
                                             <action selector="singUpBtnPressed:" destination="rWE-oS-Htx" eventType="touchUpInside" id="1U8-sT-q8U"/>
-                                            <segue destination="M0d-zB-ySX" kind="presentation" id="afG-tR-Jl6"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -212,6 +211,7 @@
                         <outlet property="emailTextField" destination="5Xi-kX-Mzo" id="vh2-MO-h4a"/>
                         <outlet property="passwordTextField" destination="AUc-J2-fkm" id="cLS-1m-cnJ"/>
                         <outlet property="profileImage" destination="KON-ez-KDD" id="u7N-gn-7zH"/>
+                        <outlet property="signUpButton" destination="k2h-ps-6Be" id="X1B-7T-9wz"/>
                         <outlet property="usernameTextField" destination="mAw-e1-JW6" id="AgZ-7X-uoE"/>
                     </connections>
                 </viewController>
@@ -232,7 +232,4 @@
         <image name="cardiffbg.jpg" width="1200" height="778"/>
         <image name="profileImg.png" width="700" height="700"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="afG-tR-Jl6"/>
-    </inferredMetricsTieBreakers>
 </document>
