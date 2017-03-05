@@ -61,7 +61,7 @@
                                             <color key="titleColor" red="1" green="0.95846387799999999" blue="0.18015418220000001" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
-                                            <segue destination="M0d-zB-ySX" kind="presentation" id="KPn-RH-YmF"/>
+                                            <action selector="signInButtonPressed:" destination="C2S-VN-djs" eventType="touchUpInside" id="j16-ii-TTS"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -97,6 +97,8 @@
                     <connections>
                         <outlet property="emailtextField" destination="v1R-V6-q3D" id="hXo-p3-V1V"/>
                         <outlet property="passwordTextField" destination="ifs-4X-7iE" id="JgB-nd-WMt"/>
+                        <outlet property="signInButton" destination="SSe-se-dbv" id="bGf-fn-9dG"/>
+                        <segue destination="M0d-zB-ySX" kind="presentation" identifier="signIntoTabVC" id="8wT-KJ-tlR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zjh-nR-aAW" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -213,6 +215,7 @@
                         <outlet property="profileImage" destination="KON-ez-KDD" id="u7N-gn-7zH"/>
                         <outlet property="signUpButton" destination="k2h-ps-6Be" id="X1B-7T-9wz"/>
                         <outlet property="usernameTextField" destination="mAw-e1-JW6" id="AgZ-7X-uoE"/>
+                        <segue destination="M0d-zB-ySX" kind="presentation" identifier="signUpTabVC" id="aYW-Gt-Uff"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PzE-5I-cZw" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -232,4 +235,7 @@
         <image name="cardiffbg.jpg" width="1200" height="778"/>
         <image name="profileImg.png" width="700" height="700"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="aYW-Gt-Uff"/>
+    </inferredMetricsTieBreakers>
 </document>

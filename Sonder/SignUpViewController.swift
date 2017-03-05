@@ -12,13 +12,11 @@ import FirebaseDatabase
 import FirebaseStorage
 
 class SignUpViewController: UIViewController {
-    
-    
+
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var profileImage: UIImageView!
-    
     @IBOutlet weak var signUpButton: UIButton!
     
     var selectedImage: UIImage?
@@ -66,6 +64,8 @@ class SignUpViewController: UIViewController {
         handleTextField()
     }
     
+    //----validation methods-----------
+    
     func handleTextField() {
         usernameTextField.addTarget(self, action: #selector(SignUpViewController.textFieldDidChange), for: UIControlEvents.editingChanged)
         emailTextField.addTarget(self, action: #selector(SignUpViewController.textFieldDidChange), for: UIControlEvents.editingChanged)
@@ -81,6 +81,8 @@ class SignUpViewController: UIViewController {
         signUpButton.setTitleColor(UIColor.yellow, for: UIControlState.normal)
         signUpButton.isEnabled = true
     }
+    
+     //----validation methods-----------
     
     func handleSelectProfileImageView() {
         let pickerController = UIImagePickerController()
@@ -115,9 +117,8 @@ class SignUpViewController: UIViewController {
                         
                     }
                     
-                    let profileImageUrl = metadata?.downloadURL()?.absoluteString
-     
-                    self.setUserInfomation(profileImageUrl: profileImageUrl!, username: self.usernameTextField.text!, email:self.emailTextField.text!, uid: uid!)
+            let profileImageUrl = metadata?.downloadURL()?.absoluteString
+            self.setUserInfomation(profileImageUrl: profileImageUrl!, username: self.usernameTextField.text!, email:self.emailTextField.text!, uid: uid!)
      
                 })
             }
@@ -134,10 +135,10 @@ class SignUpViewController: UIViewController {
         let newUserReference = usersReference.child(uid)
         newUserReference.setValue(["username": username , "email": email, "profileImageURL":profileImageUrl ])
         
+         self.performSegue(withIdentifier: "signUpTabVC", sender: nil)
+        
         }
-
     }
-
 
 extension SignUpViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
