@@ -40,6 +40,14 @@ class SignInViewController: UIViewController {
         passwordTextField.layer.addSublayer(bottomLayerPassword)
         
         handleTextField()
+ 
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        if FIRAuth.auth()?.currentUser != nil {
+            self.performSegue(withIdentifier: "signIntoTabVC", sender: nil)
+        }
     }
     
     //----validation methods-----------
@@ -76,10 +84,5 @@ class SignInViewController: UIViewController {
             self.performSegue(withIdentifier: "signIntoTabVC", sender: nil)
 
         })
-        
     }
-    
-    
-    
-
 }

@@ -12,7 +12,7 @@
         <!--Sign In View Controller-->
         <scene sceneID="OSw-Sc-FtD">
             <objects>
-                <viewController id="C2S-VN-djs" customClass="SignInViewController" customModule="Sonder" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SignInViewController" id="C2S-VN-djs" customClass="SignInViewController" customModule="Sonder" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="4LA-gJ-x8e"/>
                         <viewControllerLayoutGuide type="bottom" id="ZjN-Ko-ZGL"/>
@@ -236,6 +236,6 @@
         <image name="profileImg.png" width="700" height="700"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="aYW-Gt-Uff"/>
+        <segue reference="8wT-KJ-tlR"/>
     </inferredMetricsTieBreakers>
 </document>
