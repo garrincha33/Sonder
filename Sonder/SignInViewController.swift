@@ -71,10 +71,15 @@ class SignInViewController: UIViewController {
     //----validation methods-----------
     
     @IBAction func signInButtonPressed(_ sender: Any) {
-        
         AuthService.signIn(email: emailtextField.text!, password: passwordTextField.text!, onSuccess: {
             self.performSegue(withIdentifier: "signIntoTabVC", sender: nil)
-
+        
+        }, onError: { error in
+        
+            print(error!)
+            print("we are here")
+        
         })
+
     }
 }
