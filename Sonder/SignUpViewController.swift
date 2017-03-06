@@ -97,44 +97,22 @@ class SignUpViewController: UIViewController {
     
     @IBAction func singUpBtnPressed(_ sender: Any) {
         
-        FIRAuth.auth()?.createUser(withEmail: emailTextField.text!, password: passwordTextField.text!, completion: { (user: FIRUser?, error: Error?) in
+        if let profileImg = self.selectedImage, let imageData = UIImageJPEGRepresentation(profileImg, 0.1) {
             
-            if error != nil {
+            AuthService.signUp(username: usernameTextField.text!, email: emailTextField.text!, password: passwordTextField.text!, imageData: imageData, onSuccess: {
                 
-                print(error!.localizedDescription)
-                return
-            }
+                self.performSegue(withIdentifier: "signUpTabVC", sender: nil)
             
-            let uid = user?.uid
-            let storeRef = FIRStorage.storage().reference(forURL: "gs://sonder-37c77.appspot.com").child("profile_image").child(uid!)
-            if let profileImg = self.selectedImage, let imageData = UIImageJPEGRepresentation(profileImg, 0.1) {
+            }, onError: {(errorString) in
                 
-                storeRef.put(imageData, metadata: nil, completion: { (metadata, error) in
-                    
-                    if error != nil {
-                        
-                        return
-                        
-                    }
-                    
-                    let profileImageUrl = metadata?.downloadURL()?.absoluteString
-                    self.setUserInfomation(profileImageUrl: profileImageUrl!, username: self.usernameTextField.text!, email:self.emailTextField.text!, uid: uid!)
-                    
-                })
-            }
-        })
+                print(errorString!)
+            
+            })
+            
+        }
+
     }
-    
-    func setUserInfomation(profileImageUrl: String, username: String, email: String, uid: String) {
-        
-        let ref = FIRDatabase.database().reference()
-        let usersReference = ref.child("users")
-        print(usersReference.description())
-        let newUserReference = usersReference.child(uid)
-        newUserReference.setValue(["username": username , "email": email, "profileImageURL":profileImageUrl ])
-        self.performSegue(withIdentifier: "signUpTabVC", sender: nil)
-        
-    }
+
 }
 
 extension SignUpViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
