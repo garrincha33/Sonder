@@ -12,7 +12,7 @@ import FirebaseDatabase
 import FirebaseStorage
 
 class SignUpViewController: UIViewController {
-
+    
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
@@ -53,14 +53,14 @@ class SignUpViewController: UIViewController {
         bottomLayerPassword.frame = CGRect(x: 0, y: 29, width: 1000, height: 0.6)
         bottomLayerPassword.backgroundColor = UIColor(red: 220/255, green: 220/255, blue: 175/255, alpha: 1).cgColor
         passwordTextField.layer.addSublayer(bottomLayerPassword)
-
+        
         profileImage.layer.cornerRadius = 53
         profileImage.clipsToBounds = true
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(SignUpViewController.handleSelectProfileImageView))
         profileImage.addGestureRecognizer(tapGesture)
         profileImage.isUserInteractionEnabled = true
-        
+        signUpButton.isEnabled = false
         handleTextField()
     }
     
@@ -82,21 +82,21 @@ class SignUpViewController: UIViewController {
         signUpButton.isEnabled = true
     }
     
-     //----validation methods-----------
+    //----validation methods-----------
     
     func handleSelectProfileImageView() {
         let pickerController = UIImagePickerController()
         pickerController.delegate = self
         present(pickerController, animated: true, completion: nil)
     }
-
+    
     @IBAction func backToSignInBtnPressed(_ sender: Any) {
         
         dismiss(animated: true, completion: nil)
     }
-
+    
     @IBAction func singUpBtnPressed(_ sender: Any) {
-   
+        
         FIRAuth.auth()?.createUser(withEmail: emailTextField.text!, password: passwordTextField.text!, completion: { (user: FIRUser?, error: Error?) in
             
             if error != nil {
@@ -117,15 +117,13 @@ class SignUpViewController: UIViewController {
                         
                     }
                     
-            let profileImageUrl = metadata?.downloadURL()?.absoluteString
-            self.setUserInfomation(profileImageUrl: profileImageUrl!, username: self.usernameTextField.text!, email:self.emailTextField.text!, uid: uid!)
-     
+                    let profileImageUrl = metadata?.downloadURL()?.absoluteString
+                    self.setUserInfomation(profileImageUrl: profileImageUrl!, username: self.usernameTextField.text!, email:self.emailTextField.text!, uid: uid!)
+                    
                 })
             }
-
         })
- 
-        }
+    }
     
     func setUserInfomation(profileImageUrl: String, username: String, email: String, uid: String) {
         
@@ -134,17 +132,13 @@ class SignUpViewController: UIViewController {
         print(usersReference.description())
         let newUserReference = usersReference.child(uid)
         newUserReference.setValue(["username": username , "email": email, "profileImageURL":profileImageUrl ])
+        self.performSegue(withIdentifier: "signUpTabVC", sender: nil)
         
-         self.performSegue(withIdentifier: "signUpTabVC", sender: nil)
-        
-        }
     }
+}
 
 extension SignUpViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-    
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-        
-        print("DID FINISHING PICKING MEDIA")
         if let image = info["UIImagePickerControllerOriginalImage"] as? UIImage {
             selectedImage = image
             profileImage.image = image

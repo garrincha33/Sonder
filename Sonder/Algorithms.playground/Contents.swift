@@ -13,21 +13,20 @@ import UIKit
 //         1    11  20
 //
 
-
 class Node {
-
+    
     let value: Int
-    var leftChild: Node?
-    var rightChild: Node?
+    let leftChild: Node?
+    let rightChild: Node?
     
     init(value: Int, leftChild: Node?, rightChild: Node?) {
         
         self.value = value
         self.leftChild = leftChild
         self.rightChild = rightChild
- 
-    }
 
+    }
+    
 }
 
 //left node

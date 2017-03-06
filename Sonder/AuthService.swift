@@ -1,0 +1,27 @@
+//
+//  AuthService.swift
+//  Sonder
+//
+//  Created by Richard Price on 05/03/2017.
+//  Copyright © 2017 twisted echo. All rights reserved.
+//
+
+import Foundation
+import FirebaseAuth
+class AuthService {
+    
+    
+    static func signIn(email: String, password: String, onSuccess: @escaping () ->  Void) {
+        FIRAuth.auth()?.signIn(withEmail: email, password: password, completion: { (user, error) in
+            if error != nil {
+                print(error!.localizedDescription)
+                return
+            }
+            
+            //callback to let users know when successful, @escaping means call back can be called after signInMethod returned, without it can only be called inside the method
+            onSuccess()
+
+        })
+    }
+    
+}

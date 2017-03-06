@@ -15,10 +15,10 @@ class SignInViewController: UIViewController {
     @IBOutlet weak var emailtextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var signInButton: UIButton!
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-      
+        
         emailtextField.backgroundColor = .clear
         emailtextField.tintColor = UIColor.white
         emailtextField.textColor = UIColor.white
@@ -38,9 +38,9 @@ class SignInViewController: UIViewController {
         bottomLayerPassword.frame = CGRect(x: 0, y: 29, width: 1000, height: 0.6)
         bottomLayerPassword.backgroundColor = UIColor(red: 220/255, green: 220/255, blue: 175/255, alpha: 1).cgColor
         passwordTextField.layer.addSublayer(bottomLayerPassword)
-        
+        signInButton.isEnabled = false
         handleTextField()
- 
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -53,7 +53,7 @@ class SignInViewController: UIViewController {
     //----validation methods-----------
     
     func handleTextField() {
-      
+        
         emailtextField.addTarget(self, action: #selector(SignUpViewController.textFieldDidChange), for: UIControlEvents.editingChanged)
         passwordTextField.addTarget(self, action: #selector(SignUpViewController.textFieldDidChange), for: UIControlEvents.editingChanged)
     }
@@ -72,15 +72,7 @@ class SignInViewController: UIViewController {
     
     @IBAction func signInButtonPressed(_ sender: Any) {
         
-        FIRAuth.auth()?.signIn(withEmail: emailtextField.text!, password: passwordTextField.text!, completion: { (user, error) in
-            
-            if error != nil {
-                
-                print(error!.localizedDescription)
-                return
-                
-            }
-            
+        AuthService.signIn(email: emailtextField.text!, password: passwordTextField.text!, onSuccess: {
             self.performSegue(withIdentifier: "signIntoTabVC", sender: nil)
 
         })

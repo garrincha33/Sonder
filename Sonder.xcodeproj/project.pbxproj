@@ -30,6 +30,7 @@
 		1B2227311E190F2B001E4C72 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B2227301E190F2B001E4C72 /* SignUpViewController.swift */; };
 		1B2227331E1910FE001E4C72 /* profileImg.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B2227321E1910FE001E4C72 /* profileImg.png */; };
 		1B3AD8C31E67461B00533666 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1B3AD8C21E67461B00533666 /* GoogleService-Info.plist */; };
+		1B86174C1E6C92B0005CC16F /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B86174B1E6C92B0005CC16F /* AuthService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -59,6 +60,7 @@
 		1B2227301E190F2B001E4C72 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		1B2227321E1910FE001E4C72 /* profileImg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = profileImg.png; sourceTree = "<group>"; };
 		1B3AD8C21E67461B00533666 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		1B86174B1E6C92B0005CC16F /* AuthService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		755ABB2DE991D6D5493F88FF /* Pods-Sonder.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sonder.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Sonder/Pods-Sonder.debug.xcconfig"; sourceTree = "<group>"; };
 		820E111383ED6287202549BE /* Pods-Sonder.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sonder.release.xcconfig"; path = "Pods/Target Support Files/Pods-Sonder/Pods-Sonder.release.xcconfig"; sourceTree = "<group>"; };
 		CC7286DA02259240D8C93AC6 /* Pods_Sonder.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Sonder.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -97,8 +99,10 @@
 		1B2227151E181A66001E4C72 /* Sonder */ = {
 			isa = PBXGroup;
 			children = (
-				1B3AD8C11E66A40E00533666 /* ViewControllers */,
 				1B2227161E181A66001E4C72 /* AppDelegate.swift */,
+				1B86174B1E6C92B0005CC16F /* AuthService.swift */,
+				1B1456041E632D6A00146781 /* DataService.swift */,
+				1B3AD8C11E66A40E00533666 /* ViewControllers */,
 				1B22271D1E181A66001E4C72 /* Assets.xcassets */,
 				1B2227321E1910FE001E4C72 /* profileImg.png */,
 				1B22272E1E182B46001E4C72 /* cardiffbg.jpg */,
@@ -107,7 +111,6 @@
 				1B22271F1E181A66001E4C72 /* LaunchScreen.storyboard */,
 				1B3AD8C21E67461B00533666 /* GoogleService-Info.plist */,
 				1B2227221E181A66001E4C72 /* Info.plist */,
-				1B1456041E632D6A00146781 /* DataService.swift */,
 				1B1456061E635A5600146781 /* Algorithms.playground */,
 				1B1456091E649FA600146781 /* LetsBuildAsocialMediaApp.playground */,
 			);
@@ -300,6 +303,7 @@
 				1B14560F1E64A4A800146781 /* CameraVC.swift in Sources */,
 				1B22272B1E181CD6001E4C72 /* SignInViewController.swift in Sources */,
 				1B2227171E181A66001E4C72 /* AppDelegate.swift in Sources */,
+				1B86174C1E6C92B0005CC16F /* AuthService.swift in Sources */,
 				1B1456051E632D6A00146781 /* DataService.swift in Sources */,
 				1B14560D1E64A48000146781 /* DiscoverVC.swift in Sources */,
 			);
