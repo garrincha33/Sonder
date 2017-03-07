@@ -30,15 +30,13 @@ class AuthService {
     static func signUp(username: String, email: String, password: String, imageData: Data, onSuccess: @escaping () ->  Void, onError: @escaping (_ errorMessage: String?) ->  Void) {
         FIRAuth.auth()?.createUser(withEmail: email, password: password, completion: { (user: FIRUser?, error: Error?) in
             if error != nil {
-                
                 onError(error!.localizedDescription)
                 return
             }
             let uid = user?.uid
-            let storeRef = FIRStorage.storage().reference(forURL: "gs://sonder-37c77.appspot.com").child("profile_image").child(uid!)
+            let storeRef = FIRStorage.storage().reference(forURL: Config.STORAGE_ROOT_REF).child("profile_image").child(uid!)
             storeRef.put(imageData, metadata: nil, completion: { (metadata, error) in
                 if error != nil {
-                    
                     return
                 }
                 let profileImageUrl = metadata?.downloadURL()?.absoluteString

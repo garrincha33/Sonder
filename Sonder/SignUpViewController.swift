@@ -64,6 +64,11 @@ class SignUpViewController: UIViewController {
         handleTextField()
     }
     
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        view.endEditing(true)
+        
+    }
+    
     //----validation methods-----------
     
     func handleTextField() {
@@ -96,23 +101,24 @@ class SignUpViewController: UIViewController {
     }
     
     @IBAction func singUpBtnPressed(_ sender: Any) {
-        
+        view.endEditing(true)
+        ProgressHUD.show("Waiting", interaction: false)
         if let profileImg = self.selectedImage, let imageData = UIImageJPEGRepresentation(profileImg, 0.1) {
-            
             AuthService.signUp(username: usernameTextField.text!, email: emailTextField.text!, password: passwordTextField.text!, imageData: imageData, onSuccess: {
-                
+                ProgressHUD.showSuccess("SignUp SuccessFul")
                 self.performSegue(withIdentifier: "signUpTabVC", sender: nil)
-            
             }, onError: {(errorString) in
-                
-                print(errorString!)
-            
+                ProgressHUD.showError(errorString!)
             })
             
+        } else {
+
+            ProgressHUD.showError("profile image can't be empty")
+            
         }
-
+        
     }
-
+    
 }
 
 extension SignUpViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {

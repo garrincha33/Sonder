@@ -40,8 +40,16 @@ class SignInViewController: UIViewController {
         passwordTextField.layer.addSublayer(bottomLayerPassword)
         signInButton.isEnabled = false
         handleTextField()
+  
         
     }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        view.endEditing(true)
+        
+    }
+    
+    
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
@@ -71,15 +79,13 @@ class SignInViewController: UIViewController {
     //----validation methods-----------
     
     @IBAction func signInButtonPressed(_ sender: Any) {
-        AuthService.signIn(email: emailtextField.text!, password: passwordTextField.text!, onSuccess: {
-            self.performSegue(withIdentifier: "signIntoTabVC", sender: nil)
-        
+        view.endEditing(true)
+        ProgressHUD.show("Waiting", interaction: false)
+            AuthService.signIn(email: emailtextField.text!, password: passwordTextField.text!, onSuccess: {
+                ProgressHUD.showSuccess("SignIp SuccessFul")
+                self.performSegue(withIdentifier: "signIntoTabVC", sender: nil)
         }, onError: { error in
-        
-            print(error!)
-            print("we are here")
-        
+            ProgressHUD.showError(error!)
         })
-
     }
 }
