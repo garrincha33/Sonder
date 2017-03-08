@@ -29,19 +29,15 @@ class Node {
     
 }
 
+
 //left node
-
 let oneNode = Node(value: 1, leftChild: nil, rightChild: nil)
-let fiveNode = Node(value: 5, leftChild: oneNode, rightChild: nil)
-
+let fiveNode = Node(value: 5, leftChild: oneNode , rightChild: nil)
 //rightNode
-
 let twentyNode = Node(value: 20, leftChild: nil, rightChild: nil)
-let elevenNode = Node(value: 11, leftChild: nil, rightChild: nil)
-let fourteenNode = Node(value: 14, leftChild: elevenNode, rightChild: twentyNode)
-
+let elevanNode = Node(value: 11, leftChild: nil, rightChild: nil)
+let fourteenNode = Node(value: 14, leftChild: elevanNode, rightChild: twentyNode)
 //rootNode
-
 let rootNode = Node(value: 10, leftChild: fiveNode, rightChild: fourteenNode)
 
 
@@ -70,7 +66,7 @@ func search(node: Node?, searchValue: Int) -> Bool {
 
 }
 
-search(node: rootNode, searchValue: 1)
+search(node: rootNode, searchValue: 20)
 
 
 

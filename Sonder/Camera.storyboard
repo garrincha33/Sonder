@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -20,13 +21,63 @@
                     <view key="view" contentMode="scaleToFill" id="g4g-Ev-5qv">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mWt-u0-0Fd">
+                                <rect key="frame" x="0.0" y="64" width="375" height="100"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Placeholder-image" translatesAutoresizingMaskIntoConstraints="NO" id="nYY-oU-IlP">
+                                        <rect key="frame" x="8" y="10" width="80" height="80"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="80" id="AAJ-nF-rbW"/>
+                                            <constraint firstAttribute="height" constant="80" id="WEa-ip-s5p"/>
+                                        </constraints>
+                                    </imageView>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="QwF-XN-5SW">
+                                        <rect key="frame" x="96" y="10" width="271" height="80"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <string key="text">Test Data Test Data Test Data Test Data Test Data Test Data Test Data Test Data Test Data Test Data Test Data Test Data Test Data </string>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="QwF-XN-5SW" firstAttribute="top" secondItem="mWt-u0-0Fd" secondAttribute="top" constant="10" id="3HX-CJ-Wrt"/>
+                                    <constraint firstItem="nYY-oU-IlP" firstAttribute="leading" secondItem="mWt-u0-0Fd" secondAttribute="leading" constant="8" id="RqP-LL-YQl"/>
+                                    <constraint firstItem="nYY-oU-IlP" firstAttribute="top" secondItem="mWt-u0-0Fd" secondAttribute="top" constant="10" id="fYt-yE-NOq"/>
+                                    <constraint firstAttribute="height" constant="100" id="n2w-xF-st1"/>
+                                    <constraint firstItem="QwF-XN-5SW" firstAttribute="leading" secondItem="nYY-oU-IlP" secondAttribute="trailing" constant="8" id="ncy-qV-I0P"/>
+                                    <constraint firstAttribute="trailing" secondItem="QwF-XN-5SW" secondAttribute="trailing" constant="8" id="p8A-ID-oEC"/>
+                                    <constraint firstAttribute="bottom" secondItem="QwF-XN-5SW" secondAttribute="bottom" constant="10" id="vPn-o7-oup"/>
+                                    <constraint firstAttribute="bottom" secondItem="nYY-oU-IlP" secondAttribute="bottom" constant="10" id="zC4-ep-tbZ"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0wf-a4-rIx">
+                                <rect key="frame" x="17" y="560" width="341" height="50"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="CLp-aT-H8x"/>
+                                </constraints>
+                                <state key="normal" title="Share">
+                                    <color key="titleColor" red="1" green="0.93911005469999997" blue="0.22847042710000001" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="mWt-u0-0Fd" firstAttribute="top" secondItem="tzW-59-G9q" secondAttribute="bottom" id="9dO-VX-mO1"/>
+                            <constraint firstItem="0wf-a4-rIx" firstAttribute="leading" secondItem="g4g-Ev-5qv" secondAttribute="leadingMargin" constant="1" id="CQb-ni-aEe"/>
+                            <constraint firstAttribute="trailing" secondItem="mWt-u0-0Fd" secondAttribute="trailing" id="NqV-3D-gYL"/>
+                            <constraint firstItem="mtQ-GH-xQc" firstAttribute="top" secondItem="0wf-a4-rIx" secondAttribute="bottom" constant="8" id="kYH-bJ-AuI"/>
+                            <constraint firstItem="mWt-u0-0Fd" firstAttribute="leading" secondItem="g4g-Ev-5qv" secondAttribute="leading" id="plq-PV-qGV"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="0wf-a4-rIx" secondAttribute="trailing" constant="1" id="vE0-1g-gTs"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Camera" id="NlO-Pt-XoW"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gJA-Ym-8lN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2948" y="-756"/>
+            <point key="canvasLocation" x="2948" y="-756.07196401799104"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="J0s-xG-Pgd">
@@ -53,5 +104,6 @@
     </scenes>
     <resources>
         <image name="Photo" width="22" height="23"/>
+        <image name="Placeholder-image" width="840" height="600"/>
     </resources>
 </document>
