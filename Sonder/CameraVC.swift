@@ -15,16 +15,43 @@ class CameraVC: UIViewController {
     @IBOutlet weak var photo: UIImageView!
     @IBOutlet weak var captionTextView: UITextView!
     @IBOutlet weak var shareButton: UIButton!
+    @IBOutlet weak var clear: UIBarButtonItem!
     
     var selectedImage: UIImage?
- 
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         let tap = UITapGestureRecognizer(target: self, action: #selector(self.handleSelectPhoto))
         photo.addGestureRecognizer(tap)
         photo.isUserInteractionEnabled = true
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
 
+        super.viewWillAppear(animated)
+        handlePost()
+        
+    }
+    
+    func handlePost() {
+        if selectedImage != nil {
+            self.shareButton.isEnabled = true
+            self.clear.isEnabled = true
+            self.shareButton.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1)
+            
+        } else {
+            self.shareButton.isEnabled = false
+            self.clear.isEnabled = false
+            self.shareButton.backgroundColor = .lightGray
+            
+        }
+        
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        view.endEditing(true)
+ 
     }
     
     func handleSelectPhoto() {
@@ -34,9 +61,15 @@ class CameraVC: UIViewController {
         
     }
     
-    
+    func clean() {
+        self.captionTextView.text = ""
+        self.photo.image = UIImage(named: "Placeholder-image")
+        self.selectedImage = nil
+    }
+   
     
     @IBAction func shareButtonPressed(_ sender: Any) {
+        view.endEditing(true)
         ProgressHUD.show("Waiting")
         if let photo = self.selectedImage, let imageData = UIImageJPEGRepresentation(photo, 0.1) {
             let photoIdString = NSUUID().uuidString
@@ -45,37 +78,40 @@ class CameraVC: UIViewController {
                 if error != nil {
                     return
                 }
-                
                 let photoURL = metadata?.downloadURL()?.absoluteString
                 self.sendDataToDatabase(photoURL: photoURL!)
             })
-            
-            
         } else {
             
             ProgressHUD.showError("photo cant be empty")
-            
         }
-
     }
+    
+
+    @IBAction func clearBtnPressed(_ sender: Any) {
+        clean()
+        handlePost()
+    }
+    
     
     func sendDataToDatabase(photoURL: String) {
         let ref = FIRDatabase.database().reference()
         let postsRef = ref.child("posts")
         let newPostId = postsRef.childByAutoId().key
         let newPostReference = postsRef.child(newPostId)
-        newPostReference.setValue(["photoURL": photoURL]) { (error, ref) in
+        newPostReference.setValue(["photoURL": photoURL, "Caption": captionTextView.text!]) { (error, ref) in
             if error != nil {
                 
                 ProgressHUD.showError(error!.localizedDescription)
                 return
             }
             ProgressHUD.showSuccess("Success")
-          
+            self.clean()
+            self.tabBarController?.selectedIndex = 0
         }
-
+        
     }
-
+    
 }
 
 extension CameraVC: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
@@ -86,20 +122,5 @@ extension CameraVC: UIImagePickerControllerDelegate, UINavigationControllerDeleg
             photo.image = image
         }
         dismiss(animated: true, completion: nil)
-        
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-

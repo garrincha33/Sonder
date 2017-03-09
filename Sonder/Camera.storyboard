@@ -76,9 +76,17 @@
                             <constraint firstAttribute="trailingMargin" secondItem="0wf-a4-rIx" secondAttribute="trailing" constant="1" id="vE0-1g-gTs"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Camera" id="NlO-Pt-XoW"/>
+                    <navigationItem key="navigationItem" title="Camera" id="NlO-Pt-XoW">
+                        <barButtonItem key="leftBarButtonItem" title="Clear" id="Vn5-WH-kre">
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="clearBtnPressed:" destination="5Kt-7v-fZT" id="9MM-gm-gFS"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="captionTextView" destination="QwF-XN-5SW" id="qUQ-EM-Y3Y"/>
+                        <outlet property="clear" destination="Vn5-WH-kre" id="3n6-eO-JQt"/>
                         <outlet property="photo" destination="nYY-oU-IlP" id="Ixf-tN-aFc"/>
                         <outlet property="shareButton" destination="0wf-a4-rIx" id="6Wb-aP-Afs"/>
                     </connections>
