@@ -8,7 +8,7 @@
 
 import UIKit
 import FirebaseStorage
-
+import FirebaseDatabase
 
 class CameraVC: UIViewController {
     
@@ -37,18 +37,44 @@ class CameraVC: UIViewController {
     
     
     @IBAction func shareButtonPressed(_ sender: Any) {
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
+        ProgressHUD.show("Waiting")
+        if let photo = self.selectedImage, let imageData = UIImageJPEGRepresentation(photo, 0.1) {
+            let photoIdString = NSUUID().uuidString
+            let storageRef = FIRStorage.storage().reference(forURL: Config.STORAGE_ROOT_REF).child("posts").child(photoIdString)
+            storageRef.put(imageData, metadata: nil, completion: { (metadata, error) in
+                if error != nil {
+                    return
+                }
+                
+                let photoURL = metadata?.downloadURL()?.absoluteString
+                self.sendDataToDatabase(photoURL: photoURL!)
+            })
+            
+            
+        } else {
+            
+            ProgressHUD.showError("photo cant be empty")
+            
+        }
+
     }
     
+    func sendDataToDatabase(photoURL: String) {
+        let ref = FIRDatabase.database().reference()
+        let postsRef = ref.child("posts")
+        let newPostId = postsRef.childByAutoId().key
+        let newPostReference = postsRef.child(newPostId)
+        newPostReference.setValue(["photoURL": photoURL]) { (error, ref) in
+            if error != nil {
+                
+                ProgressHUD.showError(error!.localizedDescription)
+                return
+            }
+            ProgressHUD.showSuccess("Success")
+          
+        }
+
+    }
 
 }
 
