@@ -13,12 +13,16 @@ import FirebaseDatabase
 class HomeVC: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
+    var posts = [Post]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.dataSource = self
         loadPosts()
-
+//        var post = Post(captioText: "test", photoUrlString: "url1")
+//
+//        print(post.caption)
+//        print(post.photoUrl)
     }
     
     @IBAction func logOutButtonPressed(_ sender: Any) {
@@ -37,14 +41,19 @@ class HomeVC: UIViewController {
         let signInVC = storyBoard.instantiateViewController(withIdentifier: "SignInViewController")
         self.present(signInVC, animated: true, completion: nil)
     }
-}
-
-func loadPosts() {
     
-    FIRDatabase.database().reference().child("posts").observe(.childAdded) { (snapshot: FIRDataSnapshot) in
-     
-        print(snapshot.value)
-        
+    func loadPosts() {
+        FIRDatabase.database().reference().child("posts").observe(.childAdded) { (snapshot: FIRDataSnapshot) in
+            print(Thread.isMainThread)
+            if let dict = snapshot.value as? [String: Any] {
+                let captionText = dict["Caption"] as! String
+                let photoUrlString = dict["photoURL"] as! String
+                let post = Post(caption: captionText, photoUrl: photoUrlString)
+                self.posts.append(post)
+                print(self.posts)
+                self.tableView.reloadData()
+            }
+        }
     }
 }
 
@@ -53,19 +62,16 @@ extension HomeVC: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 
-        return 10
+        return posts.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
         let cell = tableView.dequeueReusableCell(withIdentifier: "PostCell", for: indexPath)
-        cell.backgroundColor = UIColor.red
-        cell.textLabel?.text = "\(indexPath.row)"
+        
+        cell.textLabel?.text = posts[indexPath.row].caption
         return cell
         
     }
-    
-    
 }
 
 
