@@ -20,7 +20,29 @@
                     <view key="view" contentMode="scaleToFill" id="j30-r5-25g">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="70" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="PyK-N4-EtB">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="PostCell" rowHeight="70" id="7pB-hv-e9o">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="70"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="7pB-hv-e9o" id="ECa-OZ-52u">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="70"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="PyK-N4-EtB" firstAttribute="top" secondItem="j30-r5-25g" secondAttribute="top" id="5pl-Tz-tmg"/>
+                            <constraint firstItem="PyK-N4-EtB" firstAttribute="leading" secondItem="j30-r5-25g" secondAttribute="leading" id="8hX-RZ-vlx"/>
+                            <constraint firstAttribute="trailing" secondItem="PyK-N4-EtB" secondAttribute="trailing" id="CaG-JZ-NJ5"/>
+                            <constraint firstAttribute="bottom" secondItem="PyK-N4-EtB" secondAttribute="bottom" id="faC-DU-MXT"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Home" id="Oy9-50-xa0">
                         <barButtonItem key="leftBarButtonItem" title="LogOut" id="ecl-J1-Fwa">
@@ -29,10 +51,13 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="PyK-N4-EtB" id="u73-g3-Zsp"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hbF-L7-Lal" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1377" y="-756"/>
+            <point key="canvasLocation" x="1376.8" y="-756.07196401799104"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="UEO-JM-CMX">

@@ -16,7 +16,6 @@ class CameraVC: UIViewController {
     @IBOutlet weak var captionTextView: UITextView!
     @IBOutlet weak var shareButton: UIButton!
     @IBOutlet weak var clear: UIBarButtonItem!
-    
     var selectedImage: UIImage?
     
     override func viewDidLoad() {
@@ -28,10 +27,8 @@ class CameraVC: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-
         super.viewWillAppear(animated)
         handlePost()
-        
     }
     
     func handlePost() {
@@ -51,14 +48,14 @@ class CameraVC: UIViewController {
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         view.endEditing(true)
- 
+        
     }
     
     func handleSelectPhoto() {
         let pickerController = UIImagePickerController()
         pickerController.delegate = self
         present(pickerController, animated:  true, completion: nil)
-        
+
     }
     
     func clean() {
@@ -66,7 +63,7 @@ class CameraVC: UIViewController {
         self.photo.image = UIImage(named: "Placeholder-image")
         self.selectedImage = nil
     }
-   
+    
     
     @IBAction func shareButtonPressed(_ sender: Any) {
         view.endEditing(true)
@@ -87,7 +84,7 @@ class CameraVC: UIViewController {
         }
     }
     
-
+    
     @IBAction func clearBtnPressed(_ sender: Any) {
         clean()
         handlePost()
@@ -124,3 +121,15 @@ extension CameraVC: UIImagePickerControllerDelegate, UINavigationControllerDeleg
         dismiss(animated: true, completion: nil)
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
