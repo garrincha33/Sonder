@@ -8,6 +8,7 @@
 
 import UIKit
 import FirebaseAuth
+import FirebaseDatabase
 
 class HomeVC: UIViewController {
     
@@ -15,8 +16,8 @@ class HomeVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         tableView.dataSource = self
+        loadPosts()
 
     }
     
@@ -35,6 +36,15 @@ class HomeVC: UIViewController {
         let storyBoard = UIStoryboard(name: "Start", bundle: nil)
         let signInVC = storyBoard.instantiateViewController(withIdentifier: "SignInViewController")
         self.present(signInVC, animated: true, completion: nil)
+    }
+}
+
+func loadPosts() {
+    
+    FIRDatabase.database().reference().child("posts").observe(.childAdded) { (snapshot: FIRDataSnapshot) in
+     
+        print(snapshot.value)
+        
     }
 }
 
