@@ -19,10 +19,6 @@ class HomeVC: UIViewController {
         super.viewDidLoad()
         tableView.dataSource = self
         loadPosts()
-//        var post = Post(captioText: "test", photoUrlString: "url1")
-//
-//        print(post.caption)
-//        print(post.photoUrl)
     }
     
     @IBAction func logOutButtonPressed(_ sender: Any) {
@@ -46,10 +42,8 @@ class HomeVC: UIViewController {
         FIRDatabase.database().reference().child("posts").observe(.childAdded) { (snapshot: FIRDataSnapshot) in
             print(Thread.isMainThread)
             if let dict = snapshot.value as? [String: Any] {
-                let captionText = dict["Caption"] as! String
-                let photoUrlString = dict["photoURL"] as! String
-                let post = Post(caption: captionText, photoUrl: photoUrlString)
-                self.posts.append(post)
+                let newPost = Post.transformPost(dict: dict)
+                self.posts.append(newPost)
                 print(self.posts)
                 self.tableView.reloadData()
             }
@@ -58,13 +52,10 @@ class HomeVC: UIViewController {
 }
 
 extension HomeVC: UITableViewDataSource {
-    
-
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 
         return posts.count
     }
-    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "PostCell", for: indexPath)
         
