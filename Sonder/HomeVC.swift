@@ -39,7 +39,7 @@ class HomeVC: UIViewController {
     }
     
     func loadPosts() {
-        FIRDatabase.database().reference().child("posts").observe(.childAdded) { (snapshot: FIRDataSnapshot) in
+        DataService.data.REF_POSTS.observe(.childAdded) { (snapshot: FIRDataSnapshot) in
             print(Thread.isMainThread)
             if let dict = snapshot.value as? [String: Any] {
                 let newPost = Post.transformPost(dict: dict)

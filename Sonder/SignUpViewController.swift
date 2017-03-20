@@ -20,6 +20,9 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var signUpButton: UIButton!
     
     var selectedImage: UIImage?
+    var allUsers: FIRDatabaseReference!
+    var alluids = [String]()
+    var allUsersArray = [String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -102,9 +105,10 @@ class SignUpViewController: UIViewController {
     }
     
     @IBAction func singUpBtnPressed(_ sender: Any) {
+       
         view.endEditing(true)
         ProgressHUD.show("Waiting", interaction: false)
-        if let profileImg = self.selectedImage, let imageData = UIImageJPEGRepresentation(profileImg, 0.1) {
+            if let profileImg = self.selectedImage, let imageData = UIImageJPEGRepresentation(profileImg, 0.1) {
             AuthService.signUp(username: usernameTextField.text!, email: emailTextField.text!, password: passwordTextField.text!, imageData: imageData, onSuccess: {
                 ProgressHUD.showSuccess("SignUp SuccessFul")
                 self.performSegue(withIdentifier: "signUpTabVC", sender: nil)

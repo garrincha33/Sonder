@@ -14,25 +14,6 @@ class Post {
     private var _photoUrl: String?
     private var _videoUrl: String?
     
-    init() {
-        
-        
-        
-    }
-    
-//    init(caption: String, photoUrl: String) {
-//        self._caption = caption
-//        self._photoUrl = photoUrl
-//        
-//    }
-//    
-//    init(caption: String, videoUrl: String) {
-//        
-//        self._caption = caption
-//        self._videoUrl = videoUrl
-//    }
-//    
-    
     var caption: String {
         
         set {
@@ -73,7 +54,21 @@ class Post {
     }
     
     var videoUrl: String {
-        return _videoUrl!
+        set {
+            
+            self._videoUrl = newValue
+        }
+        
+        get {
+            
+            if _videoUrl == nil {
+                
+                return "is nil"
+                
+            }
+            
+            return _videoUrl!
+        }
         
     }
 
