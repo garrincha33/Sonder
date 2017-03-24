@@ -30,7 +30,10 @@
 		1B2227311E190F2B001E4C72 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B2227301E190F2B001E4C72 /* SignUpViewController.swift */; };
 		1B2227331E1910FE001E4C72 /* profileImg.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B2227321E1910FE001E4C72 /* profileImg.png */; };
 		1B3AD8C31E67461B00533666 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1B3AD8C21E67461B00533666 /* GoogleService-Info.plist */; };
+		1B76565F1E7FD69F00F3EC3B /* HomeCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B76565E1E7FD69F00F3EC3B /* HomeCustomCell.swift */; };
 		1B86174C1E6C92B0005CC16F /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B86174B1E6C92B0005CC16F /* AuthService.swift */; };
+		1BAEB25F1E847644005EA5A8 /* Knockout-70FullWelterwt.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1BAEB25E1E847644005EA5A8 /* Knockout-70FullWelterwt.otf */; };
+		1BAEB2611E84768F005EA5A8 /* KOFM.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1BAEB2601E84768F005EA5A8 /* KOFM.otf */; };
 		1BC02A5E1E6DEB76006E4422 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BC02A5D1E6DEB76006E4422 /* Config.swift */; };
 		1BC02A631E6E8CD8006E4422 /* ProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 1BC02A601E6E8CD8006E4422 /* ProgressHUD.bundle */; };
 		1BC02A641E6E8CD8006E4422 /* ProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BC02A621E6E8CD8006E4422 /* ProgressHUD.m */; };
@@ -64,7 +67,10 @@
 		1B2227301E190F2B001E4C72 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		1B2227321E1910FE001E4C72 /* profileImg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = profileImg.png; sourceTree = "<group>"; };
 		1B3AD8C21E67461B00533666 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		1B76565E1E7FD69F00F3EC3B /* HomeCustomCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeCustomCell.swift; sourceTree = "<group>"; };
 		1B86174B1E6C92B0005CC16F /* AuthService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
+		1BAEB25E1E847644005EA5A8 /* Knockout-70FullWelterwt.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Knockout-70FullWelterwt.otf"; sourceTree = "<group>"; };
+		1BAEB2601E84768F005EA5A8 /* KOFM.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = KOFM.otf; sourceTree = "<group>"; };
 		1BC02A5D1E6DEB76006E4422 /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		1BC02A5F1E6E8CD8006E4422 /* Sonder-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Sonder-Bridging-Header.h"; sourceTree = "<group>"; };
 		1BC02A601E6E8CD8006E4422 /* ProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = ProgressHUD.bundle; sourceTree = "<group>"; };
@@ -91,6 +97,7 @@
 		1B22270A1E181A66001E4C72 = {
 			isa = PBXGroup;
 			children = (
+				1BAEB25D1E847632005EA5A8 /* Resources */,
 				1B2227151E181A66001E4C72 /* Sonder */,
 				1B2227141E181A66001E4C72 /* Products */,
 				B69C5996FE16560C143E980F /* Pods */,
@@ -109,6 +116,7 @@
 		1B2227151E181A66001E4C72 /* Sonder */ = {
 			isa = PBXGroup;
 			children = (
+				1B76565D1E7FD5CD00F3EC3B /* Views */,
 				1BC02A691E77172D006E4422 /* Model */,
 				1B2227161E181A66001E4C72 /* AppDelegate.swift */,
 				1B86174B1E6C92B0005CC16F /* AuthService.swift */,
@@ -159,6 +167,23 @@
 				1B1456121E64A4D200146781 /* ProfileVC.swift */,
 			);
 			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		1B76565D1E7FD5CD00F3EC3B /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				1B76565E1E7FD69F00F3EC3B /* HomeCustomCell.swift */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		1BAEB25D1E847632005EA5A8 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				1BAEB2601E84768F005EA5A8 /* KOFM.otf */,
+				1BAEB25E1E847644005EA5A8 /* Knockout-70FullWelterwt.otf */,
+			);
+			name = Resources;
 			sourceTree = "<group>";
 		};
 		1BC02A691E77172D006E4422 /* Model */ = {
@@ -255,12 +280,14 @@
 				1BC02A631E6E8CD8006E4422 /* ProgressHUD.bundle in Resources */,
 				1B22272F1E182B46001E4C72 /* cardiffbg.jpg in Resources */,
 				1B2227211E181A66001E4C72 /* LaunchScreen.storyboard in Resources */,
+				1BAEB25F1E847644005EA5A8 /* Knockout-70FullWelterwt.otf in Resources */,
 				1B1456211E65F3C600146781 /* Activity.storyboard in Resources */,
 				1B22271E1E181A66001E4C72 /* Assets.xcassets in Resources */,
 				1B2227331E1910FE001E4C72 /* profileImg.png in Resources */,
 				1B1456231E65F57700146781 /* Profile.storyboard in Resources */,
 				1B22272D1E1828F8001E4C72 /* blackbg.jpg in Resources */,
 				1B2227291E181B6D001E4C72 /* Start.storyboard in Resources */,
+				1BAEB2611E84768F005EA5A8 /* KOFM.otf in Resources */,
 				1B14561B1E65F21F00146781 /* Home.storyboard in Resources */,
 				1B14561D1E65F2B100146781 /* Discover.storyboard in Resources */,
 				1B14561F1E65F32600146781 /* Camera.storyboard in Resources */,
@@ -329,6 +356,7 @@
 				1BC02A6B1E771740006E4422 /* Post.swift in Sources */,
 				1BC02A5E1E6DEB76006E4422 /* Config.swift in Sources */,
 				1B14560F1E64A4A800146781 /* CameraVC.swift in Sources */,
+				1B76565F1E7FD69F00F3EC3B /* HomeCustomCell.swift in Sources */,
 				1BC02A641E6E8CD8006E4422 /* ProgressHUD.m in Sources */,
 				1B22272B1E181CD6001E4C72 /* SignInViewController.swift in Sources */,
 				1B2227171E181A66001E4C72 /* AppDelegate.swift in Sources */,
