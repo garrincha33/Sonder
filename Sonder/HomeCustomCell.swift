@@ -23,12 +23,10 @@ class HomeCustomCell: UITableViewCell {
     var post: Post? {
         
         didSet {
-            
-         
+    
             updateView()
             
         }
-        
     }
     
     func updateView() {
@@ -44,16 +42,9 @@ class HomeCustomCell: UITableViewCell {
         }
     }
     
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        
-        
-        
-
     }
-
-
 
 }

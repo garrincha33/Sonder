@@ -90,7 +90,7 @@ class SignUpViewController: UIViewController {
         signUpButton.isEnabled = true
     }
     
-    //----validation methods-----------
+    //----validation methods----------
     
     func handleSelectProfileImageView() {
         let pickerController = UIImagePickerController()
