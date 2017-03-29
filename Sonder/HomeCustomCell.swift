@@ -35,13 +35,11 @@ class HomeCustomCell: UITableViewCell {
         profileImageView.image = UIImage(named: "photo1")
         nameLabel.text = "Rich"
         if let photoUrlString = post?.photoUrl {
-            
             let photoUrl = URL(string: photoUrlString)
             postImageView.sd_setImage(with: photoUrl)
             
         }
-    }
-    
+   }
     override func awakeFromNib() {
         super.awakeFromNib()
         

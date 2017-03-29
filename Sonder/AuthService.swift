@@ -42,9 +42,7 @@ class AuthService {
                     let checkString = temp!["users"] as? String
                     print("Check String is \(checkString)")
                     if (checkString == nil) {
-                        
-                        
-                        
+
                     } else {
                         
                         allUsersArray.append(checkString!)
@@ -93,8 +91,6 @@ class AuthService {
         })
         
     }
-    
-    
     
     static func setUserInfomation(profileImageUrl: String, username: String, email: String, uid: String, onSucess: @escaping() -> Void) {
         let ref = FIRDatabase.database().reference()
