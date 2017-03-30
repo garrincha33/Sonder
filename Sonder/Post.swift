@@ -13,6 +13,7 @@ class Post {
     private var _caption: String?
     private var _photoUrl: String?
     private var _videoUrl: String?
+    private var _uid: String?
     
     var caption: String {
         
@@ -71,6 +72,25 @@ class Post {
         }
         
     }
+    
+    var uid: String {
+        
+        set {
+            
+            self._uid  = newValue
+        }
+        
+        get {
+            
+            if _uid == nil {
+                
+                return "is nil"
+                
+            }
+            return _uid!
+        }
+        
+    }
 
 }
 
@@ -81,6 +101,7 @@ extension Post {
         let postPhoto = Post()
         postPhoto.caption = (dict["Caption"] as? String)!
         postPhoto.photoUrl = (dict["photoURL"] as? String)!
+        postPhoto.uid = (dict["uid"] as? String)!
         return postPhoto
   
     }

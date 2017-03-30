@@ -37,7 +37,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="492"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Placeholder-image" translatesAutoresizingMaskIntoConstraints="NO" id="iuh-HV-MLx">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="iuh-HV-MLx">
                                                     <rect key="frame" x="15" y="15" width="60" height="60"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="60" id="GwC-JB-xkj"/>
@@ -171,7 +171,7 @@
                     </tabBarItem>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="ZnO-gA-Ajg">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ZnO-gA-Ajg">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -188,7 +188,6 @@
     <resources>
         <image name="Home" width="21" height="23"/>
         <image name="Home_Selected" width="21" height="23"/>
-        <image name="Placeholder-image" width="840" height="600"/>
         <image name="comments" width="700" height="700"/>
         <image name="likenofill" width="700" height="700"/>
         <image name="share" width="700" height="700"/>

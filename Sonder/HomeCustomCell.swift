@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FirebaseDatabase
 
 class HomeCustomCell: UITableViewCell {
     
@@ -23,26 +24,53 @@ class HomeCustomCell: UITableViewCell {
     var post: Post? {
         
         didSet {
-    
+            
             updateView()
             
         }
     }
     
+    var user: User? {
+        
+        didSet {
+            
+            setupUserInfo()
+            
+        }
+        
+    }
+    
     func updateView() {
         
         captionLabel.text = post?.caption
-        profileImageView.image = UIImage(named: "photo1")
-        nameLabel.text = "Rich"
         if let photoUrlString = post?.photoUrl {
             let photoUrl = URL(string: photoUrlString)
             postImageView.sd_setImage(with: photoUrl)
             
         }
-   }
-    override func awakeFromNib() {
-        super.awakeFromNib()
+        setupUserInfo()
+    }
+    
+    func setupUserInfo() {
         
+        nameLabel.text = user?.username
+        if let photoUrlString = user?.profileImageURL {
+            let photoUrl = URL(string: photoUrlString)
+            profileImageView.sd_setImage(with: photoUrl, placeholderImage: UIImage(named: "placeholderImg"))
+            
+        }
+
     }
 
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        print("is invoked")
+        profileImageView.image = UIImage(named: "placeholderImg")
+    }
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        nameLabel.text = ""
+        captionLabel.text = ""
+    }
+    
 }

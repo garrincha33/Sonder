@@ -15,6 +15,7 @@ class HomeVC: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     var posts = [Post]()
+    var users = [User]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,11 +47,26 @@ class HomeVC: UIViewController {
             print(Thread.isMainThread)
             if let dict = snapshot.value as? [String: Any] {
                 let newPost = Post.transformPost(dict: dict)
-                self.posts.append(newPost)
-                print(self.posts)
-                self.tableView.reloadData()
+                self.fetchUser(uid: newPost.uid, completed: {
+                    self.posts.append(newPost)
+                    self.tableView.reloadData()
+                })
+              
             }
         }
+    }
+    
+    func fetchUser(uid: String, completed: @escaping () -> Void) {
+    
+        FIRDatabase.database().reference().child("users").child(uid).observeSingleEvent(of: FIRDataEventType.value, with: { snapshot in
+            if let dict = snapshot.value as? [String: Any] {
+                let user = User.transformUserPost(dict: dict)
+                self.users.append(user)
+                completed()
+            }
+            
+            
+        })
     }
 }
 
@@ -62,22 +78,11 @@ extension HomeVC: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "PostCell", for: indexPath) as! HomeCustomCell
         let post = posts[indexPath.row]
+        let user = users[indexPath.row]
         cell.post = post
+        cell.user = user
         return cell
         
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
