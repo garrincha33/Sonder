@@ -14,6 +14,7 @@ import SDWebImage
 class HomeVC: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var activityIndicatorView: UIActivityIndicatorView!
     var posts = [Post]()
     var users = [User]()
 
@@ -43,12 +44,14 @@ class HomeVC: UIViewController {
     }
     
     func loadPosts() {
+        activityIndicatorView.startAnimating()
         DataService.data.REF_POSTS.observe(.childAdded) { (snapshot: FIRDataSnapshot) in
             print(Thread.isMainThread)
             if let dict = snapshot.value as? [String: Any] {
                 let newPost = Post.transformPost(dict: dict)
                 self.fetchUser(uid: newPost.uid, completed: {
                     self.posts.append(newPost)
+                    self.activityIndicatorView.stopAnimating()
                     self.tableView.reloadData()
                 })
               
