@@ -58,6 +58,13 @@ class HomeVC: UIViewController {
         }
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        
+        super.viewWillAppear(animated)
+        self.tabBarController?.tabBar.isHidden = false
+        
+    }
+    
     @IBAction func buttonPress(_ sender: Any) {
         
         self.performSegue(withIdentifier: "commentSegue", sender: nil)
