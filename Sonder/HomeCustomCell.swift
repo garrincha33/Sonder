@@ -40,6 +40,7 @@ class HomeCustomCell: UITableViewCell {
         
     }
     
+  
     func updateView() {
         
         captionLabel.text = post?.caption
@@ -48,7 +49,7 @@ class HomeCustomCell: UITableViewCell {
             postImageView.sd_setImage(with: photoUrl)
             
         }
-        setupUserInfo()
+       // setupUserInfo()
     }
     
     func setupUserInfo() {
@@ -64,7 +65,6 @@ class HomeCustomCell: UITableViewCell {
 
     override func prepareForReuse() {
         super.prepareForReuse()
-        print("is invoked")
         profileImageView.image = UIImage(named: "placeholderImg")
     }
     override func awakeFromNib() {

@@ -24,7 +24,7 @@ class CameraVC: UIViewController {
         let tap = UITapGestureRecognizer(target: self, action: #selector(self.handleSelectPhoto))
         photo.addGestureRecognizer(tap)
         photo.isUserInteractionEnabled = true
-        
+
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -51,14 +51,14 @@ class CameraVC: UIViewController {
         view.endEditing(true)
         
     }
-    
+
     func handleSelectPhoto() {
         let pickerController = UIImagePickerController()
         pickerController.delegate = self
         present(pickerController, animated:  true, completion: nil)
 
     }
-    
+
     func clean() {
         self.captionTextView.text = ""
         self.photo.image = UIImage(named: "Placeholder-image")
@@ -93,8 +93,8 @@ class CameraVC: UIViewController {
     
     
     func sendDataToDatabase(photoURL: String) {
-        let ref = FIRDatabase.database().reference()
-        let postsRef = ref.child("posts")
+        //let ref = FIRDatabase.database().reference()
+        let postsRef = DataService.data.REF_POSTS        //ref.child("posts")
         let newPostId = postsRef.childByAutoId().key
         let newPostReference = postsRef.child(newPostId)
         guard let currentUser = FIRAuth.auth()?.currentUser else {
@@ -126,15 +126,5 @@ extension CameraVC: UIImagePickerControllerDelegate, UINavigationControllerDeleg
         dismiss(animated: true, completion: nil)
     }
 }
-
-
-
-
-
-
-
-
-
-
 
 

@@ -29,6 +29,9 @@ class AuthService {
         })
     }
     
+ 
+    
+    
     static func checkUsername(username: String) {
         
         allUsers =  DataService.data.REF_USERS
@@ -65,12 +68,10 @@ class AuthService {
         })
         
     }
-
+    
+ 
     
 
-    
-    
-    
     static func signUp(username: String, email: String, password: String, imageData: Data, onSuccess: @escaping () ->  Void, onError: @escaping (_ errorMessage: String?) ->  Void) {
         FIRAuth.auth()?.createUser(withEmail: email, password: password, completion: { (user: FIRUser?, error: Error?) in
             if error != nil {
@@ -102,6 +103,8 @@ class AuthService {
         
     }
 
+
+    
 }
 
 

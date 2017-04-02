@@ -17,7 +17,7 @@ class HomeVC: UIViewController {
     @IBOutlet weak var activityIndicatorView: UIActivityIndicatorView!
     var posts = [Post]()
     var users = [User]()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.estimatedRowHeight = 521
@@ -27,7 +27,7 @@ class HomeVC: UIViewController {
     }
     
     @IBAction func logOutButtonPressed(_ sender: Any) {
-   
+        
         do {
             
             try FIRAuth.auth()?.signOut()
@@ -37,7 +37,7 @@ class HomeVC: UIViewController {
             print(logOutError)
             
         }
- 
+        
         let storyBoard = UIStoryboard(name: "Start", bundle: nil)
         let signInVC = storyBoard.instantiateViewController(withIdentifier: "SignInViewController")
         self.present(signInVC, animated: true, completion: nil)
@@ -54,28 +54,30 @@ class HomeVC: UIViewController {
                     self.activityIndicatorView.stopAnimating()
                     self.tableView.reloadData()
                 })
-              
             }
         }
     }
     
-    func fetchUser(uid: String, completed: @escaping () -> Void) {
+    @IBAction func buttonPress(_ sender: Any) {
+        
+        self.performSegue(withIdentifier: "commentSegue", sender: nil)
+    }
+   
     
-        FIRDatabase.database().reference().child("users").child(uid).observeSingleEvent(of: FIRDataEventType.value, with: { snapshot in
+    func fetchUser(uid: String, completed: @escaping () -> Void) {
+        DataService.data.REF_USERS.child(uid).observeSingleEvent(of: FIRDataEventType.value, with: { snapshot in
             if let dict = snapshot.value as? [String: Any] {
                 let user = User.transformUserPost(dict: dict)
                 self.users.append(user)
                 completed()
             }
-            
-            
         })
     }
 }
 
 extension HomeVC: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-
+        
         return posts.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

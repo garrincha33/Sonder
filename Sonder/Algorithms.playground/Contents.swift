@@ -66,6 +66,25 @@ func search(node: Node?, searchValue: Int) -> Bool {
 
 }
 
+func anotherSearch(node: Node?, searchValue: Int) -> Bool {
+    
+    if node?.value == nil {
+        
+        return false
+        
+    } else if searchValue < node!.value {
+        
+        return search(node: node?.leftChild, searchValue: searchValue)
+        
+    } else {
+        
+        return search(node: node?.rightChild, searchValue: searchValue)
+        
+    }
+    
+    
+}
+
 search(node: rootNode, searchValue: 20)
 
 
