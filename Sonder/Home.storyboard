@@ -257,6 +257,9 @@
                                         <state key="normal" title="Send">
                                             <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="sendCommentBtnPressed:" destination="o6Y-nu-1kx" eventType="touchUpInside" id="mos-b6-ShS"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -284,6 +287,10 @@
                         </constraints>
                     </view>
                     <nil key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="commentTextField" destination="whW-uW-IxP" id="BdF-Hu-RDg"/>
+                        <outlet property="sendButton" destination="fPg-hY-mqf" id="XVh-SR-Rga"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="g1k-jt-e01" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
