@@ -31,6 +31,7 @@
 		1B2227331E1910FE001E4C72 /* profileImg.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B2227321E1910FE001E4C72 /* profileImg.png */; };
 		1B30423B1E917BC5001EC90C /* CommentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B30423A1E917BC5001EC90C /* CommentVC.swift */; };
 		1B30423D1E917BFE001EC90C /* CommentCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B30423C1E917BFE001EC90C /* CommentCustomCell.swift */; };
+		1B30423F1E92CB61001EC90C /* Comments.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B30423E1E92CB61001EC90C /* Comments.swift */; };
 		1B3AD8C31E67461B00533666 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1B3AD8C21E67461B00533666 /* GoogleService-Info.plist */; };
 		1B76565F1E7FD69F00F3EC3B /* HomeCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B76565E1E7FD69F00F3EC3B /* HomeCustomCell.swift */; };
 		1B86174C1E6C92B0005CC16F /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B86174B1E6C92B0005CC16F /* AuthService.swift */; };
@@ -71,6 +72,7 @@
 		1B2227321E1910FE001E4C72 /* profileImg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = profileImg.png; sourceTree = "<group>"; };
 		1B30423A1E917BC5001EC90C /* CommentVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentVC.swift; sourceTree = "<group>"; };
 		1B30423C1E917BFE001EC90C /* CommentCustomCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentCustomCell.swift; sourceTree = "<group>"; };
+		1B30423E1E92CB61001EC90C /* Comments.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Comments.swift; sourceTree = "<group>"; };
 		1B3AD8C21E67461B00533666 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		1B76565E1E7FD69F00F3EC3B /* HomeCustomCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeCustomCell.swift; sourceTree = "<group>"; };
 		1B86174B1E6C92B0005CC16F /* AuthService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AuthService.swift; path = Sonder/AuthService.swift; sourceTree = "<group>"; };
@@ -199,6 +201,7 @@
 			children = (
 				1BC02A6A1E77173F006E4422 /* Post.swift */,
 				1BBA45B81E8C2AD3009EE708 /* User.swift */,
+				1B30423E1E92CB61001EC90C /* Comments.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -369,6 +372,7 @@
 				1B76565F1E7FD69F00F3EC3B /* HomeCustomCell.swift in Sources */,
 				1BBA45B91E8C2AD3009EE708 /* User.swift in Sources */,
 				1BC02A641E6E8CD8006E4422 /* ProgressHUD.m in Sources */,
+				1B30423F1E92CB61001EC90C /* Comments.swift in Sources */,
 				1B22272B1E181CD6001E4C72 /* SignInViewController.swift in Sources */,
 				1B30423D1E917BFE001EC90C /* CommentCustomCell.swift in Sources */,
 				1B2227171E181A66001E4C72 /* AppDelegate.swift in Sources */,

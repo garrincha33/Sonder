@@ -13,12 +13,18 @@ import FirebaseAuth
 
 class CommentVC: UIViewController {
     
-    
+    @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var commentTextField: UITextField!
     @IBOutlet weak var sendButton: UIButton!
     let postId = "KgciPp9tgOhCyQ-SYto"
+    var comments = [Comments]()
+    var users = [User]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.dataSource = self
+        tableView.estimatedRowHeight = 77
+        tableView.rowHeight = UITableViewAutomaticDimension
         sendButton.isEnabled = false
         empty()
         handleTextField()
@@ -33,12 +39,33 @@ class CommentVC: UIViewController {
             print(snapshot.key)
             FIRDatabase.database().reference().child("comments").child(snapshot.key).observeSingleEvent(of: .value, with: {
             snapshotComments in
-                print(snapshotComments.value)
-                
+                if let dict = snapshotComments.value as? [String: Any] {
+                    let newComment = Comments.transformComments(dict: dict)
+                    self.fetchUser(uid: newComment.uid, completed: {
+                        self.comments.append(newComment)
+                        self.tableView.reloadData()
+                    })
+ 
+                }
+
             })
 
         })
         
+    }
+    
+    func fetchUser(uid: String, completed: @escaping () -> Void) {
+        FIRDatabase.database().reference().child("users").child(uid).observeSingleEvent(of: FIRDataEventType.value, with: {
+            snapshot in
+            if let dict = snapshot.value as? [String: Any] {
+                let user = User.transformUserPost(dict: dict)
+                self.users.append(user)
+                completed()
+
+            }
+
+        })
+
     }
     
     func handleTextField() {
@@ -93,4 +120,20 @@ class CommentVC: UIViewController {
         sendButton.isEnabled = false
         sendButton.setTitleColor(.lightGray, for: .normal)
     }
+}
+
+extension CommentVC: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return comments.count
+    }
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CommentCell", for: indexPath) as! CommentCustomCell
+        let comment = comments[indexPath.row]
+        let user = users[indexPath.row]
+        cell.comment = comment
+        cell.user = user
+        return cell
+
+    }
+
 }

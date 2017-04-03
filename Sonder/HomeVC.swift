@@ -67,7 +67,7 @@ class HomeVC: UIViewController {
     
     @IBAction func buttonPress(_ sender: Any) {
         
-        self.performSegue(withIdentifier: "commentSegue", sender: nil)
+        self.performSegue(withIdentifier: "CommentSegue", sender: nil)
     }
    
     
