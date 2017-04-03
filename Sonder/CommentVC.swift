@@ -16,12 +16,29 @@ class CommentVC: UIViewController {
     
     @IBOutlet weak var commentTextField: UITextField!
     @IBOutlet weak var sendButton: UIButton!
-    
+    let postId = "KgciPp9tgOhCyQ-SYto"
     override func viewDidLoad() {
         super.viewDidLoad()
         sendButton.isEnabled = false
         empty()
         handleTextField()
+        loadComments()
+    }
+    
+    func loadComments() {
+        let postCommentRef = FIRDatabase.database().reference().child("post-comments").child(self.postId)
+        postCommentRef.observe(.childAdded, with: {
+        snapshot in
+            print("observe")
+            print(snapshot.key)
+            FIRDatabase.database().reference().child("comments").child(snapshot.key).observeSingleEvent(of: .value, with: {
+            snapshotComments in
+                print(snapshotComments.value)
+                
+            })
+
+        })
+        
     }
     
     func handleTextField() {
@@ -57,6 +74,16 @@ class CommentVC: UIViewController {
                 ProgressHUD.showError(error!.localizedDescription)
                 return
             }
+            let postCommentRef = FIRDatabase.database().reference().child("post-comments").child(self.postId).child(newCommentId)
+            postCommentRef.setValue(true, withCompletionBlock: { (error, ref) in
+                if error != nil {
+                    ProgressHUD.showError(error!.localizedDescription)
+                    return
+                    
+                }
+                
+            })
+            
             self.empty()
         }
     }
