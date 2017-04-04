@@ -43,12 +43,23 @@ class HomeVC: UIViewController {
         self.present(signInVC, animated: true, completion: nil)
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "CommentSegue" {
+            
+            let commentVC = segue.destination as! CommentVC
+            let postId = sender as! String
+            commentVC.postId = postId
+            
+        }
+    }
+    
     func loadPosts() {
         activityIndicatorView.startAnimating()
         DataService.data.REF_POSTS.observe(.childAdded) { (snapshot: FIRDataSnapshot) in
             print(Thread.isMainThread)
             if let dict = snapshot.value as? [String: Any] {
-                let newPost = Post.transformPost(dict: dict)
+                let newPost = Post.transformPost(dict: dict, key: snapshot.key)
                 self.fetchUser(uid: newPost.uid, completed: {
                     self.posts.append(newPost)
                     self.activityIndicatorView.stopAnimating()
@@ -57,20 +68,7 @@ class HomeVC: UIViewController {
             }
         }
     }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        
-        super.viewWillAppear(animated)
-        self.tabBarController?.tabBar.isHidden = false
-        
-    }
-    
-    @IBAction func buttonPress(_ sender: Any) {
-        
-        self.performSegue(withIdentifier: "CommentSegue", sender: nil)
-    }
-   
-    
+ 
     func fetchUser(uid: String, completed: @escaping () -> Void) {
         DataService.data.REF_USERS.child(uid).observeSingleEvent(of: FIRDataEventType.value, with: { snapshot in
             if let dict = snapshot.value as? [String: Any] {
@@ -93,6 +91,7 @@ extension HomeVC: UITableViewDataSource {
         let user = users[indexPath.row]
         cell.post = post
         cell.user = user
+        cell.homeVC = self
         return cell
         
     }

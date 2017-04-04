@@ -185,6 +185,11 @@
                                     <constraint firstAttribute="height" constant="106" id="sFB-0H-lqg"/>
                                     <constraint firstAttribute="width" constant="162" id="z2b-7x-64f"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="53"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -241,6 +246,6 @@
         <image name="profileImg.png" width="700" height="700"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="8wT-KJ-tlR"/>
+        <segue reference="aYW-Gt-Uff"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -18,12 +18,13 @@ class CommentVC: UIViewController {
     @IBOutlet weak var sendButton: UIButton!
     @IBOutlet weak var constraintToBottom: NSLayoutConstraint!
     
-    let postId = "KgciPp9tgOhCyQ-SYto"
+    var postId : String!
     var comments = [Comments]()
     var users = [User]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = "Comment"
         tableView.dataSource = self
         tableView.estimatedRowHeight = 77
         tableView.rowHeight = UITableViewAutomaticDimension
@@ -115,6 +116,11 @@ class CommentVC: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.tabBarController?.tabBar.isHidden = true
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.tabBarController?.tabBar.isHidden = false
     }
     
     @IBAction func sendCommentBtnPressed(_ sender: Any) {

@@ -21,6 +21,8 @@ class HomeCustomCell: UITableViewCell {
     @IBOutlet weak var likeCountBtn: UIButton!
     @IBOutlet weak var captionLabel: UILabel!
     
+    var homeVC: HomeVC?
+  
     var post: Post? {
         
         didSet {
@@ -71,6 +73,19 @@ class HomeCustomCell: UITableViewCell {
         super.awakeFromNib()
         nameLabel.text = ""
         captionLabel.text = ""
+        let tap = UITapGestureRecognizer(target: self, action: #selector(self.handleCommentTap))
+        commentImageView.addGestureRecognizer(tap)
+        commentImageView.isUserInteractionEnabled = true
+        
+        
     }
     
+    func handleCommentTap() {
+        if let id = post?.id {
+            
+             homeVC?.performSegue(withIdentifier: "CommentSegue", sender: id)
+        }
+        
+       
+    }
 }

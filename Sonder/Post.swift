@@ -14,6 +14,7 @@ class Post {
     private var _photoUrl: String?
     private var _videoUrl: String?
     private var _uid: String?
+    private var _id: String?
     
     var caption: String {
         
@@ -91,17 +92,36 @@ class Post {
         }
         
     }
+    
+    var id: String {
+        
+        set {
+            
+            self._id  = newValue
+        }
+        
+        get {
+            
+            if _id == nil {
+                
+                return "is nil"
+                
+            }
+            return _id!
+        }
+        
+    }
 
 }
 
 extension Post {
     
-    static func transformPost(dict: [String: Any]) -> Post {
-        
+    static func transformPost(dict: [String: Any], key: String) -> Post {
         let postPhoto = Post()
         postPhoto.caption = (dict["Caption"] as? String)!
         postPhoto.photoUrl = (dict["photoURL"] as? String)!
         postPhoto.uid = (dict["uid"] as? String)!
+        postPhoto.id = key
         return postPhoto
   
     }

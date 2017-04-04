@@ -31,6 +31,11 @@
                                             <constraint firstAttribute="width" constant="80" id="AAJ-nF-rbW"/>
                                             <constraint firstAttribute="height" constant="80" id="WEa-ip-s5p"/>
                                         </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="40"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                     </imageView>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="QwF-XN-5SW">
                                         <rect key="frame" x="96" y="10" width="271" height="80"/>
@@ -104,7 +109,7 @@
                     </tabBarItem>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="DaW-c3-MPh">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="DaW-c3-MPh">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
