@@ -16,6 +16,8 @@ class CommentVC: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var commentTextField: UITextField!
     @IBOutlet weak var sendButton: UIButton!
+    @IBOutlet weak var constraintToBottom: NSLayoutConstraint!
+    
     let postId = "KgciPp9tgOhCyQ-SYto"
     var comments = [Comments]()
     var users = [User]()
@@ -29,6 +31,34 @@ class CommentVC: UIViewController {
         empty()
         handleTextField()
         loadComments()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow(_:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide(_:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        view.endEditing(true)
+    }
+    
+    func keyboardWillShow(_ notication: NSNotification) {
+        
+        print(notication)
+        let keyboardFrame = (notication.userInfo?[UIKeyboardFrameEndUserInfoKey] as AnyObject).cgRectValue
+        UIView.animate(withDuration: 0.3) {
+            self.constraintToBottom.constant = keyboardFrame!.height
+            self.view.layoutIfNeeded()
+        }
+        
+    }
+    
+    func keyboardWillHide(_ notication: NSNotification) {
+        
+        print(notication)
+        UIView.animate(withDuration: 0.3) {
+            self.constraintToBottom.constant = 0
+            self.view.layoutIfNeeded()
+        }
+        
     }
     
     func loadComments() {
@@ -112,6 +142,7 @@ class CommentVC: UIViewController {
             })
             
             self.empty()
+            self.view.endEditing(true)
         }
     }
     

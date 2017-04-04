@@ -304,6 +304,7 @@
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="commentTextField" destination="whW-uW-IxP" id="BdF-Hu-RDg"/>
+                        <outlet property="constraintToBottom" destination="dvs-uN-aCa" id="Zp9-0z-9eO"/>
                         <outlet property="sendButton" destination="fPg-hY-mqf" id="XVh-SR-Rga"/>
                         <outlet property="tableView" destination="wo4-lN-bkn" id="qeS-1n-l70"/>
                     </connections>
