@@ -44,38 +44,29 @@ class HomeVC: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
         if segue.identifier == "CommentSegue" {
-            
             let commentVC = segue.destination as! CommentVC
             let postId = sender as! String
             commentVC.postId = postId
-            
         }
     }
-    
+
     func loadPosts() {
         activityIndicatorView.startAnimating()
-        DataService.data.REF_POSTS.observe(.childAdded) { (snapshot: FIRDataSnapshot) in
-            print(Thread.isMainThread)
-            if let dict = snapshot.value as? [String: Any] {
-                let newPost = Post.transformPost(dict: dict, key: snapshot.key)
-                self.fetchUser(uid: newPost.uid, completed: {
-                    self.posts.append(newPost)
-                    self.activityIndicatorView.stopAnimating()
-                    self.tableView.reloadData()
-                })
-            }
+        Api.Post.observePosts { (newPost) in
+            self.fetchUser(uid: newPost.uid, completed: {
+                self.posts.append(newPost)
+                self.activityIndicatorView.stopAnimating()
+                self.tableView.reloadData()
+            })
         }
     }
  
     func fetchUser(uid: String, completed: @escaping () -> Void) {
-        DataService.data.REF_USERS.child(uid).observeSingleEvent(of: FIRDataEventType.value, with: { snapshot in
-            if let dict = snapshot.value as? [String: Any] {
-                let user = User.transformUserPost(dict: dict)
-                self.users.append(user)
-                completed()
-            }
+        Api.User.observeUser(withUid: uid, completion: {
+            user in
+            self.users.append(user)
+            completed()
         })
     }
 }

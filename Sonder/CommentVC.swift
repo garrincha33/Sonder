@@ -42,8 +42,6 @@ class CommentVC: UIViewController {
     }
     
     func keyboardWillShow(_ notication: NSNotification) {
-        
-        print(notication)
         let keyboardFrame = (notication.userInfo?[UIKeyboardFrameEndUserInfoKey] as AnyObject).cgRectValue
         UIView.animate(withDuration: 0.3) {
             self.constraintToBottom.constant = keyboardFrame!.height
@@ -53,7 +51,6 @@ class CommentVC: UIViewController {
     }
     
     func keyboardWillHide(_ notication: NSNotification) {
-        
         print(notication)
         UIView.animate(withDuration: 0.3) {
             self.constraintToBottom.constant = 0
@@ -68,18 +65,30 @@ class CommentVC: UIViewController {
         snapshot in
             print("observe")
             print(snapshot.key)
-            FIRDatabase.database().reference().child("comments").child(snapshot.key).observeSingleEvent(of: .value, with: {
-            snapshotComments in
-                if let dict = snapshotComments.value as? [String: Any] {
-                    let newComment = Comments.transformComments(dict: dict)
-                    self.fetchUser(uid: newComment.uid, completed: {
-                        self.comments.append(newComment)
-                        self.tableView.reloadData()
-                    })
- 
-                }
-
+            Api.Comment.observeComments(withPostId: snapshot.key, completion: {
+                comment in
+                self.fetchUser(uid: comment.uid, completed: {
+                    self.comments.append(comment)
+                    self.tableView.reloadData()
+                })
             })
+            
+            
+            
+            
+            
+//            FIRDatabase.database().reference().child("comments").child(snapshot.key).observeSingleEvent(of: .value, with: {
+//            snapshotComments in
+//                if let dict = snapshotComments.value as? [String: Any] {
+//                    let newComment = Comments.transformComments(dict: dict)
+//                    self.fetchUser(uid: newComment.uid, completed: {
+//                        self.comments.append(newComment)
+//                        self.tableView.reloadData()
+//                    })
+// 
+//                }
+//
+//            })
 
         })
         

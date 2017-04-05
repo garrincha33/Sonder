@@ -32,6 +32,10 @@
 		1B30423B1E917BC5001EC90C /* CommentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B30423A1E917BC5001EC90C /* CommentVC.swift */; };
 		1B30423D1E917BFE001EC90C /* CommentCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B30423C1E917BFE001EC90C /* CommentCustomCell.swift */; };
 		1B30423F1E92CB61001EC90C /* Comments.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B30423E1E92CB61001EC90C /* Comments.swift */; };
+		1B3042411E955E8E001EC90C /* PostApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B3042401E955E8E001EC90C /* PostApi.swift */; };
+		1B3042431E9561B5001EC90C /* UserApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B3042421E9561B5001EC90C /* UserApi.swift */; };
+		1B3042451E9564EA001EC90C /* Api.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B3042441E9564EA001EC90C /* Api.swift */; };
+		1B3042471E95658E001EC90C /* CommentApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B3042461E95658E001EC90C /* CommentApi.swift */; };
 		1B3AD8C31E67461B00533666 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1B3AD8C21E67461B00533666 /* GoogleService-Info.plist */; };
 		1B76565F1E7FD69F00F3EC3B /* HomeCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B76565E1E7FD69F00F3EC3B /* HomeCustomCell.swift */; };
 		1B86174C1E6C92B0005CC16F /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B86174B1E6C92B0005CC16F /* AuthService.swift */; };
@@ -73,6 +77,10 @@
 		1B30423A1E917BC5001EC90C /* CommentVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentVC.swift; sourceTree = "<group>"; };
 		1B30423C1E917BFE001EC90C /* CommentCustomCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentCustomCell.swift; sourceTree = "<group>"; };
 		1B30423E1E92CB61001EC90C /* Comments.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Comments.swift; sourceTree = "<group>"; };
+		1B3042401E955E8E001EC90C /* PostApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostApi.swift; sourceTree = "<group>"; };
+		1B3042421E9561B5001EC90C /* UserApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserApi.swift; sourceTree = "<group>"; };
+		1B3042441E9564EA001EC90C /* Api.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Api.swift; sourceTree = "<group>"; };
+		1B3042461E95658E001EC90C /* CommentApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentApi.swift; sourceTree = "<group>"; };
 		1B3AD8C21E67461B00533666 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		1B76565E1E7FD69F00F3EC3B /* HomeCustomCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeCustomCell.swift; sourceTree = "<group>"; };
 		1B86174B1E6C92B0005CC16F /* AuthService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AuthService.swift; path = Sonder/AuthService.swift; sourceTree = "<group>"; };
@@ -192,6 +200,10 @@
 				1B1456041E632D6A00146781 /* DataService.swift */,
 				1B86174B1E6C92B0005CC16F /* AuthService.swift */,
 				1BC02A5D1E6DEB76006E4422 /* Config.swift */,
+				1B3042401E955E8E001EC90C /* PostApi.swift */,
+				1B3042421E9561B5001EC90C /* UserApi.swift */,
+				1B3042441E9564EA001EC90C /* Api.swift */,
+				1B3042461E95658E001EC90C /* CommentApi.swift */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -362,6 +374,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1B2227311E190F2B001E4C72 /* SignUpViewController.swift in Sources */,
+				1B3042431E9561B5001EC90C /* UserApi.swift in Sources */,
 				1B1456111E64A4C300146781 /* ActivityVC.swift in Sources */,
 				1B14560B1E64A44500146781 /* HomeVC.swift in Sources */,
 				1B1456131E64A4D200146781 /* ProfileVC.swift in Sources */,
@@ -370,12 +383,15 @@
 				1B30423B1E917BC5001EC90C /* CommentVC.swift in Sources */,
 				1B14560F1E64A4A800146781 /* CameraVC.swift in Sources */,
 				1B76565F1E7FD69F00F3EC3B /* HomeCustomCell.swift in Sources */,
+				1B3042471E95658E001EC90C /* CommentApi.swift in Sources */,
 				1BBA45B91E8C2AD3009EE708 /* User.swift in Sources */,
 				1BC02A641E6E8CD8006E4422 /* ProgressHUD.m in Sources */,
+				1B3042451E9564EA001EC90C /* Api.swift in Sources */,
 				1B30423F1E92CB61001EC90C /* Comments.swift in Sources */,
 				1B22272B1E181CD6001E4C72 /* SignInViewController.swift in Sources */,
 				1B30423D1E917BFE001EC90C /* CommentCustomCell.swift in Sources */,
 				1B2227171E181A66001E4C72 /* AppDelegate.swift in Sources */,
+				1B3042411E955E8E001EC90C /* PostApi.swift in Sources */,
 				1B86174C1E6C92B0005CC16F /* AuthService.swift in Sources */,
 				1B1456051E632D6A00146781 /* DataService.swift in Sources */,
 				1B14560D1E64A48000146781 /* DiscoverVC.swift in Sources */,
