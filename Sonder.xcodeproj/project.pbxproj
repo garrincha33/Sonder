@@ -36,6 +36,7 @@
 		1B3042431E9561B5001EC90C /* UserApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B3042421E9561B5001EC90C /* UserApi.swift */; };
 		1B3042451E9564EA001EC90C /* Api.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B3042441E9564EA001EC90C /* Api.swift */; };
 		1B3042471E95658E001EC90C /* CommentApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B3042461E95658E001EC90C /* CommentApi.swift */; };
+		1B30424B1E958369001EC90C /* Post_CommentApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B30424A1E958369001EC90C /* Post_CommentApi.swift */; };
 		1B3AD8C31E67461B00533666 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1B3AD8C21E67461B00533666 /* GoogleService-Info.plist */; };
 		1B76565F1E7FD69F00F3EC3B /* HomeCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B76565E1E7FD69F00F3EC3B /* HomeCustomCell.swift */; };
 		1B86174C1E6C92B0005CC16F /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B86174B1E6C92B0005CC16F /* AuthService.swift */; };
@@ -81,6 +82,7 @@
 		1B3042421E9561B5001EC90C /* UserApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserApi.swift; sourceTree = "<group>"; };
 		1B3042441E9564EA001EC90C /* Api.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Api.swift; sourceTree = "<group>"; };
 		1B3042461E95658E001EC90C /* CommentApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentApi.swift; sourceTree = "<group>"; };
+		1B30424A1E958369001EC90C /* Post_CommentApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post_CommentApi.swift; sourceTree = "<group>"; };
 		1B3AD8C21E67461B00533666 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		1B76565E1E7FD69F00F3EC3B /* HomeCustomCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeCustomCell.swift; sourceTree = "<group>"; };
 		1B86174B1E6C92B0005CC16F /* AuthService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AuthService.swift; path = Sonder/AuthService.swift; sourceTree = "<group>"; };
@@ -202,6 +204,7 @@
 				1BC02A5D1E6DEB76006E4422 /* Config.swift */,
 				1B3042401E955E8E001EC90C /* PostApi.swift */,
 				1B3042421E9561B5001EC90C /* UserApi.swift */,
+				1B30424A1E958369001EC90C /* Post_CommentApi.swift */,
 				1B3042441E9564EA001EC90C /* Api.swift */,
 				1B3042461E95658E001EC90C /* CommentApi.swift */,
 			);
@@ -389,6 +392,7 @@
 				1B3042451E9564EA001EC90C /* Api.swift in Sources */,
 				1B30423F1E92CB61001EC90C /* Comments.swift in Sources */,
 				1B22272B1E181CD6001E4C72 /* SignInViewController.swift in Sources */,
+				1B30424B1E958369001EC90C /* Post_CommentApi.swift in Sources */,
 				1B30423D1E917BFE001EC90C /* CommentCustomCell.swift in Sources */,
 				1B2227171E181A66001E4C72 /* AppDelegate.swift in Sources */,
 				1B3042411E955E8E001EC90C /* PostApi.swift in Sources */,

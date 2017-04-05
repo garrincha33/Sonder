@@ -51,7 +51,6 @@ class CommentVC: UIViewController {
     }
     
     func keyboardWillHide(_ notication: NSNotification) {
-        print(notication)
         UIView.animate(withDuration: 0.3) {
             self.constraintToBottom.constant = 0
             self.view.layoutIfNeeded()
@@ -60,49 +59,33 @@ class CommentVC: UIViewController {
     }
     
     func loadComments() {
-        let postCommentRef = FIRDatabase.database().reference().child("post-comments").child(self.postId)
-        postCommentRef.observe(.childAdded, with: {
-        snapshot in
-            print("observe")
-            print(snapshot.key)
-            Api.Comment.observeComments(withPostId: snapshot.key, completion: {
-                comment in
+        Api.Post_Comment.REF_POST_COMMENTS.child(self.postId).observe(.childAdded, with: {
+            snapshot in
+            Api.Comment.observeComments(withPostId: snapshot.key, completion: { comment in
                 self.fetchUser(uid: comment.uid, completed: {
-                    self.comments.append(comment)
-                    self.tableView.reloadData()
+                self.comments.append(comment)
+                self.tableView.reloadData()
                 })
+
             })
-            
-            
-            
-            
-            
-//            FIRDatabase.database().reference().child("comments").child(snapshot.key).observeSingleEvent(of: .value, with: {
-//            snapshotComments in
-//                if let dict = snapshotComments.value as? [String: Any] {
-//                    let newComment = Comments.transformComments(dict: dict)
-//                    self.fetchUser(uid: newComment.uid, completed: {
-//                        self.comments.append(newComment)
-//                        self.tableView.reloadData()
-//                    })
-// 
-//                }
-//
-//            })
 
         })
-        
+//        let postCommentRef = FIRDatabase.database().reference().child("post-comments").child(self.postId)
+//        postCommentRef.observe(.childAdded, with: {
+//        snapshot in
+//            Api.Comment.observeComments(withPostId: snapshot.key, completion: {
+//                comment in
+//                self.fetchUser(uid: comment.uid, completed: {
+//                    self.comments.append(comment)
+//                    self.tableView.reloadData()
+      
     }
     
     func fetchUser(uid: String, completed: @escaping () -> Void) {
-        FIRDatabase.database().reference().child("users").child(uid).observeSingleEvent(of: FIRDataEventType.value, with: {
-            snapshot in
-            if let dict = snapshot.value as? [String: Any] {
-                let user = User.transformUserPost(dict: dict)
-                self.users.append(user)
-                completed()
-
-            }
+        Api.User.observeUser(withUid: uid, completion: {
+            user in
+            self.users.append(user)
+            completed()
 
         })
 
@@ -133,8 +116,7 @@ class CommentVC: UIViewController {
     }
     
     @IBAction func sendCommentBtnPressed(_ sender: Any) {
-        let ref = FIRDatabase.database().reference()
-        let commentsRef = ref.child("comments")
+        let commentsRef = Api.Comment.REF_COMMENTS
         let newCommentId = commentsRef.childByAutoId().key
         let newCommentRef = commentsRef.child(newCommentId)
         guard let currentUser = FIRAuth.auth()?.currentUser else {
@@ -146,7 +128,7 @@ class CommentVC: UIViewController {
                 ProgressHUD.showError(error!.localizedDescription)
                 return
             }
-            let postCommentRef = FIRDatabase.database().reference().child("post-comments").child(self.postId).child(newCommentId)
+            let postCommentRef = Api.Post_Comment.REF_POST_COMMENTS.child(self.postId).child(newCommentId)
             postCommentRef.setValue(true, withCompletionBlock: { (error, ref) in
                 if error != nil {
                     ProgressHUD.showError(error!.localizedDescription)
