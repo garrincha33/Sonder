@@ -17,6 +17,9 @@ class HomeVC: UIViewController {
     @IBOutlet weak var activityIndicatorView: UIActivityIndicatorView!
     var posts = [Post]()
     var users = [User]()
+//    var allUsers: FIRDatabaseReference!
+//    var alluids = [String]()
+//    var allUsersArray = [String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,6 +27,7 @@ class HomeVC: UIViewController {
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.dataSource = self
         loadPosts()
+        //getAllUsers()
     }
     
     @IBAction func logOutButtonPressed(_ sender: Any) {
@@ -69,6 +73,39 @@ class HomeVC: UIViewController {
             completed()
         })
     }
+    
+//    func getAllUsers() {
+//        
+//        allUsers =  DataService.data.REF_USERS
+//        allUsers.observeSingleEvent(of: .value, with: {(snapshot) in
+//            var uidString = ""
+//            if let dict1 = snapshot.value as? [String: AnyObject] {
+//                self.alluids = [String] (dict1.keys)
+//                for index in 0..<self.alluids.count{
+//                    uidString=self.alluids[index]
+//                    let temp = dict1[String(format: "%@", uidString)] as? [String: AnyObject]
+//                    let checkString = temp!["username"] as? String
+//                    if (checkString == nil)
+//                    {
+//                    }else
+//                    {
+//                        self.allUsersArray.append((checkString)!)
+//                    }
+//                    print("array is \(self.allUsersArray)")
+//                    
+//                    
+//                }
+//                
+//            }
+//            
+//        })
+//        
+//        
+//    }
+//    
+    
+    
+   
 }
 
 extension HomeVC: UITableViewDataSource {

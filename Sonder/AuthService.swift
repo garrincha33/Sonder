@@ -28,44 +28,7 @@ class AuthService {
             
         })
     }
-
-    static func checkUsername(username: String) {
-        
-        allUsers =  DataService.data.REF_USERS
-        allUsers.observeSingleEvent(of: .value, with: { (snapshot) in
-            var uidString = ""
-            if let dict1 = snapshot.value as? [String: AnyObject] {
-                allUids = [String] (dict1.keys)
-                for index in 0..<allUids.count {
-                    uidString = allUids[index]
-                    let temp = dict1[String(format: "@", uidString)] as? [String: AnyObject]
-                    let checkString = temp!["users"] as? String
-                    print("Check String is \(checkString)")
-                    if (checkString == nil) {
-
-                    } else {
-                        
-                        allUsersArray.append(checkString!)
-                        
-                    }
-                    
-                }
-                
-               print("array is \(allUsersArray)")
-                if allUsersArray.contains(username) {
-                    
-                    print("this username already exists")
-                    return
-                    
-                }
-                
-            }
-
-            
-        })
-        
-    }
-
+    
     static func signUp(username: String, email: String, password: String, imageData: Data, onSuccess: @escaping () ->  Void, onError: @escaping (_ errorMessage: String?) ->  Void) {
         FIRAuth.auth()?.createUser(withEmail: email, password: password, completion: { (user: FIRUser?, error: Error?) in
             if error != nil {

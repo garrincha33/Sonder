@@ -24,6 +24,7 @@ class CameraVC: UIViewController {
         let tap = UITapGestureRecognizer(target: self, action: #selector(self.handleSelectPhoto))
         photo.addGestureRecognizer(tap)
         photo.isUserInteractionEnabled = true
+        
 
     }
     
@@ -90,7 +91,7 @@ class CameraVC: UIViewController {
         clean()
         handlePost()
     }
-    
+
     
     func sendDataToDatabase(photoURL: String) {
         //let ref = FIRDatabase.database().reference()

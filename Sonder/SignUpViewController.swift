@@ -95,6 +95,43 @@ class SignUpViewController: UIViewController {
   
     }
     
+        func checkUsername(username: String) {
+        
+        allUsers =  DataService.data.REF_USERS
+        allUsers.observeSingleEvent(of: .value, with: { (snapshot) in
+            var uidString = ""
+            if let dict1 = snapshot.value as? [String: AnyObject] {
+                allUids = [String] (dict1.keys)
+                for index in 0..<allUids.count {
+                    uidString = allUids[index]
+                    let temp = dict1[String(format: "@", uidString)] as? [String: AnyObject]
+                    let checkString = temp!["users"] as? String
+                    print("Check String is \(checkString)")
+                    if (checkString == nil) {
+                        
+                    } else {
+                        
+                        allUsersArray.append(checkString!)
+                        
+                    }
+                    
+                }
+                
+                print("array is \(allUsersArray)")
+                if allUsersArray.contains(username) {
+                    
+                    print("this username already exists")
+                    return
+                    
+                }
+                
+            }
+            
+            
+        })
+        
+    }
+    
     @IBAction func backToSignInBtnPressed(_ sender: Any) {
         
         dismiss(animated: true, completion: nil)
@@ -103,7 +140,6 @@ class SignUpViewController: UIViewController {
     @IBAction func singUpBtnPressed(_ sender: Any) {
        
         view.endEditing(true)
-     
         ProgressHUD.show("Waiting", interaction: false)
             if let profileImg = self.selectedImage, let imageData = UIImageJPEGRepresentation(profileImg, 0.1) {
             AuthService.signUp(username: usernameTextField.text!, email: emailTextField.text!, password: passwordTextField.text!, imageData: imageData, onSuccess: {
