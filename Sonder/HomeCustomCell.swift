@@ -21,6 +21,7 @@ class HomeCustomCell: UITableViewCell {
     @IBOutlet weak var likeCountBtn: UIButton!
     @IBOutlet weak var captionLabel: UILabel!
     
+    var postRef: FIRDatabaseReference!
     var homeVC: HomeVC?
     
     var post: Post? {
@@ -50,21 +51,34 @@ class HomeCustomCell: UITableViewCell {
             postImageView.sd_setImage(with: photoUrl)
             
         }
-        if let currentUser = FIRAuth.auth()?.currentUser {
-            Api.User.REF_USERS.child(currentUser.uid).child("likes").child((post?.id)!).observeSingleEvent(of: .value, with: {
-                
-                snapshot in
-                //nsnull = is a value, nil = isnt a value
-                if let _ = snapshot.value as? NSNull {
-                    self.likeImageView.image = UIImage(named: "likenofill")
-                    
-                } else {
-                    
-                    self.likeImageView.image = UIImage(named: "likeFill")
-                    
-                }
-                
-            })
+        
+        updateLike(post: post!)
+        Api.Post.REF_POSTS.child(post!.id).observe(.childChanged, with: {
+        
+            snapshot in
+            if let value = snapshot.value as? Int {
+                self.likeCountBtn.setTitle("\(value) likes", for: .normal)
+            }
+        
+        })
+
+    }
+    
+    func updateLike(post: Post) {
+        print(post.isLiked)
+        let imageName = post.likes == nil || !post.isLiked ? "likenofill" : "likeFill"
+        likeImageView.image = UIImage(named: imageName)
+        guard let count = post.likeCount else {
+            return
+        }
+        if count != 0 {
+            likeCountBtn.setTitle("\(count) likes", for: UIControlState.normal)
+        }
+        if let isOne = post.likeCount, isOne == 1 {
+            likeCountBtn.setTitle("\(isOne) like", for: UIControlState.normal)
+        }
+        else if count == 0 {
+            likeCountBtn.setTitle("be the first to like", for: UIControlState.normal)
         }
     }
     
@@ -96,19 +110,49 @@ class HomeCustomCell: UITableViewCell {
    
     }
     func handleImageTap() {
-        if let currentUser = FIRAuth.auth()?.currentUser {
-            Api.User.REF_USERS.child(currentUser.uid).child("likes").child((post?.id)!).observeSingleEvent(of: .value, with: {
-                snapshot in
-                if let _ = snapshot.value as? NSNull {
-                    Api.User.REF_USERS.child(currentUser.uid).child("likes").child((self.post?.id)!).setValue(true)
-                    self.likeImageView.image = UIImage(named: "likeFill")
-                } else {
-                    Api.User.REF_USERS.child(currentUser.uid).child("likes").child((self.post?.id)!).removeValue()
-                    self.likeImageView.image = UIImage(named: "likenofill")
+        postRef = Api.Post.REF_POSTS.child(post!.id)
+        incrementLikes(forRef: postRef)
+     
+    }
+    
+    func incrementLikes(forRef ref: FIRDatabaseReference) {
+  
+            ref.runTransactionBlock({ (currentData: FIRMutableData) -> FIRTransactionResult in
+                if var post = currentData.value as? [String : AnyObject], let uid = FIRAuth.auth()?.currentUser?.uid {
+                    print("value :-\(currentData.value)")
+                    var likes: Dictionary<String, Bool>
+                    likes = post["likes"] as? [String : Bool] ?? [:]
+                    var likeCount = post["likeCount"] as? Int ?? 0
+                    if let _ = likes[uid] {
+                        // Unstar the post and remove self from stars
+                        likeCount -= 1
+                        likes.removeValue(forKey: uid)
+                    } else {
+                        // Star the post and add self to stars
+                        likeCount += 1
+                        likes[uid] = true
+                    }
+                    post["likeCount"] = likeCount as AnyObject?
+                    post["likes"] = likes as AnyObject?
+                    
+                    // Set value and report transaction success
+                    currentData.value = post
+                    
+                    return FIRTransactionResult.success(withValue: currentData)
                 }
-                
-            })
-        }
+                return FIRTransactionResult.success(withValue: currentData)
+            }) { (error, committed, snapshot) in
+                if let error = error {
+                    print(error.localizedDescription)
+                }
+                if let dict = snapshot?.value as? [String: Any] {
+                    let post = Post.transformPost(dict: dict, key: snapshot!.key)
+                    self.updateLike(post: post)
+                }
+            }
+        
+      
+        
     }
     
     func handleCommentTap() {

@@ -11,6 +11,7 @@ import FirebaseDatabase
 
 class UserApi {
     var REF_USERS = FIRDatabase.database().reference().child("users")
+    
     func observeUser(withUid uid: String, completion: @escaping (User) -> Void) {
         REF_USERS.child(uid).observeSingleEvent(of: .value, with: { snapshot in
             if let dict = snapshot.value as? [String: Any] {
