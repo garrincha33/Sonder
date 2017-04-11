@@ -49,12 +49,16 @@ class HomeCustomCell: UITableViewCell {
         if let photoUrlString = post?.photoUrl {
             let photoUrl = URL(string: photoUrlString)
             postImageView.sd_setImage(with: photoUrl)
-            
         }
         
-        updateLike(post: post!)
+        Api.Post.REF_POSTS.child(post!.id).observeSingleEvent(of: .value, with: {
+        snapshot in
+            if let dict = snapshot.value as? [String: Any] {
+                let post = Post.transformPost(dict: dict, key: snapshot.key)
+                self.updateLike(post: post)
+            }
+        })
         Api.Post.REF_POSTS.child(post!.id).observe(.childChanged, with: {
-        
             snapshot in
             if let value = snapshot.value as? Int {
                 self.likeCountBtn.setTitle("\(value) likes", for: .normal)
