@@ -24,10 +24,9 @@ class CameraVC: UIViewController {
         let tap = UITapGestureRecognizer(target: self, action: #selector(self.handleSelectPhoto))
         photo.addGestureRecognizer(tap)
         photo.isUserInteractionEnabled = true
-        
 
     }
-    
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         handlePost()

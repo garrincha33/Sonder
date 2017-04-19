@@ -28,6 +28,7 @@ class AuthService {
             
         })
     }
+
     
     static func signUp(username: String, email: String, password: String, imageData: Data, onSuccess: @escaping () ->  Void, onError: @escaping (_ errorMessage: String?) ->  Void) {
         FIRAuth.auth()?.createUser(withEmail: email, password: password, completion: { (user: FIRUser?, error: Error?) in
@@ -49,7 +50,7 @@ class AuthService {
         })
         
     }
-    
+
     static func setUserInfomation(profileImageUrl: String, username: String, email: String, uid: String, onSucess: @escaping() -> Void) {
         let ref = FIRDatabase.database().reference()
         let usersReference = ref.child("users")

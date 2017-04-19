@@ -85,7 +85,7 @@ class SignUpViewController: UIViewController {
         signUpButton.setTitleColor(UIColor.yellow, for: UIControlState.normal)
         signUpButton.isEnabled = true
     }
-    
+
     //----validation methods----------
     
     func handleSelectProfileImageView() {

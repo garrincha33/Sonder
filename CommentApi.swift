@@ -24,5 +24,19 @@ class CommentApi {
         })
 
     }
+    
+    func observeMoreComments(withPostId id: String, completion: @escaping (Comments) -> Void) {
+        
+        REF_COMMENTS.child(id).observeSingleEvent(of: .value, with: {
+            snapshot in
+            if let dict = snapshot.value as? [String: Any] {
+                let newComment = Comments.transformComments(dict: dict)
+                completion(newComment)
+            }
+        
+        })
+        
+        
+    }
 
 }

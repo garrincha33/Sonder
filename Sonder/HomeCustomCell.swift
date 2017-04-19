@@ -69,7 +69,6 @@ class HomeCustomCell: UITableViewCell {
     }
     
     func updateLike(post: Post) {
-        print(post.isLiked)
         let imageName = post.likes == nil || !post.isLiked ? "likenofill" : "likeFill"
         likeImageView.image = UIImage(named: imageName)
         guard let count = post.likeCount else {
@@ -78,8 +77,8 @@ class HomeCustomCell: UITableViewCell {
         if count != 0 {
             likeCountBtn.setTitle("\(count) likes", for: UIControlState.normal)
         }
-        if let isOne = post.likeCount, isOne == 1 {
-            likeCountBtn.setTitle("\(isOne) like", for: UIControlState.normal)
+        if count == 1 {
+            likeCountBtn.setTitle("\(count) like", for: UIControlState.normal)
         }
         else if count == 0 {
             likeCountBtn.setTitle("be the first to like", for: UIControlState.normal)
@@ -111,7 +110,7 @@ class HomeCustomCell: UITableViewCell {
         let likeTap = UITapGestureRecognizer(target: self, action: #selector(self.handleImageTap))
         likeImageView.addGestureRecognizer(likeTap)
         likeImageView.isUserInteractionEnabled = true
-   
+       
     }
     func handleImageTap() {
         postRef = Api.Post.REF_POSTS.child(post!.id)
@@ -123,7 +122,6 @@ class HomeCustomCell: UITableViewCell {
   
             ref.runTransactionBlock({ (currentData: FIRMutableData) -> FIRTransactionResult in
                 if var post = currentData.value as? [String : AnyObject], let uid = FIRAuth.auth()?.currentUser?.uid {
-                    print("value :-\(currentData.value)")
                     var likes: Dictionary<String, Bool>
                     likes = post["likes"] as? [String : Bool] ?? [:]
                     var likeCount = post["likeCount"] as? Int ?? 0
