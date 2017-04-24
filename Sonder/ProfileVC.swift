@@ -36,6 +36,7 @@ extension ProfileVC: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         let headerViewCell = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "HeaderProfileCollectionRV", for: indexPath) as! HeaderProfileCollectionRV
         headerViewCell.backgroundColor = UIColor.blue
+        headerViewCell.updateView()
         return headerViewCell
         
     }
