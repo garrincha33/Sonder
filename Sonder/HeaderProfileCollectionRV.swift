@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 class HeaderProfileCollectionRV: UICollectionReusableView {
     
     @IBOutlet weak var profileImageName: UIImageView!
@@ -16,16 +17,21 @@ class HeaderProfileCollectionRV: UICollectionReusableView {
     @IBOutlet weak var followingCountLable: UILabel!
     @IBOutlet weak var followersCountLable: UILabel!
     
+    var user: User? {
+        
+        didSet {
+            
+            updateView()
+            
+        }
+        
+    }
+    
     func updateView() {
-        Api.User.REF_CURRENT_USER?.observeSingleEvent(of: .value, with: {
-            snapshot in
-            if let dict = snapshot.value as? [String: Any] {
-                let user = User.transformUserPost(dict: dict)
-                self.nameLable.text = user.username
-                let photoUrlString = user.profileImageURL
-                let photoUrl = URL(string: photoUrlString)
-                self.profileImageName.sd_setImage(with: photoUrl)
-            }
-        })
+        self.nameLable.text = user?.username
+        let photoUrlString = user?.profileImageURL
+        let photoUrl = URL(string: photoUrlString!)
+        self.profileImageName.sd_setImage(with: photoUrl)
+        
     }
 }
