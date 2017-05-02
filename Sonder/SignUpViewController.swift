@@ -61,6 +61,7 @@ class SignUpViewController: UIViewController {
         profileImage.isUserInteractionEnabled = true
         signUpButton.isEnabled = false
         handleTextField()
+
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -94,7 +95,7 @@ class SignUpViewController: UIViewController {
         present(pickerController, animated: true, completion: nil)
   
     }
-    
+
         func checkUsername(username: String) {
         
         allUsers =  DataService.data.REF_USERS

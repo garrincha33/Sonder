@@ -24,9 +24,9 @@ class CameraVC: UIViewController {
         let tap = UITapGestureRecognizer(target: self, action: #selector(self.handleSelectPhoto))
         photo.addGestureRecognizer(tap)
         photo.isUserInteractionEnabled = true
-
+        
     }
-
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         handlePost()
@@ -51,14 +51,14 @@ class CameraVC: UIViewController {
         view.endEditing(true)
         
     }
-
+    
     func handleSelectPhoto() {
         let pickerController = UIImagePickerController()
         pickerController.delegate = self
         present(pickerController, animated:  true, completion: nil)
-
+        
     }
-
+    
     func clean() {
         self.captionTextView.text = ""
         self.photo.image = UIImage(named: "Placeholder-image")
@@ -90,7 +90,7 @@ class CameraVC: UIViewController {
         clean()
         handlePost()
     }
-
+    
     
     func sendDataToDatabase(photoURL: String) {
         //let ref = FIRDatabase.database().reference()
@@ -107,6 +107,17 @@ class CameraVC: UIViewController {
                 ProgressHUD.showError(error!.localizedDescription)
                 return
             }
+            
+            let myPostRef = Api.My_Posts.REF_MY_POSTS.child(currentUserId).child(newPostId)
+            myPostRef.setValue(true, withCompletionBlock: { (error, ref) in
+                if error != nil {
+                    ProgressHUD.showError(error!.localizedDescription)
+                    return
+                    
+                }
+                
+            })
+
             ProgressHUD.showSuccess("Success")
             self.clean()
             self.tabBarController?.selectedIndex = 0

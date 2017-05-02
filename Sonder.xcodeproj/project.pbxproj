@@ -38,6 +38,7 @@
 		1B3042471E95658E001EC90C /* CommentApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B3042461E95658E001EC90C /* CommentApi.swift */; };
 		1B30424B1E958369001EC90C /* Post_CommentApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B30424A1E958369001EC90C /* Post_CommentApi.swift */; };
 		1B3AD8C31E67461B00533666 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1B3AD8C21E67461B00533666 /* GoogleService-Info.plist */; };
+		1B5D24C31EB8E74A00BF6EBD /* MyPostApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B5D24C21EB8E74A00BF6EBD /* MyPostApi.swift */; };
 		1B6172141EA87FB600F56EC0 /* HeaderProfileCollectionRV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B6172131EA87FB600F56EC0 /* HeaderProfileCollectionRV.swift */; };
 		1B76565F1E7FD69F00F3EC3B /* HomeCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B76565E1E7FD69F00F3EC3B /* HomeCustomCell.swift */; };
 		1B86174C1E6C92B0005CC16F /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B86174B1E6C92B0005CC16F /* AuthService.swift */; };
@@ -85,6 +86,7 @@
 		1B3042461E95658E001EC90C /* CommentApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentApi.swift; sourceTree = "<group>"; };
 		1B30424A1E958369001EC90C /* Post_CommentApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post_CommentApi.swift; sourceTree = "<group>"; };
 		1B3AD8C21E67461B00533666 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		1B5D24C21EB8E74A00BF6EBD /* MyPostApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyPostApi.swift; sourceTree = "<group>"; };
 		1B6172131EA87FB600F56EC0 /* HeaderProfileCollectionRV.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderProfileCollectionRV.swift; sourceTree = "<group>"; };
 		1B76565E1E7FD69F00F3EC3B /* HomeCustomCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeCustomCell.swift; sourceTree = "<group>"; };
 		1B86174B1E6C92B0005CC16F /* AuthService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AuthService.swift; path = Sonder/AuthService.swift; sourceTree = "<group>"; };
@@ -207,6 +209,7 @@
 				1BC02A5D1E6DEB76006E4422 /* Config.swift */,
 				1B3042401E955E8E001EC90C /* PostApi.swift */,
 				1B3042421E9561B5001EC90C /* UserApi.swift */,
+				1B5D24C21EB8E74A00BF6EBD /* MyPostApi.swift */,
 				1B30424A1E958369001EC90C /* Post_CommentApi.swift */,
 				1B3042441E9564EA001EC90C /* Api.swift */,
 				1B3042461E95658E001EC90C /* CommentApi.swift */,
@@ -392,6 +395,7 @@
 				1B76565F1E7FD69F00F3EC3B /* HomeCustomCell.swift in Sources */,
 				1B3042471E95658E001EC90C /* CommentApi.swift in Sources */,
 				1BBA45B91E8C2AD3009EE708 /* User.swift in Sources */,
+				1B5D24C31EB8E74A00BF6EBD /* MyPostApi.swift in Sources */,
 				1BC02A641E6E8CD8006E4422 /* ProgressHUD.m in Sources */,
 				1B3042451E9564EA001EC90C /* Api.swift in Sources */,
 				1B30423F1E92CB61001EC90C /* Comments.swift in Sources */,
