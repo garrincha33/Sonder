@@ -25,19 +25,33 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="q6h-ST-XU2">
-                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="itemSize" width="134" height="123"/>
                                     <size key="headerReferenceSize" width="50" height="174"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PhotoCell" id="ptH-rL-Aqw">
-                                        <rect key="frame" x="0.0" y="174" width="50" height="50"/>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PhotoCollectionViewCell" id="ptH-rL-Aqw" customClass="PhotoCollectionViewCell" customModule="Sonder" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="174" width="134" height="123"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="134" height="123"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="11w-bI-B1G">
+                                                    <rect key="frame" x="0.0" y="0.0" width="134" height="123"/>
+                                                </imageView>
+                                            </subviews>
                                         </view>
+                                        <constraints>
+                                            <constraint firstItem="11w-bI-B1G" firstAttribute="leading" secondItem="ptH-rL-Aqw" secondAttribute="leading" id="iMZ-lv-1CY"/>
+                                            <constraint firstAttribute="trailing" secondItem="11w-bI-B1G" secondAttribute="trailing" id="iZW-8A-hgI"/>
+                                            <constraint firstItem="11w-bI-B1G" firstAttribute="top" secondItem="ptH-rL-Aqw" secondAttribute="top" id="lg6-Gj-ejk"/>
+                                            <constraint firstAttribute="bottom" secondItem="11w-bI-B1G" secondAttribute="bottom" id="mSU-z4-4et"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="photo" destination="11w-bI-B1G" id="IMb-Jh-xSe"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                                 <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="HeaderProfileCollectionRV" id="JWy-ar-OKy" customClass="HeaderProfileCollectionRV" customModule="Sonder" customModuleProvider="target">
@@ -87,7 +101,7 @@
                                                             <rect key="frame" x="0.0" y="0.0" width="36" height="35"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w32-he-wvJ">
-                                                                    <rect key="frame" x="4.5" y="0.0" width="27" height="18"/>
+                                                                    <rect key="frame" x="5" y="0.0" width="27" height="18"/>
                                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
@@ -118,16 +132,16 @@
                                                             </subviews>
                                                         </stackView>
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="9kx-WY-28i">
-                                                            <rect key="frame" x="168.5" y="0.0" width="61.5" height="35"/>
+                                                            <rect key="frame" x="168" y="0.0" width="62" height="35"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qGG-cg-GGd">
-                                                                    <rect key="frame" x="17.5" y="0.0" width="27" height="18"/>
+                                                                    <rect key="frame" x="18" y="0.0" width="27" height="18"/>
                                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Followers" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2kC-Yc-i3S">
-                                                                    <rect key="frame" x="0.0" y="18" width="61.5" height="17"/>
+                                                                    <rect key="frame" x="0.0" y="18" width="62" height="17"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                     <color key="textColor" red="0.53333333329999999" green="0.53333333329999999" blue="0.53333333329999999" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <nil key="highlightedColor"/>
@@ -194,7 +208,7 @@
                     </tabBarItem>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="S9u-Yd-cjM">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="S9u-Yd-cjM">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
