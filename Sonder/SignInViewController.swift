@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import FirebaseAuth
 
 class SignInViewController: UIViewController {
     
@@ -53,7 +52,9 @@ class SignInViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        if FIRAuth.auth()?.currentUser != nil {
+        
+        
+        if Api.User.CURRENT_USER != nil {
             self.performSegue(withIdentifier: "signIntoTabVC", sender: nil)
         }
     }

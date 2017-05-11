@@ -12,7 +12,6 @@ import FirebaseDatabase
 class MyPostApi {
     
     var REF_MY_POSTS = FIRDatabase.database().reference().child("myPosts")
-    
-    
-    
+  
+
 }

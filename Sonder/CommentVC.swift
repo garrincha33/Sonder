@@ -7,9 +7,6 @@
 //
 
 import UIKit
-import FirebaseDatabase
-import FirebaseAuth
-
 
 class CommentVC: UIViewController {
     

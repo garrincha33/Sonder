@@ -7,8 +7,6 @@
 //
 
 import UIKit
-import FirebaseAuth
-import FirebaseDatabase
 import SDWebImage
 
 class HomeVC: UIViewController {
@@ -31,20 +29,13 @@ class HomeVC: UIViewController {
     }
     
     @IBAction func logOutButtonPressed(_ sender: Any) {
-        
-        do {
-            
-            try FIRAuth.auth()?.signOut()
-            
-        } catch let logOutError {
-            
-            print(logOutError)
-            
+        AuthService.logOut(onSucess: {
+            let storyBoard = UIStoryboard(name: "Start", bundle: nil)
+            let signInVC = storyBoard.instantiateViewController(withIdentifier: "SignInViewController")
+            self.present(signInVC, animated: true, completion: nil)
+        }) { (errorMessage) in
+            ProgressHUD.showError(errorMessage)
         }
-        
-        let storyBoard = UIStoryboard(name: "Start", bundle: nil)
-        let signInVC = storyBoard.instantiateViewController(withIdentifier: "SignInViewController")
-        self.present(signInVC, animated: true, completion: nil)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
