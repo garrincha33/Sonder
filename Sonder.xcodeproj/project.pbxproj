@@ -42,6 +42,7 @@
 		1B5D24CB1EBB2C1A00BF6EBD /* PhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B5D24CA1EBB2C1A00BF6EBD /* PhotoCollectionViewCell.swift */; };
 		1B6172141EA87FB600F56EC0 /* HeaderProfileCollectionRV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B6172131EA87FB600F56EC0 /* HeaderProfileCollectionRV.swift */; };
 		1B76565F1E7FD69F00F3EC3B /* HomeCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B76565E1E7FD69F00F3EC3B /* HomeCustomCell.swift */; };
+		1B7F3BFA1EC4593F00AE394B /* HelperService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B7F3BF91EC4593F00AE394B /* HelperService.swift */; };
 		1B86174C1E6C92B0005CC16F /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B86174B1E6C92B0005CC16F /* AuthService.swift */; };
 		1BAEB25F1E847644005EA5A8 /* Knockout-70FullWelterwt.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1BAEB25E1E847644005EA5A8 /* Knockout-70FullWelterwt.otf */; };
 		1BAEB2611E84768F005EA5A8 /* KOFM.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1BAEB2601E84768F005EA5A8 /* KOFM.otf */; };
@@ -91,6 +92,7 @@
 		1B5D24CA1EBB2C1A00BF6EBD /* PhotoCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoCollectionViewCell.swift; sourceTree = "<group>"; };
 		1B6172131EA87FB600F56EC0 /* HeaderProfileCollectionRV.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderProfileCollectionRV.swift; sourceTree = "<group>"; };
 		1B76565E1E7FD69F00F3EC3B /* HomeCustomCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeCustomCell.swift; sourceTree = "<group>"; };
+		1B7F3BF91EC4593F00AE394B /* HelperService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelperService.swift; sourceTree = "<group>"; };
 		1B86174B1E6C92B0005CC16F /* AuthService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AuthService.swift; path = Sonder/AuthService.swift; sourceTree = "<group>"; };
 		1BAEB25E1E847644005EA5A8 /* Knockout-70FullWelterwt.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Knockout-70FullWelterwt.otf"; sourceTree = "<group>"; };
 		1BAEB2601E84768F005EA5A8 /* KOFM.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = KOFM.otf; sourceTree = "<group>"; };
@@ -209,6 +211,7 @@
 				1B2227161E181A66001E4C72 /* AppDelegate.swift */,
 				1B1456041E632D6A00146781 /* DataService.swift */,
 				1B86174B1E6C92B0005CC16F /* AuthService.swift */,
+				1B7F3BF91EC4593F00AE394B /* HelperService.swift */,
 				1BC02A5D1E6DEB76006E4422 /* Config.swift */,
 				1B3042401E955E8E001EC90C /* PostApi.swift */,
 				1B3042421E9561B5001EC90C /* UserApi.swift */,
@@ -401,6 +404,7 @@
 				1BBA45B91E8C2AD3009EE708 /* User.swift in Sources */,
 				1B5D24C31EB8E74A00BF6EBD /* MyPostApi.swift in Sources */,
 				1BC02A641E6E8CD8006E4422 /* ProgressHUD.m in Sources */,
+				1B7F3BFA1EC4593F00AE394B /* HelperService.swift in Sources */,
 				1B3042451E9564EA001EC90C /* Api.swift in Sources */,
 				1B30423F1E92CB61001EC90C /* Comments.swift in Sources */,
 				1B22272B1E181CD6001E4C72 /* SignInViewController.swift in Sources */,

@@ -116,7 +116,7 @@ class CommentVC: UIViewController {
         let commentsRef = Api.Comment.REF_COMMENTS
         let newCommentId = commentsRef.childByAutoId().key
         let newCommentRef = commentsRef.child(newCommentId)
-        guard let currentUser = FIRAuth.auth()?.currentUser else {
+        guard let currentUser = Api.User.CURRENT_USER else {
             return
         }
         let currentUserId = currentUser.uid

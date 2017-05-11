@@ -7,10 +7,6 @@
 //
 
 import UIKit
-import FirebaseStorage
-import FirebaseDatabase
-import FirebaseAuth
-
 class CameraVC: UIViewController {
     
     @IBOutlet weak var photo: UIImageView!
@@ -70,15 +66,14 @@ class CameraVC: UIViewController {
         view.endEditing(true)
         ProgressHUD.show("Waiting")
         if let photo = self.selectedImage, let imageData = UIImageJPEGRepresentation(photo, 0.1) {
-            let photoIdString = NSUUID().uuidString
-            let storageRef = FIRStorage.storage().reference(forURL: Config.STORAGE_ROOT_REF).child("posts").child(photoIdString)
-            storageRef.put(imageData, metadata: nil, completion: { (metadata, error) in
-                if error != nil {
-                    return
-                }
-                let photoURL = metadata?.downloadURL()?.absoluteString
-                self.sendDataToDatabase(photoURL: photoURL!)
+           
+            HelperService.uploadDataToServer(data: imageData, caption: captionTextView.text!, onSucess: {
+            self.clean()
+            self.tabBarController?.selectedIndex = 0
+            
             })
+            
+            
         } else {
             
             ProgressHUD.showError("photo cant be empty")
@@ -93,35 +88,35 @@ class CameraVC: UIViewController {
     
     
     func sendDataToDatabase(photoURL: String) {
-        //let ref = FIRDatabase.database().reference()
-        let postsRef = DataService.data.REF_POSTS        //ref.child("posts")
-        let newPostId = postsRef.childByAutoId().key
-        let newPostReference = postsRef.child(newPostId)
-        guard let currentUser = FIRAuth.auth()?.currentUser else {
-            return
-        }
-        let currentUserId = currentUser.uid
-        newPostReference.setValue(["uid": currentUserId, "photoURL": photoURL, "Caption": captionTextView.text!]) { (error, ref) in
-            if error != nil {
-                
-                ProgressHUD.showError(error!.localizedDescription)
-                return
-            }
-            
-            let myPostRef = Api.My_Posts.REF_MY_POSTS.child(currentUserId).child(newPostId)
-            myPostRef.setValue(true, withCompletionBlock: { (error, ref) in
-                if error != nil {
-                    ProgressHUD.showError(error!.localizedDescription)
-                    return
-                    
-                }
-                
-            })
-
-            ProgressHUD.showSuccess("Success")
-            self.clean()
-            self.tabBarController?.selectedIndex = 0
-        }
+//        //let ref = FIRDatabase.database().reference()
+//        let postsRef = DataService.data.REF_POSTS        //ref.child("posts")
+//        let newPostId = postsRef.childByAutoId().key
+//        let newPostReference = postsRef.child(newPostId)
+//        guard let currentUser = Api.User.CURRENT_USER else {
+//            return
+//        }
+//        let currentUserId = currentUser.uid
+//        newPostReference.setValue(["uid": currentUserId, "photoURL": photoURL, "Caption": captionTextView.text!]) { (error, ref) in
+//            if error != nil {
+//                
+//                ProgressHUD.showError(error!.localizedDescription)
+//                return
+//            }
+//            
+//            let myPostRef = Api.My_Posts.REF_MY_POSTS.child(currentUserId).child(newPostId)
+//            myPostRef.setValue(true, withCompletionBlock: { (error, ref) in
+//                if error != nil {
+//                    ProgressHUD.showError(error!.localizedDescription)
+//                    return
+//                    
+//                }
+//                
+//            })
+//
+//            ProgressHUD.showSuccess("Success")
+//            self.clean()
+//            self.tabBarController?.selectedIndex = 0
+//        }
         
     }
     
