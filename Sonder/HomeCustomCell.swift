@@ -7,8 +7,6 @@
 //
 
 import UIKit
-import FirebaseDatabase
-import FirebaseAuth
 class HomeCustomCell: UITableViewCell {
     
     
@@ -21,7 +19,7 @@ class HomeCustomCell: UITableViewCell {
     @IBOutlet weak var likeCountBtn: UIButton!
     @IBOutlet weak var captionLabel: UILabel!
     
-    var postRef: FIRDatabaseReference!
+    
     var homeVC: HomeVC?
     
     var post: Post? {
@@ -51,20 +49,14 @@ class HomeCustomCell: UITableViewCell {
             postImageView.sd_setImage(with: photoUrl)
         }
         
-        Api.Post.REF_POSTS.child(post!.id).observeSingleEvent(of: .value, with: {
-        snapshot in
-            if let dict = snapshot.value as? [String: Any] {
-                let post = Post.transformPost(dict: dict, key: snapshot.key)
-                self.updateLike(post: post)
-            }
-        })
-        Api.Post.REF_POSTS.child(post!.id).observe(.childChanged, with: {
-            snapshot in
-            if let value = snapshot.value as? Int {
-                self.likeCountBtn.setTitle("\(value) likes", for: .normal)
-            }
+        Api.Post.observePost(withId: post!.id) { (post) in
+            self.updateLike(post: post)
+            
+        }
         
-        })
+        Api.Post.observeLikeCount(withPostId: post!.id) { (value) in
+            self.likeCountBtn.setTitle("\(value) likes", for: UIControlState.normal)
+        }
 
     }
     
@@ -76,12 +68,8 @@ class HomeCustomCell: UITableViewCell {
         }
         if count != 0 {
             likeCountBtn.setTitle("\(count) likes", for: UIControlState.normal)
-        }
-        if count == 1 {
-            likeCountBtn.setTitle("\(count) like", for: UIControlState.normal)
-        }
-        else if count == 0 {
-            likeCountBtn.setTitle("be the first to like", for: UIControlState.normal)
+        } else {
+            likeCountBtn.setTitle("Be the first like this", for: UIControlState.normal)
         }
     }
     
@@ -113,49 +101,13 @@ class HomeCustomCell: UITableViewCell {
        
     }
     func handleImageTap() {
-        postRef = Api.Post.REF_POSTS.child(post!.id)
-        incrementLikes(forRef: postRef)
-     
+        Api.Post.incrementLikes(postId: post!.id, onSucess: { (post) in
+            self.updateLike(post: post)
+        }) { (errorMessage) in
+            ProgressHUD.showError(errorMessage)
+        }
     }
     
-    func incrementLikes(forRef ref: FIRDatabaseReference) {
-  
-            ref.runTransactionBlock({ (currentData: FIRMutableData) -> FIRTransactionResult in
-                if var post = currentData.value as? [String : AnyObject], let uid = FIRAuth.auth()?.currentUser?.uid {
-                    var likes: Dictionary<String, Bool>
-                    likes = post["likes"] as? [String : Bool] ?? [:]
-                    var likeCount = post["likeCount"] as? Int ?? 0
-                    if let _ = likes[uid] {
-                        // Unstar the post and remove self from stars
-                        likeCount -= 1
-                        likes.removeValue(forKey: uid)
-                    } else {
-                        // Star the post and add self to stars
-                        likeCount += 1
-                        likes[uid] = true
-                    }
-                    post["likeCount"] = likeCount as AnyObject?
-                    post["likes"] = likes as AnyObject?
-                    
-                    // Set value and report transaction success
-                    currentData.value = post
-                    
-                    return FIRTransactionResult.success(withValue: currentData)
-                }
-                return FIRTransactionResult.success(withValue: currentData)
-            }) { (error, committed, snapshot) in
-                if let error = error {
-                    print(error.localizedDescription)
-                }
-                if let dict = snapshot?.value as? [String: Any] {
-                    let post = Post.transformPost(dict: dict, key: snapshot!.key)
-                    self.updateLike(post: post)
-                }
-            }
-        
-      
-        
-    }
     
     func handleCommentTap() {
         if let id = post?.id {

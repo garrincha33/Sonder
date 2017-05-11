@@ -72,9 +72,6 @@ class AuthService {
             onError(logoutError.localizedDescription)
             
         }
-        
-        
-        
     }
 }
 

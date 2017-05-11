@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import FirebaseAuth
+
 
 class ProfileVC: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
@@ -29,7 +29,7 @@ class ProfileVC: UIViewController {
     }
     
     func fetchMyPosts() {
-        guard let currentUser = FIRAuth.auth()?.currentUser else {
+        guard let currentUser = Api.User.CURRENT_USER else {
             return
         }
         Api.My_Posts.REF_MY_POSTS.child(currentUser.uid).observe(.childAdded, with: {
