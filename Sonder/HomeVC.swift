@@ -36,6 +36,7 @@ class HomeVC: UIViewController {
         }) { (errorMessage) in
             ProgressHUD.showError(errorMessage)
         }
+
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

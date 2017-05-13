@@ -21,6 +21,8 @@ class CameraVC: UIViewController {
         photo.addGestureRecognizer(tap)
         photo.isUserInteractionEnabled = true
         
+   
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -54,7 +56,7 @@ class CameraVC: UIViewController {
         present(pickerController, animated:  true, completion: nil)
         
     }
-    
+
     func clean() {
         self.captionTextView.text = ""
         self.photo.image = UIImage(named: "Placeholder-image")
