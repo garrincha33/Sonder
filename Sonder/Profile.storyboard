@@ -205,10 +205,10 @@
             </objects>
             <point key="canvasLocation" x="1029.5999999999999" y="-2368.0659670164919"/>
         </scene>
-        <!--View Controller-->
+        <!--People ViewVC-->
         <scene sceneID="v5M-jj-7eg">
             <objects>
-                <viewController id="AaX-Nq-Kfb" sceneMemberID="viewController">
+                <viewController id="AaX-Nq-Kfb" customClass="PeopleViewVC" customModule="Sonder" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="HnO-lC-Sxh"/>
                         <viewControllerLayoutGuide type="bottom" id="WYM-Pq-5CJ"/>
@@ -221,7 +221,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="81" id="WNr-bR-C87">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="PeopleTableViewCell" rowHeight="81" id="WNr-bR-C87" customClass="PeopleTableViewCell" customModule="Sonder" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="81"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="WNr-bR-C87" id="3kt-3U-HBv">
@@ -265,8 +265,16 @@
                                                 <constraint firstItem="x4t-Po-bQF" firstAttribute="top" secondItem="3kt-3U-HBv" secondAttribute="top" constant="10" id="eeD-aY-vuN"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="followButton" destination="ods-HP-AVg" id="EYC-WM-P4l"/>
+                                            <outlet property="profileImage" destination="x4t-Po-bQF" id="oRt-Cn-VD0"/>
+                                            <outlet property="usernameLable" destination="mRM-bu-Hlb" id="Sid-s8-ckh"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="AaX-Nq-Kfb" id="Dsb-SX-geW"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -277,6 +285,9 @@
                             <constraint firstAttribute="bottom" secondItem="Egd-Rv-S9P" secondAttribute="bottom" id="zre-qg-121"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="Egd-Rv-S9P" id="QwU-Gr-BAK"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ke7-2Z-3gd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
