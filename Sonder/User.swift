@@ -13,6 +13,7 @@ class User {
     private var _email: String?
     private var _profileImageURL: String?
     private var _username: String?
+    private var _id: String?
     
     var email: String {
         
@@ -73,15 +74,36 @@ class User {
         }
         
     }
+    
+    var id: String {
+        
+        set {
+            
+            self._id = newValue
+            
+        }
+        
+        get {
+            
+            if _id == nil {
+                
+                return "is nil"
+                
+            }
+            return _id!
+        }
+        
+    }
 }
 
 extension User {
     
-    static func transformUserPost(dict: [String: Any]) -> User {
+    static func transformUserPost(dict: [String: Any], key: String) -> User {
         let user = User()
         user.email = (dict["email"] as? String)!
         user.profileImageURL = (dict["profileImageURL"] as? String)!
         user.username = (dict["username"] as? String)!
+        user.id = key
         return user
         
     }

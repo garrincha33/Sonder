@@ -26,7 +26,6 @@ class HelperService {
     }
     
     static func sendDataToDatabase(photoUrl: String, caption: String, onSuccess: @escaping () -> Void) {
-        
         let newPostId = Api.Post.REF_POSTS.childByAutoId().key
         let newPostReference = Api.Post.REF_POSTS.child(newPostId)
         guard let currentUser = Api.User.CURRENT_USER else {

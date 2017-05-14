@@ -22,7 +22,7 @@ class PeopleTableViewCell: UITableViewCell {
             updateView()
             
         }
-        
+
     }
     
     func updateView() {
@@ -32,5 +32,20 @@ class PeopleTableViewCell: UITableViewCell {
             profileImage.sd_setImage(with: photoUrl, placeholderImage: UIImage(named: "placeholderImg"))
   
         }
+        
+        //followButton.addTarget(self, action: #selector(self.followAction), for: UIControlEvents.touchUpInside)
+        followButton.addTarget(self, action: #selector(self.unFollowAction), for: UIControlEvents.touchUpInside)
     }
+    
+    func followAction() {
+        Api.Follow.REF_FOLLOWERS.child(user!.id).child(Api.User.CURRENT_USER!.uid).setValue(true)
+        Api.Follow.REF_FOLLOWING.child(Api.User.CURRENT_USER!.uid).child(user!.id).setValue(true)
+    }
+    
+    func unFollowAction() {
+        Api.Follow.REF_FOLLOWERS.child(user!.id).child(Api.User.CURRENT_USER!.uid).setValue(NSNull())
+        Api.Follow.REF_FOLLOWING.child(Api.User.CURRENT_USER!.uid).child(user!.id).setValue(NSNull())
+        
+    }
+    
 }

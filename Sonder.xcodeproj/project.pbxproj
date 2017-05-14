@@ -45,6 +45,7 @@
 		1B7F3BFA1EC4593F00AE394B /* HelperService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B7F3BF91EC4593F00AE394B /* HelperService.swift */; };
 		1B7F3BFC1EC732B600AE394B /* PeopleViewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B7F3BFB1EC732B600AE394B /* PeopleViewVC.swift */; };
 		1B7F3BFE1EC732E500AE394B /* PeopleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B7F3BFD1EC732E500AE394B /* PeopleTableViewCell.swift */; };
+		1B7F3C061EC847E900AE394B /* FollowApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B7F3C051EC847E900AE394B /* FollowApi.swift */; };
 		1B86174C1E6C92B0005CC16F /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B86174B1E6C92B0005CC16F /* AuthService.swift */; };
 		1BAEB25F1E847644005EA5A8 /* Knockout-70FullWelterwt.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1BAEB25E1E847644005EA5A8 /* Knockout-70FullWelterwt.otf */; };
 		1BAEB2611E84768F005EA5A8 /* KOFM.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1BAEB2601E84768F005EA5A8 /* KOFM.otf */; };
@@ -97,6 +98,7 @@
 		1B7F3BF91EC4593F00AE394B /* HelperService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelperService.swift; sourceTree = "<group>"; };
 		1B7F3BFB1EC732B600AE394B /* PeopleViewVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeopleViewVC.swift; sourceTree = "<group>"; };
 		1B7F3BFD1EC732E500AE394B /* PeopleTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeopleTableViewCell.swift; sourceTree = "<group>"; };
+		1B7F3C051EC847E900AE394B /* FollowApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FollowApi.swift; sourceTree = "<group>"; };
 		1B86174B1E6C92B0005CC16F /* AuthService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AuthService.swift; path = Sonder/AuthService.swift; sourceTree = "<group>"; };
 		1BAEB25E1E847644005EA5A8 /* Knockout-70FullWelterwt.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Knockout-70FullWelterwt.otf"; sourceTree = "<group>"; };
 		1BAEB2601E84768F005EA5A8 /* KOFM.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = KOFM.otf; sourceTree = "<group>"; };
@@ -220,6 +222,7 @@
 				1B7F3BF91EC4593F00AE394B /* HelperService.swift */,
 				1BC02A5D1E6DEB76006E4422 /* Config.swift */,
 				1B3042401E955E8E001EC90C /* PostApi.swift */,
+				1B7F3C051EC847E900AE394B /* FollowApi.swift */,
 				1B3042421E9561B5001EC90C /* UserApi.swift */,
 				1B5D24C21EB8E74A00BF6EBD /* MyPostApi.swift */,
 				1B30424A1E958369001EC90C /* Post_CommentApi.swift */,
@@ -423,6 +426,7 @@
 				1B86174C1E6C92B0005CC16F /* AuthService.swift in Sources */,
 				1B1456051E632D6A00146781 /* DataService.swift in Sources */,
 				1B14560D1E64A48000146781 /* DiscoverVC.swift in Sources */,
+				1B7F3C061EC847E900AE394B /* FollowApi.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

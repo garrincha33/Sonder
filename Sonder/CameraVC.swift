@@ -68,13 +68,11 @@ class CameraVC: UIViewController {
         view.endEditing(true)
         ProgressHUD.show("Waiting")
         if let photo = self.selectedImage, let imageData = UIImageJPEGRepresentation(photo, 0.1) {
-           
             HelperService.uploadDataToServer(data: imageData, caption: captionTextView.text!, onSucess: {
             self.clean()
             self.tabBarController?.selectedIndex = 0
             
             })
-            
             
         } else {
             
@@ -86,40 +84,6 @@ class CameraVC: UIViewController {
     @IBAction func clearBtnPressed(_ sender: Any) {
         clean()
         handlePost()
-    }
-    
-    
-    func sendDataToDatabase(photoURL: String) {
-//        //let ref = FIRDatabase.database().reference()
-//        let postsRef = DataService.data.REF_POSTS        //ref.child("posts")
-//        let newPostId = postsRef.childByAutoId().key
-//        let newPostReference = postsRef.child(newPostId)
-//        guard let currentUser = Api.User.CURRENT_USER else {
-//            return
-//        }
-//        let currentUserId = currentUser.uid
-//        newPostReference.setValue(["uid": currentUserId, "photoURL": photoURL, "Caption": captionTextView.text!]) { (error, ref) in
-//            if error != nil {
-//                
-//                ProgressHUD.showError(error!.localizedDescription)
-//                return
-//            }
-//            
-//            let myPostRef = Api.My_Posts.REF_MY_POSTS.child(currentUserId).child(newPostId)
-//            myPostRef.setValue(true, withCompletionBlock: { (error, ref) in
-//                if error != nil {
-//                    ProgressHUD.showError(error!.localizedDescription)
-//                    return
-//                    
-//                }
-//                
-//            })
-//
-//            ProgressHUD.showSuccess("Success")
-//            self.clean()
-//            self.tabBarController?.selectedIndex = 0
-//        }
-        
     }
     
 }
