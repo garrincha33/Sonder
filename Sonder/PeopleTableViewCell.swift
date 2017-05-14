@@ -32,12 +32,17 @@ class PeopleTableViewCell: UITableViewCell {
   
         }
         
-        if user!.isFollowing! {
-            configureUnFollowButton()
-        } else {
-            configureFollowButton()
+        Api.Follow.isFollowing(userId: user!.id) { (value) in
+            if value {
+                
+                 self.configureUnFollowButton()
+                
+            } else {
+                
+                self.configureFollowButton()
+                
+            }
         }
-
     }
     
     func setBorder() {
