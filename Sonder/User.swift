@@ -14,6 +14,7 @@ class User {
     private var _profileImageURL: String?
     private var _username: String?
     private var _id: String?
+    var isFollowing: Bool?
     
     var email: String {
         

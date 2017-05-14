@@ -10,7 +10,6 @@ import UIKit
 
 class PeopleTableViewCell: UITableViewCell {
     
-    
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var usernameLable: UILabel!
     @IBOutlet weak var followButton: UIButton!
@@ -33,18 +32,23 @@ class PeopleTableViewCell: UITableViewCell {
   
         }
         
+        if user!.isFollowing == true {
+            self.followButton.setTitle("following", for: UIControlState.normal)
+        } else {
+            self.followButton.setTitle("follow", for: UIControlState.normal)
+        }
+        
         //followButton.addTarget(self, action: #selector(self.followAction), for: UIControlEvents.touchUpInside)
         followButton.addTarget(self, action: #selector(self.unFollowAction), for: UIControlEvents.touchUpInside)
     }
     
     func followAction() {
-        Api.Follow.REF_FOLLOWERS.child(user!.id).child(Api.User.CURRENT_USER!.uid).setValue(true)
-        Api.Follow.REF_FOLLOWING.child(Api.User.CURRENT_USER!.uid).child(user!.id).setValue(true)
+        Api.Follow.followAction(withUser: (user?.id)!)
+        
     }
     
     func unFollowAction() {
-        Api.Follow.REF_FOLLOWERS.child(user!.id).child(Api.User.CURRENT_USER!.uid).setValue(NSNull())
-        Api.Follow.REF_FOLLOWING.child(Api.User.CURRENT_USER!.uid).child(user!.id).setValue(NSNull())
+        Api.Follow.unFollowAction(withUser: (user?.id)!)
         
     }
     
