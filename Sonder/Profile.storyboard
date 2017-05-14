@@ -265,6 +265,7 @@
                                                 <constraint firstItem="x4t-Po-bQF" firstAttribute="top" secondItem="3kt-3U-HBv" secondAttribute="top" constant="10" id="eeD-aY-vuN"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <connections>
                                             <outlet property="followButton" destination="ods-HP-AVg" id="EYC-WM-P4l"/>
                                             <outlet property="profileImage" destination="x4t-Po-bQF" id="oRt-Cn-VD0"/>
@@ -302,7 +303,7 @@
                     </tabBarItem>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="S9u-Yd-cjM">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="S9u-Yd-cjM">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

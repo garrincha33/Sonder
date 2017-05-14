@@ -32,23 +32,47 @@ class PeopleTableViewCell: UITableViewCell {
   
         }
         
-        if user!.isFollowing == true {
-            self.followButton.setTitle("following", for: UIControlState.normal)
+        if user!.isFollowing! {
+            configureUnFollowButton()
         } else {
-            self.followButton.setTitle("follow", for: UIControlState.normal)
+            configureFollowButton()
         }
+
+    }
+    
+    func setBorder() {
+        followButton.layer.borderWidth = 1
+        followButton.layer.borderColor = UIColor(red: 226/255, green: 228/255, blue: 232/255, alpha: 1).cgColor
+        followButton.layer.cornerRadius = 5
+        followButton.clipsToBounds = true
+    }
+    
+    func configureFollowButton() {
+        setBorder()
+        followButton.setTitleColor(UIColor.yellow, for: UIControlState.normal)
+        followButton.backgroundColor = UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 1.0)
+        self.followButton.setTitle("follow", for: UIControlState.normal)
+        followButton.addTarget(self, action: #selector(self.followAction), for: UIControlEvents.touchUpInside)
         
-        //followButton.addTarget(self, action: #selector(self.followAction), for: UIControlEvents.touchUpInside)
+    }
+    
+    func configureUnFollowButton() {
+        setBorder()
+        followButton.setTitleColor(UIColor.black, for: UIControlState.normal)
+        followButton.backgroundColor = UIColor.clear
+        self.followButton.setTitle("following", for: UIControlState.normal)
         followButton.addTarget(self, action: #selector(self.unFollowAction), for: UIControlEvents.touchUpInside)
     }
     
     func followAction() {
         Api.Follow.followAction(withUser: (user?.id)!)
+        configureUnFollowButton()
         
     }
     
     func unFollowAction() {
         Api.Follow.unFollowAction(withUser: (user?.id)!)
+        configureFollowButton()
         
     }
     
