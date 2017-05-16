@@ -48,11 +48,7 @@ class HomeCustomCell: UITableViewCell {
             let photoUrl = URL(string: photoUrlString)
             postImageView.sd_setImage(with: photoUrl)
         }
-        
-        
             self.updateLike(post: post!)
-       
-
     }
     
     func updateLike(post: Post) {
@@ -96,6 +92,7 @@ class HomeCustomCell: UITableViewCell {
        
     }
     func handleImageTap() {
+        //pass by reference update like here for smoother user experience
         Api.Post.incrementLikes(postId: post!.id, onSucess: { (post) in
             self.updateLike(post: post)
             self.post?.likes = post.likes
