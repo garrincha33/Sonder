@@ -32,17 +32,12 @@ class PeopleTableViewCell: UITableViewCell {
   
         }
         
-        Api.Follow.isFollowing(userId: user!.id) { (value) in
-            if value {
-                
-                 self.configureUnFollowButton()
-                
-            } else {
-                
-                self.configureFollowButton()
-                
-            }
+        if user!.isFollowing! {
+            configureUnFollowButton()
+        } else {
+            configureFollowButton()
         }
+
     }
     
     func setBorder() {
@@ -70,15 +65,19 @@ class PeopleTableViewCell: UITableViewCell {
     }
     
     func followAction() {
-        Api.Follow.followAction(withUser: (user?.id)!)
-        configureUnFollowButton()
-        
+        if user!.isFollowing! == false {
+            Api.Follow.followAction(withUser: (user?.id)!)
+            configureUnFollowButton()
+            user!.isFollowing! = true
+        }
     }
     
     func unFollowAction() {
-        Api.Follow.unFollowAction(withUser: (user?.id)!)
-        configureFollowButton()
-        
+        if user!.isFollowing! == true {
+            Api.Follow.unFollowAction(withUser: (user?.id)!)
+            configureFollowButton()
+            user!.isFollowing! = false
+            
+        }
     }
-    
 }

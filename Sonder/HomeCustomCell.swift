@@ -49,14 +49,9 @@ class HomeCustomCell: UITableViewCell {
             postImageView.sd_setImage(with: photoUrl)
         }
         
-        Api.Post.observePost(withId: post!.id) { (post) in
-            self.updateLike(post: post)
-            
-        }
         
-        Api.Post.observeLikeCount(withPostId: post!.id) { (value) in
-            self.likeCountBtn.setTitle("\(value) likes", for: UIControlState.normal)
-        }
+            self.updateLike(post: post!)
+       
 
     }
     
@@ -103,6 +98,9 @@ class HomeCustomCell: UITableViewCell {
     func handleImageTap() {
         Api.Post.incrementLikes(postId: post!.id, onSucess: { (post) in
             self.updateLike(post: post)
+            self.post?.likes = post.likes
+            self.post?.isLiked = post.isLiked
+            self.post?.likeCount = post.likeCount
         }) { (errorMessage) in
             ProgressHUD.showError(errorMessage)
         }

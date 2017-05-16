@@ -54,6 +54,7 @@ class HomeVC: UIViewController {
                 self.posts.append(newPost)
                 self.activityIndicatorView.stopAnimating()
                 self.tableView.reloadData()
+                
             })
         }
     }

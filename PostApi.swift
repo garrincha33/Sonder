@@ -23,7 +23,7 @@ class PostApi {
         }
         
     }
-    
+
     func observePost(withId id: String, completion: @escaping (Post) -> Void) {
         REF_POSTS.child(id).observeSingleEvent(of: FIRDataEventType.value, with: {
             snapshot in
