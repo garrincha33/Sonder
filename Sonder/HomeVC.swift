@@ -48,15 +48,35 @@ class HomeVC: UIViewController {
     }
 
     func loadPosts() {
-        activityIndicatorView.startAnimating()
-        Api.Post.observePosts { (newPost) in
-            self.fetchUser(uid: newPost.uid, completed: {
-                self.posts.append(newPost)
-                self.activityIndicatorView.stopAnimating()
+        
+        Api.Feed.observeFeed(withId: Api.User.CURRENT_USER!.uid) { (post) in
+            self.fetchUser(uid: post.uid, completed: {
+                self.posts.append(post)
                 self.tableView.reloadData()
-                
             })
         }
+        
+        Api.Feed.observeFeedRemove(withId: Api.User.CURRENT_USER!.uid) { (key) in
+            print(key)
+//            for(index, post) in self.posts.enumerated() {
+//                if post.id == key {
+//                    self.posts.remove(at: index)
+//                }
+//            }
+            self.posts = self.posts.filter { $0.id != key }
+            self.tableView.reloadData()
+            
+        }
+//        activityIndicatorView.startAnimating()
+//        Api.Post.observePosts { (newPost) in
+//
+//            self.fetchUser(uid: newPost.uid, completed: {
+//                self.posts.append(newPost)
+//                self.activityIndicatorView.stopAnimating()
+//                self.tableView.reloadData()
+//                
+//            })
+//        }
     }
  
     func fetchUser(uid: String, completed: @escaping () -> Void) {

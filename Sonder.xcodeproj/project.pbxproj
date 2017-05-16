@@ -29,6 +29,7 @@
 		1B22272F1E182B46001E4C72 /* cardiffbg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1B22272E1E182B46001E4C72 /* cardiffbg.jpg */; };
 		1B2227311E190F2B001E4C72 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B2227301E190F2B001E4C72 /* SignUpViewController.swift */; };
 		1B2227331E1910FE001E4C72 /* profileImg.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B2227321E1910FE001E4C72 /* profileImg.png */; };
+		1B282E731ECB8A270003F970 /* FeedApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B282E721ECB8A270003F970 /* FeedApi.swift */; };
 		1B30423B1E917BC5001EC90C /* CommentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B30423A1E917BC5001EC90C /* CommentVC.swift */; };
 		1B30423D1E917BFE001EC90C /* CommentCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B30423C1E917BFE001EC90C /* CommentCustomCell.swift */; };
 		1B30423F1E92CB61001EC90C /* Comments.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B30423E1E92CB61001EC90C /* Comments.swift */; };
@@ -82,6 +83,7 @@
 		1B22272E1E182B46001E4C72 /* cardiffbg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = cardiffbg.jpg; sourceTree = "<group>"; };
 		1B2227301E190F2B001E4C72 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		1B2227321E1910FE001E4C72 /* profileImg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = profileImg.png; sourceTree = "<group>"; };
+		1B282E721ECB8A270003F970 /* FeedApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedApi.swift; sourceTree = "<group>"; };
 		1B30423A1E917BC5001EC90C /* CommentVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentVC.swift; sourceTree = "<group>"; };
 		1B30423C1E917BFE001EC90C /* CommentCustomCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentCustomCell.swift; sourceTree = "<group>"; };
 		1B30423E1E92CB61001EC90C /* Comments.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Comments.swift; sourceTree = "<group>"; };
@@ -222,6 +224,7 @@
 				1B7F3BF91EC4593F00AE394B /* HelperService.swift */,
 				1BC02A5D1E6DEB76006E4422 /* Config.swift */,
 				1B3042401E955E8E001EC90C /* PostApi.swift */,
+				1B282E721ECB8A270003F970 /* FeedApi.swift */,
 				1B7F3C051EC847E900AE394B /* FollowApi.swift */,
 				1B3042421E9561B5001EC90C /* UserApi.swift */,
 				1B5D24C21EB8E74A00BF6EBD /* MyPostApi.swift */,
@@ -421,6 +424,7 @@
 				1B22272B1E181CD6001E4C72 /* SignInViewController.swift in Sources */,
 				1B30424B1E958369001EC90C /* Post_CommentApi.swift in Sources */,
 				1B30423D1E917BFE001EC90C /* CommentCustomCell.swift in Sources */,
+				1B282E731ECB8A270003F970 /* FeedApi.swift in Sources */,
 				1B2227171E181A66001E4C72 /* AppDelegate.swift in Sources */,
 				1B3042411E955E8E001EC90C /* PostApi.swift in Sources */,
 				1B86174C1E6C92B0005CC16F /* AuthService.swift in Sources */,
