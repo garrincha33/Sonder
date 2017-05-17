@@ -55,28 +55,12 @@ class HomeVC: UIViewController {
                 self.tableView.reloadData()
             })
         }
-        
-        Api.Feed.observeFeedRemove(withId: Api.User.CURRENT_USER!.uid) { (key) in
-            print(key)
-//            for(index, post) in self.posts.enumerated() {
-//                if post.id == key {
-//                    self.posts.remove(at: index)
-//                }
-//            }
-            self.posts = self.posts.filter { $0.id != key }
+        //activityIndicatorView.startAnimating()
+        Api.Feed.observeFeedRemove(withId: Api.User.CURRENT_USER!.uid) { (post) in
+            self.posts = self.posts.filter { $0.id != post.id }
+            self.users = self.users.filter { $0.id != post.uid }
             self.tableView.reloadData()
-            
         }
-//        activityIndicatorView.startAnimating()
-//        Api.Post.observePosts { (newPost) in
-//
-//            self.fetchUser(uid: newPost.uid, completed: {
-//                self.posts.append(newPost)
-//                self.activityIndicatorView.stopAnimating()
-//                self.tableView.reloadData()
-//                
-//            })
-//        }
     }
  
     func fetchUser(uid: String, completed: @escaping () -> Void) {
