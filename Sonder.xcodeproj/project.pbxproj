@@ -51,6 +51,7 @@
 		1BAEB25F1E847644005EA5A8 /* Knockout-70FullWelterwt.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1BAEB25E1E847644005EA5A8 /* Knockout-70FullWelterwt.otf */; };
 		1BAEB2611E84768F005EA5A8 /* KOFM.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1BAEB2601E84768F005EA5A8 /* KOFM.otf */; };
 		1BBA45B91E8C2AD3009EE708 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BBA45B81E8C2AD3009EE708 /* User.swift */; };
+		1BBB141B1ED80E9400998398 /* SearchViewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BBB141A1ED80E9400998398 /* SearchViewVC.swift */; };
 		1BC02A5E1E6DEB76006E4422 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BC02A5D1E6DEB76006E4422 /* Config.swift */; };
 		1BC02A631E6E8CD8006E4422 /* ProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 1BC02A601E6E8CD8006E4422 /* ProgressHUD.bundle */; };
 		1BC02A641E6E8CD8006E4422 /* ProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BC02A621E6E8CD8006E4422 /* ProgressHUD.m */; };
@@ -105,6 +106,7 @@
 		1BAEB25E1E847644005EA5A8 /* Knockout-70FullWelterwt.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Knockout-70FullWelterwt.otf"; sourceTree = "<group>"; };
 		1BAEB2601E84768F005EA5A8 /* KOFM.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = KOFM.otf; sourceTree = "<group>"; };
 		1BBA45B81E8C2AD3009EE708 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		1BBB141A1ED80E9400998398 /* SearchViewVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewVC.swift; sourceTree = "<group>"; };
 		1BC02A5D1E6DEB76006E4422 /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Config.swift; path = Sonder/Config.swift; sourceTree = "<group>"; };
 		1BC02A5F1E6E8CD8006E4422 /* Sonder-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Sonder-Bridging-Header.h"; sourceTree = "<group>"; };
 		1BC02A601E6E8CD8006E4422 /* ProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = ProgressHUD.bundle; sourceTree = "<group>"; };
@@ -194,6 +196,7 @@
 				1B14560A1E64A44500146781 /* HomeVC.swift */,
 				1B14560C1E64A48000146781 /* DiscoverVC.swift */,
 				1B14560E1E64A4A800146781 /* CameraVC.swift */,
+				1BBB141A1ED80E9400998398 /* SearchViewVC.swift */,
 				1B1456101E64A4C300146781 /* ActivityVC.swift */,
 				1B7F3BFB1EC732B600AE394B /* PeopleViewVC.swift */,
 				1B1456121E64A4D200146781 /* ProfileVC.swift */,
@@ -423,6 +426,7 @@
 				1B30423F1E92CB61001EC90C /* Comments.swift in Sources */,
 				1B22272B1E181CD6001E4C72 /* SignInViewController.swift in Sources */,
 				1B30424B1E958369001EC90C /* Post_CommentApi.swift in Sources */,
+				1BBB141B1ED80E9400998398 /* SearchViewVC.swift in Sources */,
 				1B30423D1E917BFE001EC90C /* CommentCustomCell.swift in Sources */,
 				1B282E731ECB8A270003F970 /* FeedApi.swift in Sources */,
 				1B2227171E181A66001E4C72 /* AppDelegate.swift in Sources */,

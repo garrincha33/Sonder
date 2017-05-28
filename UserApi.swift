@@ -33,7 +33,7 @@ class UserApi {
             }
         })
     }
-    
+
     func observeUsers(completion: @escaping (User) -> Void) {
         
         REF_USERS.observe(.childAdded, with: {
