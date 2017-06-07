@@ -12,7 +12,6 @@ import FirebaseAuth
 
 class UserApi {
     var REF_USERS = FIRDatabase.database().reference().child("users")
-    
     func observeUser(withUid uid: String, completion: @escaping (User) -> Void) {
         REF_USERS.child(uid).observeSingleEvent(of: .value, with: { snapshot in
             if let dict = snapshot.value as? [String: Any] {
@@ -35,7 +34,6 @@ class UserApi {
     }
 
     func observeUsers(completion: @escaping (User) -> Void) {
-        
         REF_USERS.observe(.childAdded, with: {
         snapshot in
             if let dict = snapshot.value as? [String: Any] {
@@ -48,7 +46,6 @@ class UserApi {
     }
     
     func queryUsers(withText text: String, completion: @escaping (User) -> Void) {
-        
         REF_USERS.queryOrdered(byChild: "username_lowercase").queryStarting(atValue: text).queryEnding(atValue: text+"\u{f8ff}").queryLimited(toFirst: 20).observeSingleEvent(of: .value, with: {
         snapshot in
             snapshot.children.forEach({ (s) in
@@ -59,12 +56,7 @@ class UserApi {
                     
                 }
             })
-            
-            
-            
-        
         })
-        
     }
     
     var CURRENT_USER: FIRUser? {
@@ -75,7 +67,6 @@ class UserApi {
     }
     
     var REF_CURRENT_USER: FIRDatabaseReference? {
-        
         guard let currentUser = FIRAuth.auth()?.currentUser else {
             return nil
         }
@@ -83,6 +74,4 @@ class UserApi {
         return REF_USERS.child(currentUser.uid)
         
     }
-    
-    
 }

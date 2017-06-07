@@ -16,12 +16,10 @@ class SearchViewVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         searchBar.delegate = self
         searchBar.searchBarStyle = .minimal
         searchBar.placeholder = "Search"
         searchBar.frame.size.width = view.frame.size.width - 50
-        
         let searchItem = UIBarButtonItem(customView: searchBar)
         self.navigationItem.rightBarButtonItem = searchItem
 
@@ -39,31 +37,26 @@ class SearchViewVC: UIViewController {
                     
                 })
             })
-        }
-        
+        } 
     }
     
     func isFollowing(userId: String, completed: @escaping (Bool) -> Void) {
-        
         Api.Follow.isFollowing(userId: userId, completed: completed)
         
     }
 }
 
 extension SearchViewVC: UISearchBarDelegate {
-    
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         
         doSearch()
-        
-  
+
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         
         doSearch()
-        
- 
+
     }
 
 }

@@ -33,7 +33,7 @@ class HelperService {
             return
         }
         let currentUserId = currentUser.uid
-        newPostReference.setValue(["uid": currentUserId, "photoURL": photoUrl, "Caption": caption], withCompletionBlock: {
+        newPostReference.setValue(["uid": currentUserId, "photoURL": photoUrl, "Caption": caption, "likeCount": 0], withCompletionBlock: {
         (error, ref) in
             if error != nil {
                 ProgressHUD.showError(error!.localizedDescription)

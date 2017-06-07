@@ -20,7 +20,49 @@
                     <view key="view" contentMode="scaleToFill" id="PRt-0t-2vv">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="PNj-8M-LkH">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="xZs-8V-yhJ">
+                                    <size key="itemSize" width="134" height="123"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="DiscoverCollectionViewCell" id="v5X-bG-B0g" customClass="PhotoCollectionViewCell" customModule="Sonder" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="134" height="123"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="134" height="123"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Zvt-Do-aUf">
+                                                    <rect key="frame" x="0.0" y="0.0" width="134" height="123"/>
+                                                </imageView>
+                                            </subviews>
+                                        </view>
+                                        <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="Zvt-Do-aUf" secondAttribute="bottom" id="JhH-cg-C6c"/>
+                                            <constraint firstItem="Zvt-Do-aUf" firstAttribute="leading" secondItem="v5X-bG-B0g" secondAttribute="leading" id="WxD-El-D8y"/>
+                                            <constraint firstItem="Zvt-Do-aUf" firstAttribute="top" secondItem="v5X-bG-B0g" secondAttribute="top" id="Xfn-pO-y1V"/>
+                                            <constraint firstAttribute="trailing" secondItem="Zvt-Do-aUf" secondAttribute="trailing" id="fqN-io-wbS"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="photo" destination="Zvt-Do-aUf" id="WQl-8L-niM"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="PNj-8M-LkH" firstAttribute="leading" secondItem="PRt-0t-2vv" secondAttribute="leading" id="Myk-Ut-eGW"/>
+                            <constraint firstAttribute="trailing" secondItem="PNj-8M-LkH" secondAttribute="trailing" id="Npr-Vj-6k4"/>
+                            <constraint firstItem="PNj-8M-LkH" firstAttribute="top" secondItem="PRt-0t-2vv" secondAttribute="top" id="Zda-fc-h5b"/>
+                            <constraint firstAttribute="bottom" secondItem="PNj-8M-LkH" secondAttribute="bottom" id="uHn-nW-WNh"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Discover" id="Tdk-JW-rqK">
                         <barButtonItem key="rightBarButtonItem" systemItem="search" id="XIO-sJ-gQo">
@@ -29,6 +71,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="collectionView" destination="PNj-8M-LkH" id="d89-WO-Taa"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dwF-hr-uGn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
