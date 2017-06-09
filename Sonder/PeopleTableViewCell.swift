@@ -14,6 +14,8 @@ class PeopleTableViewCell: UITableViewCell {
     @IBOutlet weak var usernameLable: UILabel!
     @IBOutlet weak var followButton: UIButton!
     
+    var peopleVC: PeopleViewVC?
+    
     var user: User? {
         
         didSet {
@@ -79,5 +81,18 @@ class PeopleTableViewCell: UITableViewCell {
             user!.isFollowing! = false
             
         }
+    }
+    func userNameTapped() {
+        if let id = user?.id {
+            peopleVC?.performSegue(withIdentifier: "ProfileSegue", sender: id)
+        }
+    }
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        let tap = UITapGestureRecognizer(target: self, action: #selector(self.userNameTapped))
+        usernameLable.addGestureRecognizer(tap)
+        usernameLable.isUserInteractionEnabled = true
+
     }
 }
