@@ -7,9 +7,12 @@
 //
 
 import UIKit
+protocol HomeCustomCellDelegate {
+    func gotoCommentVC(postId: String)
+}
+
 class HomeCustomCell: UITableViewCell {
-    
-    
+
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var postImageView: UIImageView!
@@ -19,7 +22,7 @@ class HomeCustomCell: UITableViewCell {
     @IBOutlet weak var likeCountBtn: UIButton!
     @IBOutlet weak var captionLabel: UILabel!
     
-    
+    var delegate: HomeCustomCellDelegate?
     var homeVC: HomeVC?
     
     var post: Post? {
@@ -106,7 +109,8 @@ class HomeCustomCell: UITableViewCell {
     
     func handleCommentTap() {
         if let id = post?.id {
-            homeVC?.performSegue(withIdentifier: "CommentSegue", sender: id)
+            delegate?.gotoCommentVC(postId: id)
+            
         }
     }
 }

@@ -15,10 +15,7 @@ class HomeVC: UIViewController {
     @IBOutlet weak var activityIndicatorView: UIActivityIndicatorView!
     var posts = [Post]()
     var users = [User]()
-//    var allUsers: FIRDatabaseReference!
-//    var alluids = [String]()
-//    var allUsersArray = [String]()
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.estimatedRowHeight = 521
@@ -70,40 +67,6 @@ class HomeVC: UIViewController {
             completed()
         })
     }
-   
-    
-//    func getAllUsers() {
-//        
-//        allUsers =  DataService.data.REF_USERS
-//        allUsers.observeSingleEvent(of: .value, with: {(snapshot) in
-//            var uidString = ""
-//            if let dict1 = snapshot.value as? [String: AnyObject] {
-//                self.alluids = [String] (dict1.keys)
-//                for index in 0..<self.alluids.count{
-//                    uidString=self.alluids[index]
-//                    let temp = dict1[String(format: "%@", uidString)] as? [String: AnyObject]
-//                    let checkString = temp!["username"] as? String
-//                    if (checkString == nil)
-//                    {
-//                    }else
-//                    {
-//                        self.allUsersArray.append((checkString)!)
-//                    }
-//                    print("array is \(self.allUsersArray)")
-//                    
-//                    
-//                }
-//                
-//            }
-//            
-//        })
-//        
-//        
-//    }
-//    
-    
-    
-   
 }
 
 extension HomeVC: UITableViewDataSource {
@@ -117,9 +80,15 @@ extension HomeVC: UITableViewDataSource {
         let user = users[indexPath.row]
         cell.post = post
         cell.user = user
-        cell.homeVC = self
+        cell.delegate = self
         return cell
         
+    }
+}
+
+extension HomeVC: HomeCustomCellDelegate {
+    func gotoCommentVC(postId: String) {
+        performSegue(withIdentifier: "CommentSegue", sender: postId)
     }
 }
 
