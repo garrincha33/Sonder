@@ -23,8 +23,7 @@ class HomeCustomCell: UITableViewCell {
     @IBOutlet weak var captionLabel: UILabel!
     
     var delegate: HomeCustomCellDelegate?
-    var homeVC: HomeVC?
-    
+
     var post: Post? {
         
         didSet {

@@ -8,14 +8,18 @@
 
 import UIKit
 
+protocol PeopleTableViewCellDelegate {
+    func goToProfileUserVC(userId: String)
+}
+
 class PeopleTableViewCell: UITableViewCell {
     
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var usernameLable: UILabel!
     @IBOutlet weak var followButton: UIButton!
     
-    var peopleVC: PeopleViewVC?
-    
+    var delegate: PeopleTableViewCellDelegate?
+
     var user: User? {
         
         didSet {
@@ -84,7 +88,7 @@ class PeopleTableViewCell: UITableViewCell {
     }
     func userNameTapped() {
         if let id = user?.id {
-            peopleVC?.performSegue(withIdentifier: "ProfileSegue", sender: id)
+            delegate?.goToProfileUserVC(userId: id)
         }
     }
     
