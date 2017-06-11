@@ -11,14 +11,14 @@ import UIKit
 class PeopleViewVC: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
-
+    
     var users: [User] = []
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         loadUsers()
-
+        
     }
     
     func loadUsers() {
@@ -28,14 +28,13 @@ class PeopleViewVC: UIViewController {
                 self.users.append(user)
                 self.tableView.reloadData()
             })
-            
         }
     }
     
     func isFollowing(userId: String, completed: @escaping (Bool) -> Void) {
         
         Api.Follow.isFollowing(userId: userId, completed: completed)
-
+        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -45,9 +44,6 @@ class PeopleViewVC: UIViewController {
             profileVC.userId = userId
         }
     }
-    
-    
-
 }
 
 extension PeopleViewVC: UITableViewDataSource {
@@ -63,7 +59,7 @@ extension PeopleViewVC: UITableViewDataSource {
         return cell
         
     }
-
+    
 }
 
 extension PeopleViewVC: PeopleTableViewCellDelegate {

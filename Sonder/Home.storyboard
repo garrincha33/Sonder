@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1421" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1510" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina3_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -163,11 +163,20 @@
                         <outlet property="activityIndicatorView" destination="qjG-Mn-VD1" id="Ux8-N5-e8G"/>
                         <outlet property="tableView" destination="PyK-N4-EtB" id="u73-g3-Zsp"/>
                         <segue destination="o6Y-nu-1kx" kind="show" identifier="CommentSegue" id="j36-9j-a3a"/>
+                        <segue destination="WMD-xf-HNI" kind="show" identifier="Home_ProfileSegue" id="U3D-Bo-jEp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hbF-L7-Lal" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1375.3623188405797" y="-756.52173913043487"/>
+        </scene>
+        <!--ProfileUserVC-->
+        <scene sceneID="60E-Y3-jCW">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Profile" referencedIdentifier="ProfileUserVC" id="WMD-xf-HNI" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ro3-vk-mvM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2286" y="-1218"/>
         </scene>
         <!--CommentVC-->
         <scene sceneID="j4P-fC-G3N">

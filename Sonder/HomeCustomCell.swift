@@ -9,6 +9,7 @@
 import UIKit
 protocol HomeCustomCellDelegate {
     func gotoCommentVC(postId: String)
+    func gotoUserProfile(userId: String)
 }
 
 class HomeCustomCell: UITableViewCell {
@@ -91,6 +92,11 @@ class HomeCustomCell: UITableViewCell {
         let likeTap = UITapGestureRecognizer(target: self, action: #selector(self.handleImageTap))
         likeImageView.addGestureRecognizer(likeTap)
         likeImageView.isUserInteractionEnabled = true
+        let usernameTap = UITapGestureRecognizer(target: self, action: #selector(self.handleUsernameTap))
+        nameLabel.addGestureRecognizer(usernameTap)
+        nameLabel.isUserInteractionEnabled = true
+        
+        
        
     }
     func handleImageTap() {
@@ -105,6 +111,11 @@ class HomeCustomCell: UITableViewCell {
         }
     }
     
+    func handleUsernameTap() {
+        if let userId = user?.id {
+            delegate?.gotoUserProfile(userId: userId)
+        }
+    }
     
     func handleCommentTap() {
         if let id = post?.id {

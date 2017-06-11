@@ -42,6 +42,12 @@ class HomeVC: UIViewController {
             let postId = sender as! String
             commentVC.postId = postId
         }
+        
+        if segue.identifier == "Home_ProfileSegue" {
+            let profileVC = segue.destination as! ProfileUserVC
+            let userId = sender as! String
+            profileVC.userId = userId
+        }
     }
 
     func loadPosts() {
@@ -89,6 +95,10 @@ extension HomeVC: UITableViewDataSource {
 extension HomeVC: HomeCustomCellDelegate {
     func gotoCommentVC(postId: String) {
         performSegue(withIdentifier: "CommentSegue", sender: postId)
+    }
+    
+    func gotoUserProfile(userId: String) {
+        performSegue(withIdentifier: "Home_ProfileSegue", sender: userId)
     }
 }
 
