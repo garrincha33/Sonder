@@ -164,11 +164,20 @@
                     </view>
                     <connections>
                         <outlet property="tableView" destination="FKu-qT-plW" id="kyS-0V-kDu"/>
+                        <segue destination="UDb-1s-nDi" kind="show" identifier="Search_ProfileSegue" id="3qy-o7-Jx1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lEI-gI-xUG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2937" y="-756"/>
+        </scene>
+        <!--ProfileUserVC-->
+        <scene sceneID="4Xe-IZ-MDk">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Profile" referencedIdentifier="ProfileUserVC" id="UDb-1s-nDi" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fmY-H3-ZZA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3534" y="-1037"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="grf-9g-oW4">

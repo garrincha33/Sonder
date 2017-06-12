@@ -51,7 +51,7 @@ class UserApi {
             snapshot.children.forEach({ (s) in
                 let child = s as! FIRDataSnapshot
                 if let dict = child.value as? [String: Any] {
-                    let user = User.transformUserPost(dict: dict, key: snapshot.key)
+                    let user = User.transformUserPost(dict: dict, key: child.key)
                     completion(user)
                     
                 }
