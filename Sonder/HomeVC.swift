@@ -43,6 +43,7 @@ class HomeVC: UIViewController {
             commentVC.postId = postId
         }
         
+        //seperate segue when touching username in home view
         if segue.identifier == "Home_ProfileSegue" {
             let profileVC = segue.destination as! ProfileUserVC
             let userId = sender as! String

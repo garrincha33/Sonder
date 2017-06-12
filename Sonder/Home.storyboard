@@ -50,7 +50,7 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8aJ-KI-AbO">
-                                                    <rect key="frame" x="83" y="35.5" width="75.5" height="20"/>
+                                                    <rect key="frame" x="83" y="37" width="58" height="17"/>
                                                     <fontDescription key="fontDescription" name="Knockout-70FullWelterwt" family="Knockout" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -176,7 +176,7 @@
                 <viewControllerPlaceholder storyboardName="Profile" referencedIdentifier="ProfileUserVC" id="WMD-xf-HNI" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ro3-vk-mvM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2286" y="-1218"/>
+            <point key="canvasLocation" x="2003" y="-1216"/>
         </scene>
         <!--CommentVC-->
         <scene sceneID="j4P-fC-G3N">
@@ -308,6 +308,7 @@
                         <outlet property="constraintToBottom" destination="dvs-uN-aCa" id="Zp9-0z-9eO"/>
                         <outlet property="sendButton" destination="fPg-hY-mqf" id="XVh-SR-Rga"/>
                         <outlet property="tableView" destination="wo4-lN-bkn" id="qeS-1n-l70"/>
+                        <segue destination="WMD-xf-HNI" kind="show" identifier="Comment_ProfileSegue" id="YEW-zW-Bhq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="g1k-jt-e01" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -344,4 +345,7 @@
         <image name="likenofill" width="700" height="700"/>
         <image name="share" width="700" height="700"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="YEW-zW-Bhq"/>
+    </inferredMetricsTieBreakers>
 </document>

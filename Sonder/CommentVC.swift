@@ -145,6 +145,14 @@ class CommentVC: UIViewController {
         sendButton.isEnabled = false
         sendButton.setTitleColor(.lightGray, for: .normal)
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "Comment_ProfileSegue" {
+            let profileVC = segue.destination as! ProfileUserVC
+            let userId = sender as! String
+            profileVC.userId = userId
+        }
+    }
 }
 
 extension CommentVC: UITableViewDataSource {
@@ -157,8 +165,15 @@ extension CommentVC: UITableViewDataSource {
         let user = users[indexPath.row]
         cell.comment = comment
         cell.user = user
+        cell.delegate = self
         return cell
 
     }
 
+}
+
+extension CommentVC: CommentCustomCellDelegate {
+    func goToUserProfileVC(userId: String) {
+        performSegue(withIdentifier: "Comment_ProfileSegue", sender: userId)
+    }
 }
