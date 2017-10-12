@@ -11,8 +11,6 @@ import FirebaseAuth
 import FirebaseStorage
 import FirebaseDatabase
 
-var allUids = [String]()
-var allUsersArray = [String]()
 var allUsers: FIRDatabaseReference!
 class AuthService {
     
@@ -70,7 +68,3 @@ class AuthService {
         }
     }
 }
-
-
-
-

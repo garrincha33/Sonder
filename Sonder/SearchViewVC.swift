@@ -24,6 +24,8 @@ class SearchViewVC: UIViewController {
         self.navigationItem.rightBarButtonItem = searchItem
 
     }
+    
+    
 
     func doSearch() {
         if let searchText = searchBar.text?.lowercased() {
