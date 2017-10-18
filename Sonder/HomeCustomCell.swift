@@ -52,7 +52,7 @@ class HomeCustomCell: UITableViewCell {
             postImageView.sd_setImage(with: photoUrl)
         }
             self.updateLike(post: post!)
-    }
+    } 
     
     func updateLike(post: Post) {
         let imageName = post.likes == nil || !post.isLiked ? "likenofill" : "likeFill"

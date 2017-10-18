@@ -29,6 +29,7 @@ class CommentVC: UIViewController {
         empty()
         handleTextField()
         loadComments()
+       
         
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow(_:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide(_:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
@@ -67,15 +68,6 @@ class CommentVC: UIViewController {
             })
 
         })
-//        let postCommentRef = FIRDatabase.database().reference().child("post-comments").child(self.postId)
-//        postCommentRef.observe(.childAdded, with: {
-//        snapshot in
-//            Api.Comment.observeComments(withPostId: snapshot.key, completion: {
-//                comment in
-//                self.fetchUser(uid: comment.uid, completed: {
-//                    self.comments.append(comment)
-//                    self.tableView.reloadData()
-      
     }
     
     func fetchUser(uid: String, completed: @escaping () -> Void) {

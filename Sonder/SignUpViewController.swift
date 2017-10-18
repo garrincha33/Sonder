@@ -17,6 +17,9 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var signUpButton: UIButton!
     var selectedImage: UIImage?
     
+    var allUids = [String]()
+    var allUsersArray = [String]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -49,10 +52,7 @@ class SignUpViewController: UIViewController {
         bottomLayerPassword.frame = CGRect(x: 0, y: 29, width: 1000, height: 0.6)
         bottomLayerPassword.backgroundColor = UIColor(red: 220/255, green: 220/255, blue: 175/255, alpha: 1).cgColor
         passwordTextField.layer.addSublayer(bottomLayerPassword)
-        
-        profileImage.layer.cornerRadius = 53
-        profileImage.clipsToBounds = true
-        
+
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(SignUpViewController.handleSelectProfileImageView))
         profileImage.addGestureRecognizer(tapGesture)
         profileImage.isUserInteractionEnabled = true
@@ -93,42 +93,46 @@ class SignUpViewController: UIViewController {
   
     }
 
-        func checkUsername(username: String) {
+
+    func checkUsername(username: String) {
         
         allUsers =  DataService.data.REF_USERS
         allUsers.observeSingleEvent(of: .value, with: { (snapshot) in
-            var uidString = ""
             if let dict1 = snapshot.value as? [String: AnyObject] {
-                allUids = [String] (dict1.keys)
-                for index in 0..<allUids.count {
-                    uidString = allUids[index]
-                    let temp = dict1[String(format: "@", uidString)] as? [String: AnyObject]
-                    let checkString = temp!["users"] as? String
-                    print("Check String is \(checkString)")
-                    if (checkString == nil) {
-                        
-                    } else {
-                        
-                        allUsersArray.append(checkString!)
-                        
+                // interage throw user list
+                for (key, value) in dict1 {
+                    // check if if user exists and extract username only
+                    if let user = value as? NSDictionary, let userName = user["username"] as? String {
+                        // store all usernames and user ids
+                        self.allUsersArray.append(userName)
+                        self.allUids.append(key)
                     }
-                    
                 }
                 
-                print("array is \(allUsersArray)")
-                if allUsersArray.contains(username) {
-                    
+                print("array is \(self.allUsersArray)")
+                if self.checkIfUsernameExists(username: username) { // check if user names already exists
+                    // if users exists mark username field with red color, otherwise with green
+                    self.addBorderForField(field: self.usernameTextField, with: .red)
                     print("this username already exists")
-                    return
-                    
+                } else {
+                    self.addBorderForField(field: self.usernameTextField, with: .green)
                 }
-                
             }
-            
-            
         })
-        
     }
+    
+    func addBorderForField(field: UITextField, with color: UIColor) {
+        field.layer.borderColor = color.cgColor
+        field.layer.borderWidth = 1
+    }
+ 
+    func checkIfUsernameExists(username: String) -> Bool {
+
+        return !allUsersArray.filter({ $0.lowercased() == username.lowercased() }).isEmpty
+    }
+    
+   
+   
     
     @IBAction func backToSignInBtnPressed(_ sender: Any) {
         
@@ -136,6 +140,11 @@ class SignUpViewController: UIViewController {
     }
     
     @IBAction func singUpBtnPressed(_ sender: Any) {
+        
+        if checkIfUsernameExists(username: usernameTextField.text!) {
+            ProgressHUD.showError("Username already exists")
+            return
+        }
        
         view.endEditing(true)
         ProgressHUD.show("Waiting", interaction: false)
@@ -157,12 +166,34 @@ class SignUpViewController: UIViewController {
     
 }
 
+extension SignUpViewController: UITextFieldDelegate {
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        if textField.tag == 1 {
+            checkUsername(username: textField.text!)
+        }
+    }
+    //----prevent white space from being entered when choosing a username
+    func textField(_ textFieldToChange: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        let characterSetNotAllowed = CharacterSet(charactersIn: " ")
+        if let _ = string.rangeOfCharacter(from: characterSetNotAllowed, options: .caseInsensitive) {
+            return false
+        } else {
+            return true
+        }
+    }
+}
+
 extension SignUpViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         if let image = info["UIImagePickerControllerOriginalImage"] as? UIImage {
             selectedImage = image
             profileImage.image = image
+            profileImage.clipsToBounds = true
+            
         }
         dismiss(animated: true, completion: nil)
     }
 }
+    
+    
+
